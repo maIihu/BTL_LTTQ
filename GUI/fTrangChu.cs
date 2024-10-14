@@ -151,7 +151,7 @@ namespace GUI
             int stt = 1;
             foreach (var x in listYeuCau)
             {
-                string ngaySuaFormatted = x.NgaySua.ToString("dd/mm/yyyy"); 
+                string ngaySuaFormatted = x.NgaySua.ToString("dd/MM/yyyy"); 
                 dgvTrangChu.Rows.Add(stt++, x.TenKhachHang, x.NguyenNhan, ngaySuaFormatted);
             }
         }

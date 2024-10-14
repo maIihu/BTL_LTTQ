@@ -21,12 +21,9 @@ namespace GUI
         string idLogin;
 
         PhuTungBLL _phuTungBLL;
-        DatYeuCauBLL _datYeuCauBLL;
         private HoaDonYeuCauBLL _hoaDonYeuCauBLL;
         YeuCauSuaChuaBLL _yeuCauSuaChuaBLL;
 
-        int amountPt = 0;
-        int amountHdYeuCau;
 
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -68,7 +65,7 @@ namespace GUI
             dgvHoaDon.Rows.Clear();
             foreach(var x in dsHoaDon)
             {
-                dgvHoaDon.Rows.Add(x.MaHoaDon, x.MaNhanVien, x.NgayIn, x.GiaiPhap, x.TongTien);
+                dgvHoaDon.Rows.Add(x.MaHoaDon, x.TenKhachHang, x.MaNhanVien, x.NgayIn.ToString("dd/MM/yyyy"), x.GiaiPhap, x.TongTien);
             }
         }
 
@@ -93,11 +90,12 @@ namespace GUI
             dgvHoaDon.Columns.Add(actionsColumn);
 
 
-            dgvHoaDon.Columns["MaHoaDon"].FillWeight = 13;
-            dgvHoaDon.Columns["MaNhanVien"].FillWeight = 20;
-            dgvHoaDon.Columns["NgayIn"].FillWeight = 12;
-            dgvHoaDon.Columns["GiaiPhap"].FillWeight = 5;
-            dgvHoaDon.Columns["ThanhTien"].FillWeight = 5;
+            dgvHoaDon.Columns["MaHoaDon"].FillWeight = 10;
+            dgvHoaDon.Columns["TenKhachHang"].FillWeight = 15;
+            dgvHoaDon.Columns["MaNhanVien"].FillWeight = 10;
+            dgvHoaDon.Columns["NgayIn"].FillWeight = 10;
+            dgvHoaDon.Columns["GiaiPhap"].FillWeight = 20;
+            dgvHoaDon.Columns["ThanhTien"].FillWeight = 10;
 
             dgvHoaDon.Columns["Actions"].FillWeight = 5;
 

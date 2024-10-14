@@ -670,10 +670,6 @@ namespace GUI
             DrawRoundedPanel(panel14, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel16_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel16, 15, BorderColor, BorderThickness, e);
-        }
 
         private void panel15_Paint(object sender, PaintEventArgs e)
         {

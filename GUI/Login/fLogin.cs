@@ -27,7 +27,25 @@ namespace GUI
         {
             InitializeComponent();
             _accountBLL = new AccountBLL();
+
+            // Enable double buffering
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.UserPaint, true);
+            this.UpdateStyles();
         }
+        // chẳng hiểu sao được :))
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // WS_EX_COMPOSITED to reduce flicker
+                return cp;
+            }
+        }
+
 
         private void fLogin_Load(object sender, EventArgs e)
         {
@@ -108,30 +126,12 @@ namespace GUI
             this.Dispose();
         }
 
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-            pictureBox1.BackColor = Color.Red;
-        }
-
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox1.BackColor = Color.FromArgb(142, 172, 205);
-        }
-
+  
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
-        {
-            pictureBox2.BackColor = Color.Silver;
-        }
-
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox2.BackColor = Color.FromArgb(142, 172, 205);
-        }
 
         private void loginButton_MouseEnter(object sender, EventArgs e)
         {
@@ -155,7 +155,7 @@ namespace GUI
         {
             if (!isUsernameUp)
             {
-                if (lbUsername.Location.Y > -8)
+                if (lbUsername.Location.Y > -12)
                 {
                     lbUsername.Location = new Point(lbUsername.Location.X, lbUsername.Location.Y - 1);
                 }
@@ -186,6 +186,7 @@ namespace GUI
                     lbUsername.Location = new Point(9, 8);
                     lbUsername.BringToFront();
                     isUsernameUp = false;
+                    lbUsername.AutoSize = false;
                 }
             }
         }
@@ -194,7 +195,7 @@ namespace GUI
         {
             if (!isPasswordUp)
             {
-                if (lbPassword.Location.Y > -8)
+                if (lbPassword.Location.Y > -12)
                 {
                     lbPassword.Location = new Point(lbPassword.Location.X, lbPassword.Location.Y - 1);
                 }
@@ -225,6 +226,7 @@ namespace GUI
                     lbPassword.Location = new Point(9, 8);
                     lbPassword.BringToFront();
                     isPasswordUp = false;
+                    lbPassword.AutoSize = false;
                 }
             }
         }

@@ -292,7 +292,6 @@ namespace GUI
                 bool kiemtraPt = _phuTungBLL.TimPhuTung(maPt);
                 if (kiemtraPt)
                 {
-                    MessageBox.Show("Phu tung da co roi");
                     coPhuTung = true;
                     PhuTungDTO phuTung = _phuTungBLL.LayPhuTung(maPt);
 
@@ -510,7 +509,7 @@ namespace GUI
 
             if (themHdn)
             {
-                MessageBox.Show("Them duoc HDN");
+                //MessageBox.Show("Them duoc HDN");
             }
             // ton tai phu tung roi
             if (coPhuTung)
@@ -519,7 +518,7 @@ namespace GUI
                 bool suaPt = _phuTungBLL.SuaPhuTung(maPt, soLuong);
                 if (suaPt)
                 {
-                    MessageBox.Show("Them so luong thanh cong");
+                    //MessageBox.Show("Them so luong thanh cong");
                 }
             }
             else
@@ -527,18 +526,19 @@ namespace GUI
                 bool themPt = _phuTungBLL.ThemPhuTung(new PhuTungDTO(maPt, tenPt, soLuong, donGiaNhap, donGiaBan));
                 if (themPt)
                 {
-                    MessageBox.Show("Them duoc phu tung");
+                    //MessageBox.Show("Them duoc phu tung");
                 }
             }
 
             bool themCt = _chiTietHoaDonNhapBLL.ThemHDN(new ChiTietHDNDTO(mahdn, maPt, soLuong));
             if (themCt)
             {
-                MessageBox.Show("Them duoc chi tiet hdn");
+                MessageBox.Show("Thêm hóa đơn thành công", "Thông báo", MessageBoxButtons.OK);
+                
             }
 
             //txtHdn.Clear();
-            txtMaPhuTung.Clear();
+            txtMaPhuTung.Text = "MPT";
             txtTenPhuTung.Clear();
             txtDonGiaNhap.Clear();
             txtDonGiaBan.Clear();

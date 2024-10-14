@@ -31,7 +31,7 @@ namespace DAL
         }
         public List<HoaDonNhapDTO> LayHoaDonNhap()
         {           
-            string query = "SELECT * FROM HOADONNHAPPHUTUNG";
+            string query = "SELECT * FROM HOADONNHAPPHUTUNG ORDER BY NgayNhap DESC";
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
             List<HoaDonNhapDTO> listHoaDon = new List<HoaDonNhapDTO>();
             foreach (DataRow row in dataTable.Rows) {
