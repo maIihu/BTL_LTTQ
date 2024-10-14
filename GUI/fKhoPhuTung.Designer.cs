@@ -56,12 +56,10 @@
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGiaNhap_PhuTung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
             this.panelDS = new System.Windows.Forms.Panel();
             this.lblShowResult = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.panel16 = new System.Windows.Forms.Panel();
             this.dgvHDN = new System.Windows.Forms.DataGridView();
             this.Stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaHDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,7 +119,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnHDN = new GUI.CustomDesign.CustomButton();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.lbAmountResult = new System.Windows.Forms.Label();
             this.panel14.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -130,7 +127,6 @@
             this.cmsKho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhuTung)).BeginInit();
             this.panelDS.SuspendLayout();
-            this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDN)).BeginInit();
             this.panelHDN.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -403,25 +399,12 @@
             this.DonGiaBan.Name = "DonGiaBan";
             this.DonGiaBan.ReadOnly = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(16, 667);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Show result:";
-            // 
             // panelDS
             // 
             this.panelDS.BackColor = System.Drawing.SystemColors.Window;
             this.panelDS.Controls.Add(this.lblShowResult);
             this.panelDS.Controls.Add(this.btnNext);
             this.panelDS.Controls.Add(this.btnPrevious);
-            this.panelDS.Controls.Add(this.panel16);
-            this.panelDS.Controls.Add(this.label7);
             this.panelDS.Controls.Add(this.panel6);
             this.panelDS.Controls.Add(this.panel5);
             this.panelDS.Controls.Add(this.dgvHDN);
@@ -474,16 +457,6 @@
             this.btnPrevious.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.SystemColors.Control;
-            this.panel16.Controls.Add(this.lbAmountResult);
-            this.panel16.Location = new System.Drawing.Point(100, 656);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(50, 38);
-            this.panel16.TabIndex = 13;
-            this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panel16_Paint);
             // 
             // dgvHDN
             // 
@@ -1173,18 +1146,7 @@
             this.panel7.Size = new System.Drawing.Size(64, 40);
             this.panel7.TabIndex = 9;
             // 
-            // lbAmountResult
-            // 
-            this.lbAmountResult.AutoSize = true;
-            this.lbAmountResult.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAmountResult.Location = new System.Drawing.Point(14, 9);
-            this.lbAmountResult.Name = "lbAmountResult";
-            this.lbAmountResult.Size = new System.Drawing.Size(23, 20);
-            this.lbAmountResult.TabIndex = 2;
-            this.lbAmountResult.Text = "10";
-            this.lbAmountResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // fKho
+            // fKhoPhuTung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1196,7 +1158,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel14);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "fKho";
+            this.Name = "fKhoPhuTung";
             this.Text = "fKho";
             this.Load += new System.EventHandler(this.fKho_Load);
             this.panel14.ResumeLayout(false);
@@ -1209,9 +1171,6 @@
             this.cmsKho.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhuTung)).EndInit();
             this.panelDS.ResumeLayout(false);
-            this.panelDS.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDN)).EndInit();
             this.panelHDN.ResumeLayout(false);
             this.panelHDN.PerformLayout();
@@ -1259,9 +1218,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.DataGridView dgvPhuTung;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panelDS;
-        private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel1;
         private CustomDesign.CustomButton btnPhuTung;
         private System.Windows.Forms.Panel panel3;
@@ -1330,6 +1287,5 @@
         private System.Windows.Forms.Label lblShowResult;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Label lbAmountResult;
     }
 }

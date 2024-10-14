@@ -439,10 +439,6 @@ namespace GUI
             DrawRoundedPanel(panel14, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel16_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(pnRes, 15, BorderColor, BorderThickness, e);
-        }
 
         private void panel16_Paint_1(object sender, PaintEventArgs e)
         {
@@ -517,6 +513,11 @@ namespace GUI
             panelThongTin.Visible = false;
             thongTinReveal = false;
             await AnimateDataGridView2(defaultDGVSize.Width);
+        }
+
+        private void dgvXeMay_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void txtSearchBar_Leave(object sender, EventArgs e)

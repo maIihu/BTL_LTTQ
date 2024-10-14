@@ -37,9 +37,13 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.LayDoanhThuTheoTuan();
         }
-        public List<HoaDonYeuCauDTO> GetListHoaDon()
+        public List<HoaDonYeuCauDTO> LayDSHoaDon()
         {
-            return hoaDonYeuCauDAL.GetListHoaDon();
+            return hoaDonYeuCauDAL.LayDSHoaDon();
+        }
+        public List<HoaDonYeuCauDTO> LayDSHoaDonYeuCau()
+        {
+            return hoaDonYeuCauDAL.LayDSHoaDonYeuCau();
         }
         public string GetMaHoaDon(string MaSuaChua)
         {

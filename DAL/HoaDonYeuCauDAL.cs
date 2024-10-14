@@ -100,8 +100,29 @@ namespace DAL
             return doanhThu;
         }
 
+        public List<HoaDonYeuCauDTO> LayDSHoaDon()
+        {
+            string query = "select MaHoaDon, MaNhanVien, NgayIn, GiaiPhap, sum(TongTien) as ThanhTien" +
+                " from HOADON " +
+                " group by MaHoaDon, MaNhanVien, NgayIn, GiaiPhap";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
-        public List<HoaDonYeuCauDTO> GetListHoaDon()
+            List<HoaDonYeuCauDTO> listYeuCau = new List<HoaDonYeuCauDTO>();
+            foreach (DataRow row in data.Rows)
+            {
+                HoaDonYeuCauDTO hoaDonYeuCauDTO = new HoaDonYeuCauDTO(
+                    row["MaHoaDon"].ToString(),
+                    row["MaNhanVien"].ToString(),
+                    DateTime.Parse(row["NgayIn"].ToString()),
+                    row["GiaiPhap"].ToString(),
+                    decimal.Parse(row["ThanhTien"].ToString())
+                );
+                listYeuCau.Add(hoaDonYeuCauDTO);
+            }
+            return listYeuCau;
+        }
+
+        public List<HoaDonYeuCauDTO> LayDSHoaDonYeuCau()
         {
             string query = "select MaSuaChua, MaXe,YEUCAUSUACHUA.MaKhachHang,TenKhachHang from " +
                 "YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang";
