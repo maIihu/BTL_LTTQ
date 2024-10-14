@@ -1,0 +1,19 @@
+# Ignore Visual Studio specific files
+*.vsidx
+*.suo
+
+# Ignore DLL, PDB, and EXE files
+*.dll
+*.pdb
+*.exe
+
+# Ignore cache files
+*.cache
+
+# Ignore debug and release folders
+[Bb]in/
+[Oo]bj/
+
+# Ignore any other cache directories
+*.CoreCompileInputs.cache
+*.refcache

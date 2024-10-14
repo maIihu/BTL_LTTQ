@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\utc_cntt_nam3_ky1\\btl\\btl_lttq\\gui\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\utc_cntt_nam3_ky1\\btl\\btl_lttq\\gui\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\frmkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|d:\\utc_cntt_nam3_ky1\\btl\\btl_lttq\\bll\\khachhangbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{424F3A70-1D98-4163-8522-CC45010672E6}|BLL\\BLL.csproj|solutionrelative:bll\\khachhangbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{064A5E0B-A922-4238-8C93-02940ECE124F}|DTO\\DTO.csproj|d:\\utc_cntt_nam3_ky1\\btl\\btl_lttq\\dto\\khachhangdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{064A5E0B-A922-4238-8C93-02940ECE124F}|DTO\\DTO.csproj|solutionrelative:dto\\khachhangdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|d:\\utc_cntt_nam3_ky1\\btl\\btl_lttq\\dal\\khachhangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2C53258-CD40-44C3-A113-FD70BE62EAF0}|DAL\\DAL.csproj|solutionrelative:dal\\khachhangdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\utc_cntt_nam3_ky1\\btl\\btl_lttq\\gui\\frmkhachhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\frmkhachhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KhachHangDTO.cs",
+              "DocumentMoniker": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\DTO\\KhachHangDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\KhachHangDTO.cs",
+              "ToolTip": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\DTO\\KhachHangDTO.cs",
+              "RelativeToolTip": "DTO\\KhachHangDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T19:26:05.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmKhachHang.Designer.cs",
+              "DocumentMoniker": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\GUI\\frmKhachHang.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\frmKhachHang.Designer.cs",
+              "ToolTip": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\GUI\\frmKhachHang.Designer.cs",
+              "RelativeToolTip": "GUI\\frmKhachHang.Designer.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAAAFMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T19:03:35.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmKhachHang.cs",
+              "DocumentMoniker": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\GUI\\frmKhachHang.cs",
+              "RelativeDocumentMoniker": "GUI\\frmKhachHang.cs",
+              "ToolTip": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\GUI\\frmKhachHang.cs",
+              "RelativeToolTip": "GUI\\frmKhachHang.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAcwGQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T19:03:34.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmKhachHang.cs [Design]",
+              "DocumentMoniker": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\GUI\\frmKhachHang.cs",
+              "RelativeDocumentMoniker": "GUI\\frmKhachHang.cs",
+              "ToolTip": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\GUI\\frmKhachHang.cs [Design]",
+              "RelativeToolTip": "GUI\\frmKhachHang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T19:03:07.179Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "KhachHangBLL.cs",
+              "DocumentMoniker": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\BLL\\KhachHangBLL.cs",
+              "RelativeDocumentMoniker": "BLL\\KhachHangBLL.cs",
+              "ToolTip": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\BLL\\KhachHangBLL.cs",
+              "RelativeToolTip": "BLL\\KhachHangBLL.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T18:57:38.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "KhachHangDAL.cs",
+              "DocumentMoniker": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\DAL\\KhachHangDAL.cs",
+              "RelativeDocumentMoniker": "DAL\\KhachHangDAL.cs",
+              "ToolTip": "D:\\UTC_CNTT_Nam3_Ky1\\BTL\\BTL_LTTQ\\DAL\\KhachHangDAL.cs",
+              "RelativeToolTip": "DAL\\KhachHangDAL.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T18:44:05.388Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
