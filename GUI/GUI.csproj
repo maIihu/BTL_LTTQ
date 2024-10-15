@@ -113,12 +113,6 @@
     <Compile Include="fBase.Designer.cs">
       <DependentUpon>fBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\fCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Customer\fCustomer.Designer.cs">
-      <DependentUpon>fCustomer.cs</DependentUpon>
-    </Compile>
     <Compile Include="fHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,18 +124,6 @@
     </Compile>
     <Compile Include="fKhachHang.Designer.cs">
       <DependentUpon>fKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\fUpdateCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Customer\fUpdateCustomer.Designer.cs">
-      <DependentUpon>fUpdateCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\fAddCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Customer\fAddCustomer.Designer.cs">
-      <DependentUpon>fAddCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="fKhoPhuTung.cs">
       <SubType>Form</SubType>
@@ -194,12 +176,6 @@
     <Compile Include="Login\fSignup.Designer.cs">
       <DependentUpon>fSignup.cs</DependentUpon>
     </Compile>
-    <Compile Include="fMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fMain.Designer.cs">
-      <DependentUpon>fMain.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="fBase.resx">
       <DependentUpon>fBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,15 +190,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fLoad.resx">
       <DependentUpon>fLoad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer\fCustomer.resx">
-      <DependentUpon>fCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer\fUpdateCustomer.resx">
-      <DependentUpon>fUpdateCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer\fAddCustomer.resx">
-      <DependentUpon>fAddCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
@@ -251,9 +218,6 @@
     </Compile>
     <EmbeddedResource Include="Login\fSignup.resx">
       <DependentUpon>fSignup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="fMain.resx">
-      <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
