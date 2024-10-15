@@ -102,9 +102,10 @@ namespace DAL
 
         public List<HoaDonYeuCauDTO> LayDSHoaDon()
         {
-            string query = "select MaHoaDon, MaNhanVien, NgayIn, GiaiPhap, sum(TongTien) as ThanhTien" +
-                " from HOADON " +
-                " group by MaHoaDon, MaNhanVien, NgayIn, GiaiPhap";
+            string query = "select MaHoaDon, TenKhachHang, MaNhanVien, NgayIn, GiaiPhap, sum(TongTien) as ThanhTien" +
+                " from HOADON join YEUCAUSUACHUA on HOADON.MaSuaChua = YEUCAUSUACHUA.MaSuaChua " +
+                " join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang " +
+                "group by MaHoaDon, TenKhachHang, MaNhanVien, NgayIn, GiaiPhap";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             List<HoaDonYeuCauDTO> listYeuCau = new List<HoaDonYeuCauDTO>();
@@ -112,6 +113,7 @@ namespace DAL
             {
                 HoaDonYeuCauDTO hoaDonYeuCauDTO = new HoaDonYeuCauDTO(
                     row["MaHoaDon"].ToString(),
+                    row["TenKhachHang"].ToString(),
                     row["MaNhanVien"].ToString(),
                     DateTime.Parse(row["NgayIn"].ToString()),
                     row["GiaiPhap"].ToString(),

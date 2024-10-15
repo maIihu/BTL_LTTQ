@@ -38,17 +38,18 @@
             this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.cmsHoaDon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemSua = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDSHoaDon = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
-            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.MaHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaiPhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +88,7 @@
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHoaDon,
+            this.TenKhachHang,
             this.MaNhanVien,
             this.NgayIn,
             this.GiaiPhap,
@@ -174,6 +176,24 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
+            // btnNhapHoaDon
+            // 
+            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnNhapHoaDon.BorderThickness = 1.5F;
+            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
+            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
+            this.btnNhapHoaDon.TabIndex = 4;
+            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
+            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
+            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Enabled = false;
@@ -195,6 +215,23 @@
             this.panel4.Size = new System.Drawing.Size(153, 56);
             this.panel4.TabIndex = 7;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // btnDSHoaDon
+            // 
+            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnDSHoaDon.BorderThickness = 1.5F;
+            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnDSHoaDon.Name = "btnDSHoaDon";
+            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
+            this.btnDSHoaDon.TabIndex = 3;
+            this.btnDSHoaDon.Text = "DS hóa đơn";
+            this.btnDSHoaDon.UseVisualStyleBackColor = false;
+            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
             // 
             // cmsHoaDon
             // 
@@ -248,46 +285,17 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Danh sách hóa đơn";
             // 
-            // btnNhapHoaDon
-            // 
-            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnNhapHoaDon.BorderThickness = 1.5F;
-            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
-            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
-            this.btnNhapHoaDon.TabIndex = 4;
-            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
-            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
-            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
-            // 
-            // btnDSHoaDon
-            // 
-            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnDSHoaDon.BorderThickness = 1.5F;
-            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnDSHoaDon.Name = "btnDSHoaDon";
-            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
-            this.btnDSHoaDon.TabIndex = 3;
-            this.btnDSHoaDon.Text = "DS hóa đơn";
-            this.btnDSHoaDon.UseVisualStyleBackColor = false;
-            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
-            // 
             // MaHoaDon
             // 
             this.MaHoaDon.HeaderText = "Mã hóa đơn";
             this.MaHoaDon.Name = "MaHoaDon";
             this.MaHoaDon.ReadOnly = true;
+            // 
+            // TenKhachHang
+            // 
+            this.TenKhachHang.HeaderText = "Tên khách hàng";
+            this.TenKhachHang.Name = "TenKhachHang";
+            this.TenKhachHang.ReadOnly = true;
             // 
             // MaNhanVien
             // 
@@ -359,6 +367,7 @@
         private System.Windows.Forms.ToolStripMenuItem cmsItemSua;
         private System.Windows.Forms.ToolStripMenuItem cmsItemXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GiaiPhap;

@@ -18,9 +18,10 @@ namespace DTO
             TenKhachHang = tenKhachHang;
         }
 
-        public HoaDonYeuCauDTO(string maHoaDon, string maNhanVien, DateTime ngayIn, string giaiPhap, decimal? tongTien)
+        public HoaDonYeuCauDTO(string maHoaDon, string tenKhachHang, string maNhanVien, DateTime ngayIn, string giaiPhap, decimal? tongTien)
         {
             MaHoaDon = maHoaDon;
+            TenKhachHang = tenKhachHang;
             MaNhanVien = maNhanVien;
             NgayIn = ngayIn;
             GiaiPhap = giaiPhap;

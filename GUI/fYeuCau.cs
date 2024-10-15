@@ -507,6 +507,7 @@ namespace GUI
 
 
         string maXeChon, maSuaChuaChon, maKhachHangChon, tenKhachHangChon;
+        int preIndex = -1;
         private async void dgvYeuCau_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -527,7 +528,20 @@ namespace GUI
                     cmsYeuCau.Show(dgvYeuCau, cellRectangle.Left, cellRectangle.Bottom - 20);
                 }
                 else if (e.ColumnIndex != dgvYeuCau.Columns["Actions"].Index)
-                {
+                {                  
+                    if(panelThongTin.Visible == true)
+                    {
+                        if(preIndex == e.RowIndex)
+                        {
+                            panelThongTin.Visible = false;
+                            thongTinReveal = false;
+                            await AnimateDataGridView2(defaultDGVSize.Width);
+                            return;
+                        }
+                    }
+                    
+                        preIndex = e.RowIndex;
+                    
                     dgvYeuCau.BringToFront();
                     maXeChon = dgvYeuCau.Rows[e.RowIndex].Cells["MaXe"].Value.ToString();
                     maSuaChuaChon = dgvYeuCau.Rows[e.RowIndex].Cells["MaBooking"].Value.ToString();
@@ -656,10 +670,6 @@ namespace GUI
             DrawRoundedPanel(panel14, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel16_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel16, 15, BorderColor, BorderThickness, e);
-        }
 
         private void panel15_Paint(object sender, PaintEventArgs e)
         {
