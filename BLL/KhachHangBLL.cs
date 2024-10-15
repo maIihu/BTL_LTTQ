@@ -27,9 +27,9 @@ namespace BLL
         {
             return _khachHangDAL.DeleteCustomer(maNhanVien);
         }
-        public DataTable SearchCustomerByName(string tenKhachHang)
+        public List<KhachHangDTO> SearchCustomerByName(string tenKhachHang, string soDienThoai)
         {
-            return _khachHangDAL.SearchCustomerByName(tenKhachHang);
+            return _khachHangDAL.SearchCustomerByName(tenKhachHang, soDienThoai);
         }
 
         public List<KhachHangDTO> GetCustomerList()
