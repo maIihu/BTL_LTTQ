@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using BLL;
 using DAL;
 using DTO;
+using BorderStyle = System.Windows.Forms.BorderStyle;
+using Panel = System.Web.UI.WebControls.Panel;
 
 namespace GUI
 {
@@ -27,7 +29,7 @@ namespace GUI
         {
             InitializeComponent();
             _accountBLL = new AccountBLL();
-
+            RoundedControlHelper.SetRoundedCorners(pnLogin, 20, true, true, true, true);
             // Enable double buffering
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -50,7 +52,8 @@ namespace GUI
         private void fLogin_Load(object sender, EventArgs e)
         {
             lbUsernameWarning.Visible = false;
-            lbPasswordWarning.Visible = false; 
+            lbPasswordWarning.Visible = false;
+
         }
 
         private void dangNhapBtn_Click(object sender, EventArgs e)
@@ -145,17 +148,41 @@ namespace GUI
             loginButton.BackColor = Color.FromArgb(210, 224, 251);
         }
 
+        // Sự kiện khi click vào lbUsername
+        private Color borderColor = Color.White; // Màu viền mặc định
+
         private void lbUsername_Click(object sender, EventArgs e)
-        {           
+        {
+            // Đặt màu viền thành xanh khi click
             timerUsername.Start();
-            //label5.Location = new Point(25, 100);
+            borderColor = Color.Blue;
+            // Yêu cầu vẽ lại viền của Panel
+            pnUsername.Invalidate();
         }
+
+        // Sự kiện Paint của Panel để vẽ lại viền
+        private void pnUsername_Paint(object sender, PaintEventArgs e)
+        {
+            int thickness = 3; // Độ dày của viền
+
+            // Vẽ viền xung quanh Panel
+            using (Pen pen = new Pen(borderColor, thickness))
+            {
+                Rectangle rect = new Rectangle(0, 0, pnUsername.ClientSize.Width - 1, pnUsername.ClientSize.Height - 1);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        }
+
+
+
+
+
 
         private void timerUsername_Tick(object sender, EventArgs e)
         {
             if (!isUsernameUp)
             {
-                if (lbUsername.Location.Y > -12)
+                if (lbUsername.Location.Y > -11)
                 {
                     lbUsername.Location = new Point(lbUsername.Location.X, lbUsername.Location.Y - 1);
                 }
@@ -195,7 +222,7 @@ namespace GUI
         {
             if (!isPasswordUp)
             {
-                if (lbPassword.Location.Y > -12)
+                if (lbPassword.Location.Y > -11)
                 {
                     lbPassword.Location = new Point(lbPassword.Location.X, lbPassword.Location.Y - 1);
                 }
