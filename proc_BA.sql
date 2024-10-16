@@ -1,4 +1,4 @@
-﻿alter PROC addThings 
+﻿create PROC addThings 
     @tenkhachhang NVARCHAR(25), 
     @bienso NVARCHAR(10),
     @tennguyennhan NVARCHAR(25), 
@@ -66,7 +66,7 @@ END;
 
 
 -- HOA DON
-ALTER PROCEDURE addHoaDon 
+create PROCEDURE addHoaDon 
     @mahoadon NVARCHAR(25) = NULL,  -- Có thể nhận giá trị NULL
     @manhanvien NVARCHAR(10), 
     @maphutung NVARCHAR(10), 
