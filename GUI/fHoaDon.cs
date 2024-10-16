@@ -45,7 +45,6 @@ namespace GUI
 
             ListHoaDon();
 
-            cmbOrder.SelectedIndex = 0;
             this.idLogin = idLogin;
         }
         private void fHoaDon_Load(object sender, EventArgs e)
@@ -200,11 +199,6 @@ namespace GUI
         {
             //lay thong tin bang rowIndex
         }
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel2, 15, BorderColor, BorderThickness, e);
-        }
-
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel4, 15, BorderColor, BorderThickness, e);

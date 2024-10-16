@@ -65,7 +65,6 @@ namespace GUI
 
             SetupDataGridView();
 
-            cmbOrder.SelectedIndex = 0;
 
             DoubleBuffering();
 
@@ -617,17 +616,6 @@ namespace GUI
         {
             DrawRoundedPanel(panelYeuCau, 15, BorderColor, BorderThickness, e);
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel2, 15, BorderColor, BorderThickness, e);
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel4, 15, BorderColor, BorderThickness, e);
-        }
-
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel5, 15, BorderColor, BorderThickness, e);
