@@ -1110,11 +1110,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 869);
-            this.Controls.Add(this.panelHDN);
             this.Controls.Add(this.panelDS);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panelHDN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fKhoPhuTung";
             this.Text = "fKho";

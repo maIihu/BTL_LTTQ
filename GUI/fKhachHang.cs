@@ -195,10 +195,6 @@ namespace GUI
             ToggleAddNew();
         }
 
-        private void dtpNgaySua_DropDown(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -239,7 +235,6 @@ namespace GUI
             var result = MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "thông báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-
                 MessageBox.Show("bạn đã xóa thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -316,6 +311,14 @@ namespace GUI
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
                 txtSearchBar.Text = "Search...";
+            }
+            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search...")
+            {
+                khachHangList =  _khachHangBLL.GetCustomerList();
+                currentPage = 1;
+                totalPages = (int)Math.Ceiling((double)khachHangList.Count / pageSize);
+
+                DisplayCurrentPage();
             }
         }
 

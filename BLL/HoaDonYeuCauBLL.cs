@@ -11,7 +11,10 @@ namespace BLL
     public class HoaDonYeuCauBLL
     {
         private HoaDonYeuCauDAL hoaDonYeuCauDAL;
-
+        public HoaDonYeuCauBLL()
+        {
+            hoaDonYeuCauDAL = new HoaDonYeuCauDAL();
+        }
         public int LaySLHoaDon()
         {
             return hoaDonYeuCauDAL.LaySLHoaDon();
@@ -20,9 +23,9 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.LaySLYeuCau();
         }
-        public HoaDonYeuCauBLL()
+        public bool XoaNhanVienTheoMa(string ma)
         {
-            hoaDonYeuCauDAL = new HoaDonYeuCauDAL();
+            return hoaDonYeuCauDAL.XoaHoaDonTheoMa(ma); 
         }
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua
             , DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien, string MaKhachHang)

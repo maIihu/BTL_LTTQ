@@ -25,7 +25,12 @@ namespace DAL
             return (int)result;
         }
 
-        
+        public bool XoaHoaDonTheoMa(string ma)
+        {
+            string query = "DELETE FROM HOADON WHERE MaHoaDon = @ma ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {ma});
+            return result > 0;
+        }
 
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua,
             DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien, string MaKhachHang)
@@ -47,7 +52,6 @@ namespace DAL
                 DataRow row = dataTable.Rows[0]; 
                 return row["MaHoaDon"].ToString(); 
             }
-
             return null; 
         }
 

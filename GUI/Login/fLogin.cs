@@ -94,7 +94,9 @@ namespace GUI
             if (isLoginSuccessful)
             {
                 //MessageBox.Show("Đăng nhập thành công!");
+                fBase fBase = new fBase(tenDangNhap);
                 this.Dispose();
+                fBase.Show();
             }
             else
             {

@@ -47,7 +47,6 @@
             this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.cmsHoaDon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemChiTiet = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsItemSua = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDSHoaDon = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -238,7 +237,6 @@
             this.btnDSHoaDon.TabIndex = 3;
             this.btnDSHoaDon.Text = "DS hóa đơn";
             this.btnDSHoaDon.UseVisualStyleBackColor = false;
-            this.btnDSHoaDon.Click += new System.EventHandler(this.btnDSHoaDon_Click);
             // 
             // cmsHoaDon
             // 
@@ -246,29 +244,22 @@
             this.cmsHoaDon.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsHoaDon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsItemChiTiet,
-            this.cmsItemSua,
             this.cmsItemXoa});
             this.cmsHoaDon.Name = "cmsXeMay";
             this.cmsHoaDon.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsHoaDon.Size = new System.Drawing.Size(113, 70);
+            this.cmsHoaDon.Size = new System.Drawing.Size(181, 70);
             // 
             // cmsItemChiTiet
             // 
             this.cmsItemChiTiet.Name = "cmsItemChiTiet";
-            this.cmsItemChiTiet.Size = new System.Drawing.Size(112, 22);
+            this.cmsItemChiTiet.Size = new System.Drawing.Size(180, 22);
             this.cmsItemChiTiet.Text = "Chi tiết";
-            // 
-            // cmsItemSua
-            // 
-            this.cmsItemSua.Name = "cmsItemSua";
-            this.cmsItemSua.Size = new System.Drawing.Size(112, 22);
-            this.cmsItemSua.Text = "Sửa";
-            this.cmsItemSua.Click += new System.EventHandler(this.cmsItemSua_Click);
+            this.cmsItemChiTiet.Click += new System.EventHandler(this.cmsItemChiTiet_Click);
             // 
             // cmsItemXoa
             // 
             this.cmsItemXoa.Name = "cmsItemXoa";
-            this.cmsItemXoa.Size = new System.Drawing.Size(112, 22);
+            this.cmsItemXoa.Size = new System.Drawing.Size(180, 22);
             this.cmsItemXoa.Text = "Xóa";
             this.cmsItemXoa.Click += new System.EventHandler(this.cmsItemXoa_Click);
             // 
@@ -330,7 +321,6 @@
         private System.Windows.Forms.Panel panelDSHoaDon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem cmsItemChiTiet;
-        private System.Windows.Forms.ToolStripMenuItem cmsItemSua;
         private System.Windows.Forms.ToolStripMenuItem cmsItemXoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhachHang;

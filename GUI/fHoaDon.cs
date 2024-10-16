@@ -120,21 +120,6 @@ namespace GUI
             }
         }
 
-        private void dgvCMSHoaDon_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                e.Handled = true;
-                e.PaintBackground(e.ClipBounds, true);
-
-                string cellValue = e.Value?.ToString() ?? string.Empty;
-                if (cellValue != string.Empty)
-                {
-                    Rectangle rect = e.CellBounds;
-                    e.Graphics.DrawString(cellValue, font, Brushes.Gray, rect.X, rect.Y + 15);
-                }
-            }
-        }
 
         private void yourDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -190,14 +175,18 @@ namespace GUI
         }
 
 
-        private void cmsItemSua_Click(object sender, EventArgs e)
-        {
-            //lay thong tin bang rowIndex
-        }
-
         private void cmsItemXoa_Click(object sender, EventArgs e)
         {
-            //lay thong tin bang rowIndex
+            string maHoaDon = dgvHoaDon.CurrentRow.Cells["MaHoaDon"].Value.ToString();
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                bool xoaHd = _hoaDonYeuCauBLL.XoaNhanVienTheoMa(maHoaDon);
+                if(xoaHd){
+                    MessageBox.Show("Bạn đã xóa thành công!" + maHoaDon, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HienThiDSHoaDonYeuCau();
+                }
+            }
         }
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
@@ -227,5 +216,9 @@ namespace GUI
 
         #endregion
 
+        private void cmsItemChiTiet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
