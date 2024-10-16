@@ -24,6 +24,28 @@ namespace DAL
             object result = DataProvider.Instance.ExecuteScalar(query);
             return (int)result;
         }
+        public bool XoaYeuCauTheoMa(string ma1, string ma2)
+        {
+            //try
+            //{
+
+                string query = @"IF NOT EXISTS (SELECT 1 FROM YEUCAUSUACHUA WHERE MaKhachHang = @ma1 )
+                         DELETE FROM KHACHHANG WHERE MaKhachHang = @ma2 ";
+
+                // Thực thi truy vấn và lấy kết quả
+                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ma1, ma2 });
+
+                // Kiểm tra kết quả
+                return result > 0;
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Hiển thị thông tin lỗi
+            //    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            //    return false;
+            //}
+        }
+
 
         public bool XoaHoaDonTheoMa(string ma)
         {

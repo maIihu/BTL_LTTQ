@@ -781,6 +781,7 @@ namespace GUI
                 return;
             }
             string maHoaDon_Chinh = null;
+            int checkIn = 0;
             foreach (DataGridViewRow row in dgvKqPhuTung.Rows)
             {
 
@@ -791,16 +792,18 @@ namespace GUI
                     string tenPhuTung = row.Cells["Ten"].Value?.ToString();
                     int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
                     decimal thanhTien = decimal.Parse(row.Cells["ThanhTien"].Value?.ToString() ?? "0");
-
+                    string maKhach = txtMaKH.Text;
 
                     DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
 
                     bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(maHoaDon_Chinh, idLogin, maPhuTung, txtMaSuaChua.Text,
-                        ngayIn, txtGiaiPhap.Text, soLuong, thanhTien, txtMaKH.Text);
+                        ngayIn, txtGiaiPhap.Text, soLuong, thanhTien, maKhach);
+                    MessageBox.Show(maKhach);
                     if (themHd)
                     {
                         maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon();
                         txtMaHoaDon.Text = maHoaDon_Chinh;
+                        checkIn++;
                         MessageBox.Show("Them thanh cong");
                     }
                     else
@@ -809,13 +812,9 @@ namespace GUI
                     }
                 }
             }
-
+            if (checkIn > 0) _hoaDonYeuCauBLL.XoaYeuCauTheoMa(txtMaKH.Text, txtMaKH.Text);
         }
 
-        private void btnOKHoaDon_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void panelHoaDon_Paint(object sender, PaintEventArgs e)
         {

@@ -23,6 +23,10 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.LaySLYeuCau();
         }
+        public bool XoaYeuCauTheoMa(string ma1, string ma2)
+        {
+            return hoaDonYeuCauDAL.XoaYeuCauTheoMa(ma1, ma2); 
+        }
         public bool XoaNhanVienTheoMa(string ma)
         {
             return hoaDonYeuCauDAL.XoaHoaDonTheoMa(ma); 
