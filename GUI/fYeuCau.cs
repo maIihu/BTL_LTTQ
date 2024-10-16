@@ -42,6 +42,8 @@ namespace GUI
         int backIndex;
         Dictionary<string, int> soLuongDict = new Dictionary<string, int>();
 
+        int maxKhach, maxXe = 201;
+
         public fYeuCau(string idLogin)
         {
             InitializeComponent();
@@ -70,10 +72,16 @@ namespace GUI
             this.idLogin = idLogin;
             SetupDataGridViewPhuTung();
             SetupDataGridViewKqPhuTung();
+            string tmpMaKhach = _datYeuCauBLL.LayMaKhachLonNhat();
+            string numberPart = tmpMaKhach.Substring(2);
+            maxKhach = int.Parse(numberPart);
         }
         private void fYeuCau_Load(object sender, EventArgs e)
         {
             HienThiDSPhuTung();
+
+
+
         }
         private void SetupDataGridViewPhuTung()
         {
@@ -787,8 +795,10 @@ namespace GUI
             string maHoaDon_Chinh = null;
             foreach (DataGridViewRow row in dgvKqPhuTung.Rows)
             {
+
                 if (!row.IsNewRow)
                 {
+                    MessageBox.Show(maHoaDon_Chinh);
                     string maPhuTung = row.Cells["Ma"].Value?.ToString();
                     string tenPhuTung = row.Cells["Ten"].Value?.ToString();
                     int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
@@ -798,10 +808,10 @@ namespace GUI
                     DateTime ngayIn = DateTime.Parse(txtNgayIn.Text);
 
                     bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(maHoaDon_Chinh, idLogin, maPhuTung, txtMaSuaChua.Text,
-                        ngayIn, txtGiaiPhap.Text, soLuong, thanhTien);
+                        ngayIn, txtGiaiPhap.Text, soLuong, thanhTien, txtMaKH.Text);
                     if (themHd)
                     {
-                        maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon(txtMaSuaChua.Text);
+                        maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon();
                         txtMaHoaDon.Text = maHoaDon_Chinh;
                         MessageBox.Show("Them thanh cong");
                     }
@@ -1004,6 +1014,8 @@ namespace GUI
                     if (success)
                     {
                         MessageBox.Show("Thêm yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        maxKhach++;
+                        maxXe++;
                         dgvYeuCau.Rows.Clear();
                         ListYeuCau();
                     }

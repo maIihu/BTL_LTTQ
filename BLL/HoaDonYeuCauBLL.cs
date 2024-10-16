@@ -25,9 +25,9 @@ namespace BLL
             hoaDonYeuCauDAL = new HoaDonYeuCauDAL();
         }
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua
-            , DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
+            , DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien, string MaKhachHang)
         {
-            return hoaDonYeuCauDAL.ThemHoaDon(MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien);
+            return hoaDonYeuCauDAL.ThemHoaDon(MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien, MaKhachHang);
         }
         public List<Tuple<int, decimal>> LayDoanhThuThang()
         {
@@ -45,9 +45,9 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.LayDSHoaDonYeuCau();
         }
-        public string GetMaHoaDon(string MaSuaChua)
+        public string GetMaHoaDon()
         {
-            return hoaDonYeuCauDAL.GetMaHoaDon(MaSuaChua);
+            return hoaDonYeuCauDAL.GetMaHoaDon();
         }
     }
 }

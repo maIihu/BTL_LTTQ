@@ -127,7 +127,7 @@ namespace DAL
 
         public List<XeMayDTO> LayDanhSachXeMay()
         {
-            string query = "SELECT * FROM XEMAY";
+            string query = "SELECT * FROM XEMAY ORDER BY MaXe DESC";
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
 
             List<XeMayDTO> xeMayList = new List<XeMayDTO>();

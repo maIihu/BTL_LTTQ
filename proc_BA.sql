@@ -1,4 +1,4 @@
-﻿CREATE PROC addThings 
+﻿alter PROC addThings 
     @tenkhachhang NVARCHAR(25), 
     @bienso NVARCHAR(10),
     @tennguyennhan NVARCHAR(25), 
@@ -49,6 +49,7 @@ BEGIN
 		SELECT @lastyeucau = (select top 1 MaSuaChua
 		FROM YEUCAUSUACHUA
 		ORDER BY MaSuaChua DESC)
+
 		SELECT @numberPart = CAST(SUBSTRING(@lastyeucau, 4, LEN(@lastyeucau) - 3) AS INT);
 
 		SET @numberPart = @numberPart + 1;
@@ -65,8 +66,7 @@ END;
 
 
 -- HOA DON
-
-create PROC addHoaDon 
+ALTER PROCEDURE addHoaDon 
     @mahoadon NVARCHAR(25) = NULL,  -- Có thể nhận giá trị NULL
     @manhanvien NVARCHAR(10), 
     @maphutung NVARCHAR(10), 
@@ -74,12 +74,16 @@ create PROC addHoaDon
     @ngayin DATETIME, 
     @giaiphap NVARCHAR(100), 
     @soluong INT, 
-    @tongtien MONEY
+    @tongtien MONEY,
+    @makhachhang NVARCHAR(10)
 AS
 BEGIN
+    BEGIN TRANSACTION;  -- Bắt đầu transaction
+
     DECLARE @lasthoadon NVARCHAR(25), 
             @numberPart INT, 
-            @maHD NVARCHAR(25);
+            @maHD NVARCHAR(25),
+            @maxe NVARCHAR(10)
 
     -- Nếu @mahoadon là NULL, tạo mã mới
     IF @mahoadon IS NULL
@@ -113,6 +117,28 @@ BEGIN
     END
 
     -- Thêm dữ liệu vào bảng HOADON
-    INSERT INTO HOADON(MaHoaDon, MaNhanVien, MaPhuTung, MaSuaChua, NgayIn, GiaiPhap, SoLuong, TongTien)
-    VALUES (@maHD, @manhanvien, @maphutung, @masuachua, @ngayin, @giaiphap, @soluong, @tongtien);
-END
+    INSERT INTO HOADON(MaHoaDon, MaNhanVien, MaPhuTung, MaKhachHang, NgayIn, GiaiPhap, SoLuong, TongTien)
+    VALUES (@maHD, @manhanvien, @maphutung, @makhachhang, @ngayin, @giaiphap, @soluong, @tongtien);
+
+    -- Xóa bản ghi trong bảng YEUCAUSUACHUA
+    SET @maxe = (SELECT MaXe FROM YEUCAUSUACHUA WHERE MaSuaChua = @masuachua);
+    DELETE FROM YEUCAUSUACHUA WHERE MaSuaChua = @masuachua;
+    DELETE FROM XEMAY WHERE MaXe = @maxe;
+
+    -- Kiểm tra xem khách hàng có còn yêu cầu sửa chữa nào không
+    IF NOT EXISTS (SELECT 1 FROM YEUCAUSUACHUA WHERE MaKhachHang = @makhachhang)
+    BEGIN
+        -- Nếu khách hàng không còn yêu cầu sửa chữa nào, xóa khách hàng
+        DELETE FROM KHACHHANG WHERE MaKhachHang = @makhachhang;
+    END
+
+    -- Kiểm tra lỗi và thực hiện commit hoặc rollback
+    IF @@ERROR = 0
+    BEGIN
+        COMMIT TRANSACTION;  -- Nếu không có lỗi, commit transaction
+    END
+    ELSE
+    BEGIN
+        ROLLBACK TRANSACTION;  -- Nếu có lỗi, rollback transaction
+    END
+END;

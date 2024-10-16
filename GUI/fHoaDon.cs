@@ -65,7 +65,7 @@ namespace GUI
             dgvHoaDon.Rows.Clear();
             foreach(var x in dsHoaDon)
             {
-                dgvHoaDon.Rows.Add(x.MaHoaDon, x.TenKhachHang, x.MaNhanVien, x.NgayIn.ToString("dd/MM/yyyy"), x.GiaiPhap, x.TongTien);
+                dgvHoaDon.Rows.Add(x.MaHoaDon, x.MaKhachHang, x.MaNhanVien, x.NgayIn.ToString("dd/MM/yyyy"), x.GiaiPhap, x.TongTien);
             }
         }
 
