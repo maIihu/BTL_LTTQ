@@ -36,14 +36,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnAddHDN = new GUI.CustomDesign.CustomButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnFilter = new GUI.CustomDesign.CustomButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbOrder = new System.Windows.Forms.ComboBox();
             this.cmsKho = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +76,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.btnThemPhuTung = new GUI.CustomDesign.CustomButton();
             this.label21 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -111,19 +111,15 @@
             this.txtHdn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPhuTung = new GUI.CustomDesign.CustomButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnFilter = new GUI.CustomDesign.CustomButton();
-            this.btnThemPhuTung = new GUI.CustomDesign.CustomButton();
             this.btnHDN = new GUI.CustomDesign.CustomButton();
-            this.btnPhuTung = new GUI.CustomDesign.CustomButton();
-            this.btnAddHDN = new GUI.CustomDesign.CustomButton();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel14.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.cmsKho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhuTung)).BeginInit();
             this.panelDS.SuspendLayout();
@@ -156,6 +152,24 @@
             this.panel14.TabIndex = 10;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
+            // btnAddHDN
+            // 
+            this.btnAddHDN.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddHDN.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAddHDN.BorderColor = System.Drawing.Color.Empty;
+            this.btnAddHDN.BorderThickness = 1.5F;
+            this.btnAddHDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddHDN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHDN.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAddHDN.Location = new System.Drawing.Point(3, 3);
+            this.btnAddHDN.Name = "btnAddHDN";
+            this.btnAddHDN.Size = new System.Drawing.Size(128, 50);
+            this.btnAddHDN.TabIndex = 3;
+            this.btnAddHDN.Text = "+ Thêm HDN";
+            this.btnAddHDN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddHDN.UseVisualStyleBackColor = false;
+            this.btnAddHDN.Click += new System.EventHandler(this.btnAddHDN_Click);
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.SystemColors.Control;
@@ -173,6 +187,23 @@
             this.panel6.Size = new System.Drawing.Size(110, 56);
             this.panel6.TabIndex = 1;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFilter.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.btnFilter.BorderColor = System.Drawing.Color.Empty;
+            this.btnFilter.BorderThickness = 1.5F;
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnFilter.Location = new System.Drawing.Point(3, 3);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(104, 50);
+            this.btnFilter.TabIndex = 2;
+            this.btnFilter.Text = "Filters";
+            this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFilter.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -210,43 +241,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Window;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cmbOrder);
-            this.panel2.Location = new System.Drawing.Point(48, 26);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(179, 56);
-            this.panel2.TabIndex = 9;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Show:";
-            // 
-            // cmbOrder
-            // 
-            this.cmbOrder.AllowDrop = true;
-            this.cmbOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbOrder.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbOrder.FormattingEnabled = true;
-            this.cmbOrder.Items.AddRange(new object[] {
-            "All Orders",
-            "Order1",
-            "Order2"});
-            this.cmbOrder.Location = new System.Drawing.Point(64, 16);
-            this.cmbOrder.Name = "cmbOrder";
-            this.cmbOrder.Size = new System.Drawing.Size(108, 25);
-            this.cmbOrder.TabIndex = 0;
             // 
             // cmsKho
             // 
@@ -675,6 +669,24 @@
             this.panel21.TabIndex = 2;
             this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panel21_Paint);
             // 
+            // btnThemPhuTung
+            // 
+            this.btnThemPhuTung.BackColor = System.Drawing.SystemColors.Control;
+            this.btnThemPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.btnThemPhuTung.BorderColor = System.Drawing.Color.Empty;
+            this.btnThemPhuTung.BorderThickness = 1.5F;
+            this.btnThemPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemPhuTung.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnThemPhuTung.Location = new System.Drawing.Point(3, 3);
+            this.btnThemPhuTung.Name = "btnThemPhuTung";
+            this.btnThemPhuTung.Size = new System.Drawing.Size(161, 42);
+            this.btnThemPhuTung.TabIndex = 2;
+            this.btnThemPhuTung.Text = "Thêm phụ tùng";
+            this.btnThemPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThemPhuTung.UseVisualStyleBackColor = false;
+            this.btnThemPhuTung.Click += new System.EventHandler(this.btnThemPhuTung_Click);
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -1030,6 +1042,24 @@
             this.panel1.TabIndex = 11;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnPhuTung
+            // 
+            this.btnPhuTung.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPhuTung.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnPhuTung.BorderColor = System.Drawing.Color.Empty;
+            this.btnPhuTung.BorderThickness = 1.5F;
+            this.btnPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhuTung.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnPhuTung.Location = new System.Drawing.Point(3, 3);
+            this.btnPhuTung.Name = "btnPhuTung";
+            this.btnPhuTung.Size = new System.Drawing.Size(127, 50);
+            this.btnPhuTung.TabIndex = 3;
+            this.btnPhuTung.Text = "DS Phụ tùng";
+            this.btnPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPhuTung.UseVisualStyleBackColor = false;
+            this.btnPhuTung.Click += new System.EventHandler(this.btnPhuTung_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
@@ -1049,49 +1079,6 @@
             this.panel4.TabIndex = 12;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Control;
-            this.panel7.Location = new System.Drawing.Point(255, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(64, 40);
-            this.panel7.TabIndex = 9;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackColor = System.Drawing.SystemColors.Control;
-            this.btnFilter.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnFilter.BorderColor = System.Drawing.Color.Empty;
-            this.btnFilter.BorderThickness = 1.5F;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilter.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnFilter.Location = new System.Drawing.Point(3, 3);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(104, 50);
-            this.btnFilter.TabIndex = 2;
-            this.btnFilter.Text = "Filters";
-            this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFilter.UseVisualStyleBackColor = false;
-            // 
-            // btnThemPhuTung
-            // 
-            this.btnThemPhuTung.BackColor = System.Drawing.SystemColors.Control;
-            this.btnThemPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnThemPhuTung.BorderColor = System.Drawing.Color.Empty;
-            this.btnThemPhuTung.BorderThickness = 1.5F;
-            this.btnThemPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemPhuTung.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnThemPhuTung.Location = new System.Drawing.Point(3, 3);
-            this.btnThemPhuTung.Name = "btnThemPhuTung";
-            this.btnThemPhuTung.Size = new System.Drawing.Size(161, 42);
-            this.btnThemPhuTung.TabIndex = 2;
-            this.btnThemPhuTung.Text = "Thêm phụ tùng";
-            this.btnThemPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThemPhuTung.UseVisualStyleBackColor = false;
-            this.btnThemPhuTung.Click += new System.EventHandler(this.btnThemPhuTung_Click);
-            // 
             // btnHDN
             // 
             this.btnHDN.BackColor = System.Drawing.SystemColors.Control;
@@ -1110,53 +1097,24 @@
             this.btnHDN.UseVisualStyleBackColor = false;
             this.btnHDN.Click += new System.EventHandler(this.btnHDN_Click);
             // 
-            // btnPhuTung
+            // panel7
             // 
-            this.btnPhuTung.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPhuTung.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnPhuTung.BorderColor = System.Drawing.Color.Empty;
-            this.btnPhuTung.BorderThickness = 1.5F;
-            this.btnPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhuTung.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPhuTung.Location = new System.Drawing.Point(3, 3);
-            this.btnPhuTung.Name = "btnPhuTung";
-            this.btnPhuTung.Size = new System.Drawing.Size(127, 50);
-            this.btnPhuTung.TabIndex = 3;
-            this.btnPhuTung.Text = "DS Phụ tùng";
-            this.btnPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPhuTung.UseVisualStyleBackColor = false;
-            this.btnPhuTung.Click += new System.EventHandler(this.btnPhuTung_Click);
-            // 
-            // btnAddHDN
-            // 
-            this.btnAddHDN.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAddHDN.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAddHDN.BorderColor = System.Drawing.Color.Empty;
-            this.btnAddHDN.BorderThickness = 1.5F;
-            this.btnAddHDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddHDN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddHDN.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddHDN.Location = new System.Drawing.Point(3, 3);
-            this.btnAddHDN.Name = "btnAddHDN";
-            this.btnAddHDN.Size = new System.Drawing.Size(128, 50);
-            this.btnAddHDN.TabIndex = 3;
-            this.btnAddHDN.Text = "+ Thêm HDN";
-            this.btnAddHDN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddHDN.UseVisualStyleBackColor = false;
-            this.btnAddHDN.Click += new System.EventHandler(this.btnAddHDN_Click);
+            this.panel7.BackColor = System.Drawing.SystemColors.Control;
+            this.panel7.Location = new System.Drawing.Point(255, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(64, 40);
+            this.panel7.TabIndex = 9;
             // 
             // fKhoPhuTung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 869);
-            this.Controls.Add(this.panelHDN);
             this.Controls.Add(this.panelDS);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panelHDN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fKhoPhuTung";
             this.Text = "fKho";
@@ -1166,8 +1124,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.cmsKho.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhuTung)).EndInit();
             this.panelDS.ResumeLayout(false);
@@ -1211,9 +1167,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtSearchBar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbOrder;
         private System.Windows.Forms.ContextMenuStrip cmsKho;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;

@@ -15,6 +15,10 @@ namespace BLL
         {
             datYeuCauDAL = new DatYeuCauDAL();
         }
+        public string LayMaKhachLonNhat()
+        {
+            return datYeuCauDAL.LayMaKhachLonNhat();
+        }
         public List<DatYeuCauDTO> GetListYeuCau()
         {
             return datYeuCauDAL.GetListYeuCau();

@@ -13,9 +13,25 @@ namespace DAL
     public class DatYeuCauDAL
     {
 
+        public string LayMaKhachLonNhat()
+        {
+            string query = "SELECT TOP 1 MaKhachHang from KHACHHANG order by MaKhachHang desc";
+
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow row = dataTable.Rows[0];
+                return row["MaKhachHang"].ToString();
+            }
+
+            return null;
+        }
+
         public List<DatYeuCauDTO> GetListYeuCau()
         {
-            string query = "select MaSuaChua, TenKhachHang, MaXe, NguyenNhan, NgaySua,YEUCAUSUACHUA.MaKhachHang,DiaChi,SoDienThoai from YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang";
+            string query = "select MaSuaChua, TenKhachHang, MaXe, NguyenNhan, NgaySua,YEUCAUSUACHUA.MaKhachHang,DiaChi,SoDienThoai " +
+                "from YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang order by NgaySua desc";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             List<DatYeuCauDTO> listYeuCau = new List<DatYeuCauDTO>();
@@ -41,8 +57,8 @@ namespace DAL
         public List<DatYeuCauDTO> GetTop10YeuCau()
         {
             string query = "select top 10 TenKhachHang, NguyenNhan, NgaySua " +
-    "from YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang " + // thêm khoảng trắng ở đây
-    "order by NgaySua desc";
+                            "from YEUCAUSUACHUA join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang " + // thêm khoảng trắng ở đây
+                            "order by NgaySua desc";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

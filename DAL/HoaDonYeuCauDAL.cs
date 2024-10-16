@@ -25,29 +25,33 @@ namespace DAL
             return (int)result;
         }
 
-        
+        public bool XoaHoaDonTheoMa(string ma)
+        {
+            string query = "DELETE FROM HOADON WHERE MaHoaDon = @ma ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {ma});
+            return result > 0;
+        }
 
         public bool ThemHoaDon(string MaHoaDon, string MaNhanVien, string MaPhuTung, string MaSuaChua,
-            DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien)
+            DateTime NgayIn, string GiaiPhap, int SoLuong, decimal TongTien, string MaKhachHang)
         {
-            string query = "exec addHoaDon @mahoadon , @manhanvien , @maphutung , @masuachua , @ngayin , @giaiphap , @soluong , @tongtien ";
+            string query = "exec addHoaDon @mahoadon , @manhanvien , @maphutung , @masuachua , @ngayin , @giaiphap , @soluong , @tongtien , @makhachhang ";
             int result = DataProvider.Instance.ExecuteNonQuery(query,new object[] { (object)MaHoaDon ?? DBNull.Value,MaNhanVien,MaPhuTung
-                ,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien});
+                ,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien,MaKhachHang });
             return result > 0;
 
         }
-        public string GetMaHoaDon(string MaSuaChua)
+        public string GetMaHoaDon()
         {
-            string query = "SELECT MaHoaDon FROM HoaDon WHERE MaSuaChua = @masuachua ";
+            string query = "SELECT TOP 1 MaHoaDon FROM HOADON ORDER BY MaHoaDon DESC";
 
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { MaSuaChua });
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
 
             if (dataTable.Rows.Count > 0) 
             {
                 DataRow row = dataTable.Rows[0]; 
                 return row["MaHoaDon"].ToString(); 
             }
-
             return null; 
         }
 
@@ -102,10 +106,9 @@ namespace DAL
 
         public List<HoaDonYeuCauDTO> LayDSHoaDon()
         {
-            string query = "select MaHoaDon, TenKhachHang, MaNhanVien, NgayIn, GiaiPhap, sum(TongTien) as ThanhTien" +
-                " from HOADON join YEUCAUSUACHUA on HOADON.MaSuaChua = YEUCAUSUACHUA.MaSuaChua " +
-                " join KHACHHANG on YEUCAUSUACHUA.MaKhachHang = KHACHHANG.MaKhachHang " +
-                "group by MaHoaDon, TenKhachHang, MaNhanVien, NgayIn, GiaiPhap";
+            string query = "SELECT MaHoaDon, MaKhachHang, MaNhanVien, NgayIn, GiaiPhap, SUM(TongTien) as ThanhTien " +
+                "FROM HOADON " +
+                "GROUP BY MaHoaDon, MaKhachHang, MaNhanVien, NgayIn, GiaiPhap";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             List<HoaDonYeuCauDTO> listYeuCau = new List<HoaDonYeuCauDTO>();
@@ -113,7 +116,7 @@ namespace DAL
             {
                 HoaDonYeuCauDTO hoaDonYeuCauDTO = new HoaDonYeuCauDTO(
                     row["MaHoaDon"].ToString(),
-                    row["TenKhachHang"].ToString(),
+                    row["MaKhachHang"].ToString(),
                     row["MaNhanVien"].ToString(),
                     DateTime.Parse(row["NgayIn"].ToString()),
                     row["GiaiPhap"].ToString(),

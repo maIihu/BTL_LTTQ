@@ -176,6 +176,9 @@
     <Compile Include="Login\fSignup.Designer.cs">
       <DependentUpon>fSignup.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="fBase.resx">
       <DependentUpon>fBase.cs</DependentUpon>
     </EmbeddedResource>

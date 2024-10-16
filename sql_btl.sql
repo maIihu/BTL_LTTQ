@@ -71,7 +71,7 @@ CREATE TABLE [dbo].[HOADON](
 	[MaHoaDon] [nvarchar](10) NOT NULL,
 	[MaNhanVien] [nvarchar](10) NOT NULL,
 	[MaPhuTung] [nvarchar](10) NOT NULL,
-	[MaSuaChua] [nvarchar](10) NOT NULL,
+	[MaKhachHang] [nvarchar](10) NOT NULL,
 	[NgayIn] [date] NOT NULL,
 	[GiaiPhap] [nvarchar](100) NOT NULL,
 	[SoLuong] [int] NULL,
@@ -84,9 +84,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[HOADON]  WITH CHECK ADD  CONSTRAINT [FK_HOADON_YEUCAUSUACHUA] FOREIGN KEY([MaSuaChua])
-REFERENCES [dbo].[YEUCAUSUACHUA] ([MaSuaChua])
-GO
+--ALTER TABLE [dbo].[HOADON]  WITH CHECK ADD  CONSTRAINT [FK_HOADON_YEUCAUSUACHUA] FOREIGN KEY([MaSuaChua])
+--REFERENCES [dbo].[YEUCAUSUACHUA] ([MaSuaChua])
+--GO
 
 ALTER TABLE [dbo].[HOADON] CHECK CONSTRAINT [FK_HOADON_YEUCAUSUACHUA]
 GO
@@ -973,11 +973,4 @@ insert into YEUCAUSUACHUA(MaSuaChua,MaXe,MaKhachHang,NgaySua,NguyenNhan) values
 ('MSC099', 'MX099', 'MK099', '2023-04-09', N'Hệ thống đèn hậu bị mờ'),
 ('MSC100', 'MX100', 'MK100', '2023-04-10', N'Rò rỉ dầu phanh');
 
-insert into HOADON (MaHoaDon,MaNhanVien,MaPhuTung,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien) values
-('HD001', 'MNV001', 'MPT001', 'MSC001', '2023-09-01', N'Bảo dưỡng định kỳ xe máy',4, NULL),
-('HD002', 'MNV002', 'MPT002', 'MSC002', '2023-09-02', N'Thay nhớt và lọc gió',5,NULL),
-('HD003', 'MNV003', 'MPT003', 'MSC003', '2023-09-03', N'Thay phanh xe',2 ,NULL),
-('HD004', 'MNV004', 'MPT004', 'MSC004', '2023-09-04', N'Sửa chữa hệ thống đèn xe',4 ,NULL),
-('HD005', 'MNV005', 'MPT005', 'MSC005', '2023-09-05', N'Thay bugi', 4,NULL),
-('HD006', 'MNV006', 'MPT006', 'MSC006', '2023-09-06', N'Sửa chữa hệ thống làm mát',4,NULL),
-('HD001', 'MNV007', 'MPT003', 'MSC007', '2023-09-07', N'Thay lốp xe',4,NULL)
+

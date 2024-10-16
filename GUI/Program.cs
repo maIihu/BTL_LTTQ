@@ -16,7 +16,13 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fBase("MNV002"));
+            //Application.Run(new fLoad("Login"));
+
+            
+             Application.Run(new fBase("MNV001"));
+            
+
+
         }
     }
 }

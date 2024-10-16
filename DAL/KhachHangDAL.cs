@@ -59,7 +59,7 @@ namespace DAL
         }
         public List<KhachHangDTO> GetCustomerList()
         {
-            string query = "SELECT * FROM KHACHHANG";
+            string query = "SELECT * FROM KHACHHANG ORDER BY MaKhachHang DESC";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             List<KhachHangDTO> dsKhachHang = new List<KhachHangDTO>();

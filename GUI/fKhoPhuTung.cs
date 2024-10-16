@@ -58,7 +58,6 @@ namespace GUI
             SetupPanelHDN();
 
             btnPhuTung_Click(this, EventArgs.Empty);
-            cmbOrder.SelectedIndex = 0;
         }
         public void HienThiDSHoaDonNhap()
         {
@@ -571,10 +570,6 @@ namespace GUI
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel2, 15, BorderColor, BorderThickness, e);
-        }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
