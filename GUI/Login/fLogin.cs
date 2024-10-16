@@ -148,8 +148,8 @@ namespace GUI
 
         private void loginButton_MouseLeave(object sender, EventArgs e)
         {
-            loginButton.ForeColor = Color.Black;
-            loginButton.BackColor = Color.FromArgb(210, 224, 251);
+            loginButton.ForeColor = Color.White;
+            loginButton.BackColor = Color.FromArgb(11, 87, 208);
         }
 
 
@@ -198,7 +198,7 @@ namespace GUI
             if (!isUsernameUp)
             {
                 lbUsername.AutoSize = true;
-                if (lbUsername.Location.Y > -11)
+                if (lbUsername.Location.Y > -14)
                 {
                     lbUsername.Location = new Point(lbUsername.Location.X, lbUsername.Location.Y - 1);
                 }
@@ -238,7 +238,7 @@ namespace GUI
             if (!isPasswordUp)
             {
                 lbPassword.AutoSize = true;
-                if (lbPassword.Location.Y > -11)
+                if (lbPassword.Location.Y > -14)
                 {
                     lbPassword.Location = new Point(lbPassword.Location.X, lbPassword.Location.Y - 1);
                 }
@@ -247,7 +247,7 @@ namespace GUI
                     timerPassword.Stop();
                     pnPassword.Controls.Remove(lbPassword);
                     pnLogin.Controls.Add(lbPassword);
-                    lbPassword.Location = new Point(35, 140);
+                    lbPassword.Location = new Point(35, 145);
                     lbPassword.BringToFront();
                     txtPassword.Focus();
                     isPasswordUp = true;
@@ -256,7 +256,7 @@ namespace GUI
             else
             {
                 
-                if (lbPassword.Location.Y < 160)
+                if (lbPassword.Location.Y < 165)
                 {
                     lbPassword.Location = new Point(lbPassword.Location.X, lbPassword.Location.Y + 1);
 
@@ -283,12 +283,34 @@ namespace GUI
         }
         private void pnPassword_Paint(object sender, PaintEventArgs e)
         {
-            int thickness = 1;
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            using (Pen pen = new Pen(borderColor, thickness))
+            // Độ bo góc và độ dày của viền
+            int borderRadius = 20;  // Độ bo góc (tùy chỉnh)
+            int borderThickness = 2; // Độ dày của viền
+
+            // Tạo GraphicsPath để vẽ bo góc
+            GraphicsPath path = new GraphicsPath();
+            Rectangle rect = new Rectangle(0, 0, pnPassword.Width - 1, pnPassword.Height - 1);
+            int radius = borderRadius;
+
+            // Thêm các góc bo tròn vào GraphicsPath
+            path.AddArc(rect.X, rect.Y, radius, radius, 180, 90); // Góc trên trái
+            path.AddArc(rect.X + rect.Width - radius, rect.Y, radius, radius, 270, 90); // Góc trên phải
+            path.AddArc(rect.X + rect.Width - radius, rect.Y + rect.Height - radius, radius, radius, 0, 90); // Góc dưới phải
+            path.AddArc(rect.X, rect.Y + rect.Height - radius, radius, radius, 90, 90); // Góc dưới trái
+            path.CloseFigure();
+
+            // Fill màu nền cho Panel
+            e.Graphics.FillPath(new SolidBrush(pnPassword.BackColor), path);
+
+            // Vẽ border nếu BorderThickness > 0
+            if (borderThickness > 0)
             {
-                Rectangle rect = new Rectangle(0, 0, pnUsername.ClientSize.Width - 1, pnUsername.ClientSize.Height - 1);
-                e.Graphics.DrawRectangle(pen, rect);
+                using (Pen pen = new Pen(borderColor, borderThickness))
+                {
+                    e.Graphics.DrawPath(pen, path);
+                }
             }
         }
 

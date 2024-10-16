@@ -57,7 +57,7 @@
             this.pnLogin.Controls.Add(this.pnUsername);
             this.pnLogin.Controls.Add(this.chkBoxShowpassword);
             this.pnLogin.Controls.Add(this.loginButton);
-            this.pnLogin.Location = new System.Drawing.Point(200, 175);
+            this.pnLogin.Location = new System.Drawing.Point(200, 150);
             this.pnLogin.Name = "pnLogin";
             this.pnLogin.Size = new System.Drawing.Size(400, 400);
             this.pnLogin.TabIndex = 1;
@@ -65,19 +65,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(148, 20);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(137, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 45);
+            this.label1.Size = new System.Drawing.Size(127, 54);
             this.label1.TabIndex = 35;
             this.label1.Text = "Login";
             // 
             // pnPassword
             // 
-            this.pnPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnPassword.Controls.Add(this.lbPassword);
             this.pnPassword.Controls.Add(this.txtPassword);
-            this.pnPassword.Location = new System.Drawing.Point(25, 150);
+            this.pnPassword.Location = new System.Drawing.Point(25, 155);
             this.pnPassword.Name = "pnPassword";
             this.pnPassword.Size = new System.Drawing.Size(350, 40);
             this.pnPassword.TabIndex = 34;
@@ -89,7 +88,7 @@
             this.lbPassword.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.Location = new System.Drawing.Point(10, 9);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(280, 22);
+            this.lbPassword.Size = new System.Drawing.Size(330, 22);
             this.lbPassword.TabIndex = 37;
             this.lbPassword.Text = "Password";
             this.lbPassword.Click += new System.EventHandler(this.lbPassword_Click);
@@ -128,7 +127,7 @@
             this.lbUsername.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lbUsername.Location = new System.Drawing.Point(10, 9);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(280, 22);
+            this.lbUsername.Size = new System.Drawing.Size(330, 22);
             this.lbUsername.TabIndex = 31;
             this.lbUsername.Text = "Username";
             this.lbUsername.Click += new System.EventHandler(this.lbUsername_Click);
@@ -152,7 +151,7 @@
             // 
             this.chkBoxShowpassword.AutoSize = true;
             this.chkBoxShowpassword.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.chkBoxShowpassword.Location = new System.Drawing.Point(50, 200);
+            this.chkBoxShowpassword.Location = new System.Drawing.Point(40, 200);
             this.chkBoxShowpassword.Name = "chkBoxShowpassword";
             this.chkBoxShowpassword.Size = new System.Drawing.Size(129, 24);
             this.chkBoxShowpassword.TabIndex = 11;
@@ -172,9 +171,9 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(70, 260);
+            this.loginButton.Location = new System.Drawing.Point(50, 250);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(250, 40);
+            this.loginButton.Size = new System.Drawing.Size(300, 50);
             this.loginButton.TabIndex = 4;
             this.loginButton.TabStop = false;
             this.loginButton.Text = "Login";
@@ -186,7 +185,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.LOGO1;
-            this.pictureBox1.Location = new System.Drawing.Point(325, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(325, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
