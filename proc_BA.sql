@@ -83,7 +83,8 @@ BEGIN
     DECLARE @lasthoadon NVARCHAR(25), 
             @numberPart INT, 
             @maHD NVARCHAR(25),
-            @maxe NVARCHAR(10)
+            @maxe NVARCHAR(10),
+			@sodienthoai nvarchar(10)
 
     -- Nếu @mahoadon là NULL, tạo mã mới
     IF @mahoadon IS NULL
@@ -117,8 +118,9 @@ BEGIN
     END
 
     -- Thêm dữ liệu vào bảng HOADON
+	set @sodienthoai = (select SoDienThoai from KHACHHANG where MaKhachHang = @makhachhang)
     INSERT INTO HOADON(MaHoaDon, MaNhanVien, MaPhuTung, MaKhachHang, NgayIn, GiaiPhap, SoLuong, TongTien)
-    VALUES (@maHD, @manhanvien, @maphutung, @makhachhang, @ngayin, @giaiphap, @soluong, @tongtien);
+    VALUES (@maHD, @manhanvien, @maphutung, @sodienthoai, @ngayin, @giaiphap, @soluong, @tongtien);
 
     -- Xóa bản ghi trong bảng YEUCAUSUACHUA
     SET @maxe = (SELECT MaXe FROM YEUCAUSUACHUA WHERE MaSuaChua = @masuachua);

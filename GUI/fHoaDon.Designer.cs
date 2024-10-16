@@ -134,7 +134,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 23);
+            this.label1.Size = new System.Drawing.Size(42, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Show:";
             // 
@@ -151,7 +151,7 @@
             "Order2"});
             this.cmbOrder.Location = new System.Drawing.Point(64, 16);
             this.cmbOrder.Name = "cmbOrder";
-            this.cmbOrder.Size = new System.Drawing.Size(108, 29);
+            this.cmbOrder.Size = new System.Drawing.Size(108, 25);
             this.cmbOrder.TabIndex = 0;
             // 
             // panel3
@@ -243,25 +243,25 @@
             this.cmsItemXoa});
             this.cmsHoaDon.Name = "cmsXeMay";
             this.cmsHoaDon.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsHoaDon.Size = new System.Drawing.Size(126, 76);
+            this.cmsHoaDon.Size = new System.Drawing.Size(113, 70);
             // 
             // cmsItemChiTiet
             // 
             this.cmsItemChiTiet.Name = "cmsItemChiTiet";
-            this.cmsItemChiTiet.Size = new System.Drawing.Size(125, 24);
+            this.cmsItemChiTiet.Size = new System.Drawing.Size(112, 22);
             this.cmsItemChiTiet.Text = "Chi tiết";
             // 
             // cmsItemSua
             // 
             this.cmsItemSua.Name = "cmsItemSua";
-            this.cmsItemSua.Size = new System.Drawing.Size(125, 24);
+            this.cmsItemSua.Size = new System.Drawing.Size(112, 22);
             this.cmsItemSua.Text = "Sửa";
             this.cmsItemSua.Click += new System.EventHandler(this.cmsItemSua_Click);
             // 
             // cmsItemXoa
             // 
             this.cmsItemXoa.Name = "cmsItemXoa";
-            this.cmsItemXoa.Size = new System.Drawing.Size(125, 24);
+            this.cmsItemXoa.Size = new System.Drawing.Size(112, 22);
             this.cmsItemXoa.Text = "Xóa";
             this.cmsItemXoa.Click += new System.EventHandler(this.cmsItemXoa_Click);
             // 
@@ -282,7 +282,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label2.Location = new System.Drawing.Point(59, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(259, 37);
+            this.label2.Size = new System.Drawing.Size(202, 30);
             this.label2.TabIndex = 22;
             this.label2.Text = "Danh sách hóa đơn";
             // 
@@ -296,7 +296,7 @@
             // 
             // TenKhachHang
             // 
-            this.TenKhachHang.HeaderText = "Mã khách hàng";
+            this.TenKhachHang.HeaderText = "Số điện thoại";
             this.TenKhachHang.MinimumWidth = 6;
             this.TenKhachHang.Name = "TenKhachHang";
             this.TenKhachHang.ReadOnly = true;
