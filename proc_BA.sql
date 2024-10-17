@@ -128,11 +128,11 @@ BEGIN
     DELETE FROM XEMAY WHERE MaXe = @maxe;
 
     -- Kiểm tra xem khách hàng có còn yêu cầu sửa chữa nào không
-    IF NOT EXISTS (SELECT 1 FROM YEUCAUSUACHUA WHERE MaKhachHang = @makhachhang)
-    BEGIN
+    --IF NOT EXISTS (SELECT 1 FROM YEUCAUSUACHUA WHERE MaKhachHang = @makhachhang)
+    --BEGIN
         -- Nếu khách hàng không còn yêu cầu sửa chữa nào, xóa khách hàng
-        DELETE FROM KHACHHANG WHERE MaKhachHang = @makhachhang;
-    END
+      --  DELETE FROM KHACHHANG WHERE MaKhachHang = @makhachhang;
+    --END
 
     -- Kiểm tra lỗi và thực hiện commit hoặc rollback
     IF @@ERROR = 0
