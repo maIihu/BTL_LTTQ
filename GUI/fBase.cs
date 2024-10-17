@@ -25,9 +25,39 @@ namespace GUI
             this.idLogin = tenDangNhap;
             _nhanVienBLL = new NhanVienBLL();
         }
+        private void MakePictureBoxRound(PictureBox pictureBox)
+        {
+            // Tạo Bitmap với kích thước bằng với PictureBox
+            Bitmap bm = new Bitmap(pictureBox.Width, pictureBox.Height);
+
+            // Vẽ vào Bitmap
+            using (Graphics g = Graphics.FromImage(bm))
+            {
+                // Bật chế độ smoothing để chống răng cưa
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Tạo hình ellipse với kích thước PictureBox
+                using (System.Drawing.Drawing2D.GraphicsPath circle = new System.Drawing.Drawing2D.GraphicsPath())
+                {
+                    circle.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height);
+
+                    // Đặt vùng cắt
+                    pictureBox.Region = new Region(circle);
+
+                    // Vẽ hình ảnh lên với hình ellipse
+                    g.SetClip(circle);
+                    g.DrawImage(pictureBox.Image, 0, 0, pictureBox.Width, pictureBox.Height);
+                }
+            }
+
+            // Gán lại hình ảnh đã xử lý cho PictureBox
+            pictureBox.Image = bm;
+        }
 
         private void fBase_Load(object sender, EventArgs e)
         {
+            MakePictureBoxRound(pictureBox1);
+
             RoundedControlHelper.SetRoundedCorners(pnTrangChu, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnKho, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnXe, 20, true, true, true, true);
@@ -44,7 +74,7 @@ namespace GUI
             picNhanVien.Image = Properties.Resources.alt1;
 
 
-            forms = new Form[7];
+            forms = new Form[8];
             forms[0] = new fTrangChu(idLogin);
             forms[1] = new fKhoPhuTung(idLogin);
             forms[2] = new fXeMay(idLogin);
@@ -52,12 +82,14 @@ namespace GUI
             forms[4] = new fYeuCau(idLogin);
             forms[5] = new fHoaDon(idLogin);    
             forms[6] = new fNhanVien(idLogin);
+            forms[7] = new fTaiKhoan(idLogin);
 
             btnTrangChu_Click(sender, e);
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.FromArgb(210, 224, 251), Properties.Resources.grid2, FontStyle.Bold);
 
             lbTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
             if (idLogin.Contains("MNV")) lbChucVu.Text = "Nhân viên";
+            if (idLogin.Contains("QL")) lbChucVu.Text = "Quản lý";
         }
         private async void ShowForm(int index)
         {
@@ -95,6 +127,7 @@ namespace GUI
             pn.BackColor = cl;
             pic.Image = img;
         }
+
         // BEGIN TRANGCHU
         private void pnTrangChu_MouseEnter(object sender, EventArgs e)
         {
@@ -486,6 +519,22 @@ namespace GUI
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
             changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+        }
+
+        private void btnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (activeBtn == btnTaiKhoan) return;
+            ShowForm(7);
+            lbTitle.Text = "Hồ sơ";
+            activeBtn = btnTaiKhoan;
+            changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
+            changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
+            changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
+            changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
+            changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
+            changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
+            changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
+
         }
 
         // END NHANVIEN

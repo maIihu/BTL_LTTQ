@@ -15,7 +15,32 @@ namespace BLL
         }    
         public string TimNhanVienTheoMa(string maNV)
         {
-            return _nhanVienDAL.TimNhanVienTheoMa(maNV);
+            return _nhanVienDAL.TimTenNhanVienTheoMa(maNV);
         }
+        public string TimTrinhDoTheoMa(string maNV)
+        {
+            return _nhanVienDAL.TimTrinhDoNhanVien(maNV);
+        }
+        public string TimNgaySinh(string maNV)
+        {
+            return _nhanVienDAL.TimNgaySinhNhanVien(maNV);
+        }
+        public string TimGioiTinh(string maNV)
+        {
+            return _nhanVienDAL.TimGioiTinh(maNV);
+        }
+        public string TimSoDienThoai(string maNV)
+        {
+            return _nhanVienDAL.TimSoDienThoai(maNV);
+        }
+        public string TimNgayBatDau(string maNV)
+        {
+            return _nhanVienDAL.TimNgayBatDau(maNV);
+        }
+        public string TimDiaChi(string maNV)
+        {
+            return _nhanVienDAL.TimDiaChi(maNV);
+        }
+        
     }
 }
