@@ -385,6 +385,7 @@
     <None Include="Resources\avatar-trang-1.jpg" />
     <None Include="Resources\defaultImage.bmp" />
     <None Include="Resources\defaultImage.png" />
+    <None Include="Resources\defaultImage.jpg" />
     <Content Include="Resources\page_info_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <Content Include="Resources\page_info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
     <Content Include="Resources\person_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />

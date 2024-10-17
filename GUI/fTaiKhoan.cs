@@ -24,7 +24,7 @@ namespace GUI
             ImageChanged?.Invoke(newImage);
             SaveImageToProjectResources(newImage);
         }
-        public void LoadUserImage(int userId)
+        public void LoadUserImage(string userId)
         {
             string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages"); 
             string imagePath = Path.Combine(folderPath, $"UserImage_{userId}.png"); 
