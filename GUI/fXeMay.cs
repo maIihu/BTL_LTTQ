@@ -31,7 +31,7 @@ namespace GUI
         private bool addNewClicked = false, thongTinReveal = false, updateClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
 
-        private Size defaultDGVSize = new Size(1060, 402 + 227 - 80), smallerDGVSize = new Size(738, 402 + 227 - 80);
+        private Size defaultDGVSize = new Size(1060, 517 + 227 - 80), smallerDGVSize = new Size(738, 402 + 227 - 80);
         private int rowIndex = -1;
         public fXeMay(string idLogin)
         {
@@ -39,7 +39,7 @@ namespace GUI
 
             panelThongTin.Visible = false;
 
-            panelThongTin.Location = new Point(763, posA.Y);
+            panelThongTin.Location = new Point(790, posA.Y);
 
             _xeMayBLL = new XeMayBLL();
 
@@ -384,10 +384,6 @@ namespace GUI
             DrawRoundedPanel(panel5, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel6, 15, BorderColor, BorderThickness, e);
-        }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
@@ -503,11 +499,6 @@ namespace GUI
             panelThongTin.Visible = false;
             thongTinReveal = false;
             await AnimateDataGridView2(defaultDGVSize.Width);
-        }
-
-        private void dgvXeMay_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void txtSearchBar_Leave(object sender, EventArgs e)

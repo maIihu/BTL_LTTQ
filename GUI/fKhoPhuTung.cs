@@ -588,7 +588,7 @@ namespace GUI
 
         private void panel8_Paint(object sender, PaintEventArgs e)
         {
-            DrawRoundedPanel(panel18, 15, BorderColor, BorderThickness, e);
+            DrawRoundedPanel(panel8, 15, BorderColor, BorderThickness, e);
         }
 
         private void panel9_Paint(object sender, PaintEventArgs e)

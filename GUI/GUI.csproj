@@ -143,6 +143,12 @@
     <Compile Include="fNhanVien.Designer.cs">
       <DependentUpon>fNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="fTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTaiKhoan.Designer.cs">
+      <DependentUpon>fTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="fYeuCau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fNhanVien.resx">
       <DependentUpon>fNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTaiKhoan.resx">
+      <DependentUpon>fTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fYeuCau.resx">
       <DependentUpon>fYeuCau.cs</DependentUpon>
@@ -314,6 +323,8 @@
     <None Include="Resources\unchecked.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user-square1.png" />
+    <None Include="Resources\user-square.png" />
     <None Include="Resources\trophy-star.png" />
     <None Include="Resources\trophy-star %282%29.png" />
     <None Include="Resources\trophy-star %281%29.png" />
@@ -370,6 +381,8 @@
     <None Include="Resources\MX001.png" />
     <None Include="Resources\Bg.png" />
     <None Include="Resources\arrow-left-small.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\avatar-trang-1.jpg" />
     <Content Include="Resources\page_info_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
     <Content Include="Resources\page_info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
     <Content Include="Resources\person_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />
