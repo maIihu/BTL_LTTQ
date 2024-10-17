@@ -547,7 +547,7 @@ namespace GUI
                         }
                     }
                     
-                        preIndex = e.RowIndex;
+                    preIndex = e.RowIndex;
                     
                     dgvYeuCau.BringToFront();
                     maXeChon = dgvYeuCau.Rows[e.RowIndex].Cells["MaXe"].Value.ToString();

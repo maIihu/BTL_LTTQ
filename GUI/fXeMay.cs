@@ -312,7 +312,7 @@ namespace GUI
         {
 
         }
-
+        int preIndex = -1;
         private async void dgvXeMay_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -334,8 +334,27 @@ namespace GUI
                 }
                 else if (e.ColumnIndex != dgvXeMay.Columns["Actions"].Index)
                 {
+                    if (panelThongTin.Visible == true)
+                    {
+                        if (preIndex == e.RowIndex)
+                        {
+                            panelThongTin.Visible = false;
+                            thongTinReveal = false;
+                            await AnimateDataGridView2(defaultDGVSize.Width);
+                            return;
+                        }
+                    }
+
+                    preIndex = e.RowIndex;
+
                     dgvXeMay.BringToFront();
                     await ToggleThongTin();
+                    lblMaXe.Text = dgvXeMay.Rows[e.RowIndex].Cells["MaXe"].Value.ToString();
+                    txtTenXe.Text = dgvXeMay.Rows[e.RowIndex].Cells["TenXe"].Value.ToString();
+                    txtSoMay.Text = dgvXeMay.Rows[e.RowIndex].Cells["SoMay"].Value.ToString();
+                    txtSoKhung.Text = dgvXeMay.Rows[e.RowIndex].Cells["SoKhung"].Value.ToString();
+                    txtBienSo.Text = dgvXeMay.Rows[e.RowIndex].Cells["BienSo"].Value.ToString();
+                    txtMaMau.Text = dgvXeMay.Rows[e.RowIndex].Cells["MaMau"].Value.ToString();
                 }
             }
         }
@@ -499,6 +518,11 @@ namespace GUI
             panelThongTin.Visible = false;
             thongTinReveal = false;
             await AnimateDataGridView2(defaultDGVSize.Width);
+        }
+
+        private void dgvXeMay_CellBorderStyleChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void txtSearchBar_Leave(object sender, EventArgs e)
