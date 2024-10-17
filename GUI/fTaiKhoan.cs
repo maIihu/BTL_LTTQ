@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,37 @@ namespace GUI
 {
     public partial class fTaiKhoan : Form
     {
+        public event Action<Image> ImageChanged; 
+
+        private void UpdateImage(Image newImage)
+        {
+            pictureBoxAvt.Image = newImage;
+            // Kích hoạt sự kiện để thông báo hình ảnh đã thay đổi
+            ImageChanged?.Invoke(newImage);
+            SaveImageToProjectResources(newImage);
+        }
+        public void LoadUserImage(int userId)
+        {
+            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages"); 
+            string imagePath = Path.Combine(folderPath, $"UserImage_{userId}.png"); 
+
+            if (File.Exists(imagePath))
+            {
+                pictureBoxAvt.Image = Image.FromFile(imagePath); // Hiển thị ảnh
+            }
+            else
+            {
+                // Hiển thị ảnh mặc định nếu không có ảnh
+                pictureBoxAvt.Image = Properties.Resources.defaultImage;
+            }
+        }
+
+
+
         string idLogin;
         NhanVienBLL _nhanVienBLL;
         bool _isAdmin;
 
-        string conn = "Data Source=MHung\\SQLEXPRESS;Initial Catalog=KT;Integrated Security=True";
         OpenFileDialog openFileDialog;
         string[] filePaths;
         string[] fileNames;
@@ -28,6 +55,7 @@ namespace GUI
             InitializeComponent();
             this.idLogin = idLogin;
             _nhanVienBLL = new NhanVienBLL();
+            LoadUserImage(idLogin);
         }
         private void ChangeBackgroundColor(Button btn, Panel pn,  Color cl)
         {
@@ -263,17 +291,42 @@ namespace GUI
         }
 
         private void btnTaiAnh_Click(object sender, EventArgs e)
-        {           
+        {
             openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "All | *.*"; // định dạng file  "All | *.*"; 
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Chỉ lọc các định dạng ảnh
             openFileDialog.Multiselect = true;
             openFileDialog.Title = "Open";
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                filePaths = openFileDialog.FileNames; 
-                fileNames = openFileDialog.SafeFileNames; 
-                pictureBoxAvt.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[0]);
+                filePaths = openFileDialog.FileNames;
+                fileNames = openFileDialog.SafeFileNames;
+
+                // Hiển thị ảnh đầu tiên trong PictureBox
+                pictureBoxAvt.Image = System.Drawing.Image.FromFile(filePaths[0]);
+
+                UpdateImage(Image.FromFile(openFileDialog.FileName));
+
             }
         }
+        private void SaveImageToProjectResources(Image image)
+        {
+            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages"); 
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath); 
+            }
+
+            string filePath = Path.Combine(folderPath, $"UserImage_{idLogin}.png"); 
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath); 
+            }
+
+            image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png); 
+        }
+
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,21 @@ namespace GUI
             InitializeComponent();
             this.idLogin = tenDangNhap;
             _nhanVienBLL = new NhanVienBLL();
+            LoadUserImage(idLogin);
+        }
+        public void LoadUserImage(string userId)
+        {
+            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages");
+            string imagePath = Path.Combine(folderPath, $"UserImage_{userId}.png");
+
+            if (File.Exists(imagePath))
+            {
+                pictureBox1.Image = Image.FromFile(imagePath); 
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.defaultImage;
+            }
         }
         private void MakePictureBoxRound(PictureBox pictureBox)
         {
@@ -114,11 +130,19 @@ namespace GUI
                 forms[index].TopLevel = false;
                 pnPage.Controls.Add(forms[index]);
                 forms[index].Dock = DockStyle.Fill;
+                if (forms[index] is fTaiKhoan taiKhoanForm)
+                {
+                    taiKhoanForm.ImageChanged += OnImageChanged; // Đăng ký sự kiện
+                }
                 forms[index].Show();
                 pnPage.Update();
             }
         }
-
+        private void OnImageChanged(Image newImage)
+        {
+            // Cập nhật hình ảnh trong fBase
+            pictureBox1.Image = newImage; // Giả sử bạn có pictureBox1 trong fBase
+        }
 
         private void changeBackgroundColor(Button btn, Panel pn, PictureBox pic, Color cl, Image img, FontStyle fs)
         {
@@ -521,12 +545,19 @@ namespace GUI
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
 
-        private void btnTaiKhoan_Click(object sender, EventArgs e)
+
+
+        private void pictureBox1_DpiChangedAfterParent(object sender, EventArgs e)
         {
-            if (activeBtn == btnTaiKhoan) return;
+
+        }
+        
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            //if (activeBtn == btnTaiKhoan) return;
             ShowForm(7);
             lbTitle.Text = "Hồ sơ";
-            activeBtn = btnTaiKhoan;
+            //activeBtn = btnTaiKhoan;
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
@@ -534,7 +565,6 @@ namespace GUI
             changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
-
         }
 
         // END NHANVIEN
