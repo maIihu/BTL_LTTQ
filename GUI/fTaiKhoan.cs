@@ -10,37 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace GUI
 {
     public partial class fTaiKhoan : Form
     {
         public event Action<Image> ImageChanged; 
-
-        private void UpdateImage(Image newImage)
-        {
-            pictureBoxAvt.Image = newImage;
-            // Kích hoạt sự kiện để thông báo hình ảnh đã thay đổi
-            ImageChanged?.Invoke(newImage);
-            SaveImageToProjectResources(newImage);
-        }
-        public void LoadUserImage(string userId)
-        {
-            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages"); 
-            string imagePath = Path.Combine(folderPath, $"UserImage_{userId}.png"); 
-
-            if (File.Exists(imagePath))
-            {
-                pictureBoxAvt.Image = Image.FromFile(imagePath); // Hiển thị ảnh
-            }
-            else
-            {
-                // Hiển thị ảnh mặc định nếu không có ảnh
-                pictureBoxAvt.Image = Properties.Resources.defaultImage;
-            }
-        }
-
-
 
         string idLogin;
         NhanVienBLL _nhanVienBLL;
@@ -55,7 +31,6 @@ namespace GUI
             InitializeComponent();
             this.idLogin = idLogin;
             _nhanVienBLL = new NhanVienBLL();
-            LoadUserImage(idLogin);
         }
         private void ChangeBackgroundColor(Button btn, Panel pn,  Color cl)
         {
@@ -77,11 +52,10 @@ namespace GUI
             RoundedControlHelper.SetRoundedCorners(pnXemHoSo, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnSuaHoSo, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnDoiMatKhau, 20, true, true, true, true);
-
             pnSua.Visible = false;
             pnButton.Visible = false;   
             pnDoiMK.Visible = false;
-            MakePictureBoxRound(pictureBoxAvt);
+            MakePictureBoxRound(pictureBox1);
             MakePanelRounded(panel7, 22);
             MakePanelRounded(panel8, 22);
             MakePanelRounded(panel9, 22);
@@ -93,7 +67,7 @@ namespace GUI
             MakePanelRounded(panel16, 22);
             MakePanelRounded(panel11, 22);
             MakePanelRounded(panel17, 22);
-
+            LoadImage(idLogin);
             txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
             txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
             txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
@@ -292,39 +266,77 @@ namespace GUI
 
         private void btnTaiAnh_Click(object sender, EventArgs e)
         {
-            openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"; // Chỉ lọc các định dạng ảnh
-            openFileDialog.Multiselect = true;
-            openFileDialog.Title = "Open";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                filePaths = openFileDialog.FileNames;
-                fileNames = openFileDialog.SafeFileNames;
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedImagePath = openFileDialog.FileName;
+                    string resourcePath = $@"..\..\Resources\ImageAvatar\";
+                    string destinationPath = Path.Combine(resourcePath, $"{idLogin}.jpg");
 
-                // Hiển thị ảnh đầu tiên trong PictureBox
-                pictureBoxAvt.Image = System.Drawing.Image.FromFile(filePaths[0]);
+                    if (!Directory.Exists(resourcePath))
+                    {
+                        Directory.CreateDirectory(resourcePath);
+                    }
+                    if (pictureBox1.Image != null)
+                    {
+                        pictureBox1.Image.Dispose();
+                        pictureBox1.Image = null;
+                    }
 
-                UpdateImage(Image.FromFile(openFileDialog.FileName));
+                    try
+                    {
+                        File.Copy(selectedImagePath, destinationPath, true);
 
+                        LoadImage(idLogin);
+                    }
+                    catch (IOException ioEx)
+                    {
+                        MessageBox.Show($"Error copying file: {ioEx.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                    }
+                }
             }
         }
-        private void SaveImageToProjectResources(Image image)
+        private void LoadImage(string foodID)
         {
-            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages"); 
-            if (!Directory.Exists(folderPath))
+            string resourcePath = $@"..\..\Resources\ImageAvatar\";
+            string imagePath = Path.Combine(resourcePath, $"{foodID}.jpg");
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            if (File.Exists(imagePath))
             {
-                Directory.CreateDirectory(folderPath); 
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(fs);
+                    ImageChanged?.Invoke(pictureBox1.Image);
+                    // pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
             }
-
-            string filePath = Path.Combine(folderPath, $"UserImage_{idLogin}.png"); 
-
-            if (File.Exists(filePath))
+            else
             {
-                File.Delete(filePath); 
-            }
 
-            image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png); 
+                string defaultImagePath = Path.Combine(resourcePath, "default.jpg");
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream stream = new FileStream(defaultImagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(stream);
+                    ImageChanged?.Invoke(pictureBox1.Image);
+                    //pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
+            }
         }
 
 

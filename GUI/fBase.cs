@@ -25,22 +25,44 @@ namespace GUI
             InitializeComponent();
             this.idLogin = tenDangNhap;
             _nhanVienBLL = new NhanVienBLL();
-            LoadUserImage(idLogin);
+            LoadImage(idLogin);
         }
-        public void LoadUserImage(string userId)
-        {
-            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserImages");
-            string imagePath = Path.Combine(folderPath, $"UserImage_{userId}.png");
 
+        private void LoadImage(string foodID)
+        {
+            string resourcePath = $@"..\..\Resources\ImageAvatar\";
+            string imagePath = Path.Combine(resourcePath, $"{foodID}.jpg");
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             if (File.Exists(imagePath))
             {
-                pictureBox1.Image = Image.FromFile(imagePath); 
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(fs);
+                   // pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
             }
             else
             {
-                pictureBox1.Image = Properties.Resources.defaultImage;
+
+                string defaultImagePath = Path.Combine(resourcePath, "default.jpg");
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream stream = new FileStream(defaultImagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(stream);
+                    //pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
             }
         }
+
         private void MakePictureBoxRound(PictureBox pictureBox)
         {
             // Tạo Bitmap với kích thước bằng với PictureBox
@@ -72,7 +94,7 @@ namespace GUI
 
         private void fBase_Load(object sender, EventArgs e)
         {
-            MakePictureBoxRound(pictureBox1);
+            /MakePictureBoxRound(pictureBox1);
 
             RoundedControlHelper.SetRoundedCorners(pnTrangChu, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnKho, 20, true, true, true, true);
@@ -132,7 +154,7 @@ namespace GUI
                 forms[index].Dock = DockStyle.Fill;
                 if (forms[index] is fTaiKhoan taiKhoanForm)
                 {
-                    taiKhoanForm.ImageChanged += OnImageChanged; // Đăng ký sự kiện
+                    taiKhoanForm.ImageChanged += OnImageChanged; 
                 }
                 forms[index].Show();
                 pnPage.Update();
@@ -140,8 +162,15 @@ namespace GUI
         }
         private void OnImageChanged(Image newImage)
         {
-            // Cập nhật hình ảnh trong fBase
-            pictureBox1.Image = newImage; // Giả sử bạn có pictureBox1 trong fBase
+            if (pictureBox1 != null)
+            {
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                pictureBox1.Image = newImage;
+            }
         }
 
         private void changeBackgroundColor(Button btn, Panel pn, PictureBox pic, Color cl, Image img, FontStyle fs)
