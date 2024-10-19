@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -64,6 +65,7 @@ namespace GUI
                 txtNgayBatDau.Text = dtpNgayBatDau.Value.ToString("dddd, dd/MM/yyyy");
             };
             SetupDataGridView();
+            
         }
 
         private void fNhanVien_Load(object sender, EventArgs e)
@@ -442,7 +444,6 @@ namespace GUI
 
                 string maChon = dgvNhanVien.Rows[e.RowIndex].Cells["TenNV"].Value.ToString();
                 nhanVienChon = maChon;
-
                 lblTenNhanVien.Text = _nhanVienBLL.TimNhanVienTheoMa(maChon);
                  
                 lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(maChon);

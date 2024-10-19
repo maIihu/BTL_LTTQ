@@ -39,22 +39,12 @@
             this.NgayIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaiPhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnNhapHoaDon = new GUI.CustomDesign.CustomButton();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnDSHoaDon = new GUI.CustomDesign.CustomButton();
             this.cmsHoaDon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDSHoaDon = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel4.SuspendLayout();
             this.cmsHoaDon.SuspendLayout();
             this.panelDSHoaDon.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +80,7 @@
             this.ThanhTien});
             this.dgvHoaDon.GridColor = System.Drawing.SystemColors.Control;
             this.dgvHoaDon.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvHoaDon.Location = new System.Drawing.Point(19, 66);
+            this.dgvHoaDon.Location = new System.Drawing.Point(18, 56);
             this.dgvHoaDon.MultiSelect = false;
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.ReadOnly = true;
@@ -106,7 +96,7 @@
             this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.RowTemplate.Height = 30;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1060, 632);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1095, 720);
             this.dgvHoaDon.TabIndex = 2;
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
@@ -160,84 +150,6 @@
             this.ThanhTien.ReadOnly = true;
             this.ThanhTien.Width = 125;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Window;
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.btnNhapHoaDon);
-            this.panel3.Location = new System.Drawing.Point(973, 26);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(163, 56);
-            this.panel3.TabIndex = 6;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Enabled = false;
-            this.pictureBox3.Image = global::GUI.Properties.Resources.file_download;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 16);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnNhapHoaDon
-            // 
-            this.btnNhapHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnNhapHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnNhapHoaDon.BorderThickness = 1.5F;
-            this.btnNhapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhapHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhapHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNhapHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnNhapHoaDon.Name = "btnNhapHoaDon";
-            this.btnNhapHoaDon.Size = new System.Drawing.Size(157, 50);
-            this.btnNhapHoaDon.TabIndex = 4;
-            this.btnNhapHoaDon.Text = "Nhập hóa đơn";
-            this.btnNhapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhapHoaDon.UseVisualStyleBackColor = false;
-            this.btnNhapHoaDon.Click += new System.EventHandler(this.btnNhapHoaDon_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Enabled = false;
-            this.pictureBox4.Image = global::GUI.Properties.Resources.address_book;
-            this.pictureBox4.Location = new System.Drawing.Point(13, 16);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox4.TabIndex = 5;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Window;
-            this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Controls.Add(this.btnDSHoaDon);
-            this.panel4.Location = new System.Drawing.Point(792, 26);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(153, 56);
-            this.panel4.TabIndex = 7;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // btnDSHoaDon
-            // 
-            this.btnDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnDSHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnDSHoaDon.BorderThickness = 1.5F;
-            this.btnDSHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDSHoaDon.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDSHoaDon.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDSHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnDSHoaDon.Name = "btnDSHoaDon";
-            this.btnDSHoaDon.Size = new System.Drawing.Size(147, 50);
-            this.btnDSHoaDon.TabIndex = 3;
-            this.btnDSHoaDon.Text = "DS hóa đơn";
-            this.btnDSHoaDon.UseVisualStyleBackColor = false;
-            // 
             // cmsHoaDon
             // 
             this.cmsHoaDon.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -247,19 +159,19 @@
             this.cmsItemXoa});
             this.cmsHoaDon.Name = "cmsXeMay";
             this.cmsHoaDon.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsHoaDon.Size = new System.Drawing.Size(181, 70);
+            this.cmsHoaDon.Size = new System.Drawing.Size(113, 48);
             // 
             // cmsItemChiTiet
             // 
             this.cmsItemChiTiet.Name = "cmsItemChiTiet";
-            this.cmsItemChiTiet.Size = new System.Drawing.Size(180, 22);
+            this.cmsItemChiTiet.Size = new System.Drawing.Size(112, 22);
             this.cmsItemChiTiet.Text = "Chi tiết";
             this.cmsItemChiTiet.Click += new System.EventHandler(this.cmsItemChiTiet_Click);
             // 
             // cmsItemXoa
             // 
             this.cmsItemXoa.Name = "cmsItemXoa";
-            this.cmsItemXoa.Size = new System.Drawing.Size(180, 22);
+            this.cmsItemXoa.Size = new System.Drawing.Size(112, 22);
             this.cmsItemXoa.Text = "Xóa";
             this.cmsItemXoa.Click += new System.EventHandler(this.cmsItemXoa_Click);
             // 
@@ -268,9 +180,9 @@
             this.panelDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
             this.panelDSHoaDon.Controls.Add(this.label2);
             this.panelDSHoaDon.Controls.Add(this.dgvHoaDon);
-            this.panelDSHoaDon.Location = new System.Drawing.Point(48, 118);
+            this.panelDSHoaDon.Location = new System.Drawing.Point(27, 18);
             this.panelDSHoaDon.Name = "panelDSHoaDon";
-            this.panelDSHoaDon.Size = new System.Drawing.Size(1088, 725);
+            this.panelDSHoaDon.Size = new System.Drawing.Size(1130, 833);
             this.panelDSHoaDon.TabIndex = 4;
             // 
             // label2
@@ -289,19 +201,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 869);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panelDSHoaDon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fHoaDon";
             this.Text = "fHoaDon";
             this.Load += new System.EventHandler(this.fHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.cmsHoaDon.ResumeLayout(false);
             this.panelDSHoaDon.ResumeLayout(false);
             this.panelDSHoaDon.PerformLayout();
@@ -311,12 +216,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvHoaDon;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private CustomDesign.CustomButton btnNhapHoaDon;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private CustomDesign.CustomButton btnDSHoaDon;
         private System.Windows.Forms.ContextMenuStrip cmsHoaDon;
         private System.Windows.Forms.Panel panelDSHoaDon;
         private System.Windows.Forms.Label label2;

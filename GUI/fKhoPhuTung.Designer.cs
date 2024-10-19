@@ -201,7 +201,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_search_32;
             this.pictureBox1.Location = new System.Drawing.Point(12, 15);
-            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Name = "pictureBox";
             this.pictureBox1.Size = new System.Drawing.Size(27, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
