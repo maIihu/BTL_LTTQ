@@ -188,19 +188,8 @@ namespace GUI
                 }
             }
         }
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel4, 15, BorderColor, BorderThickness, e);
-        }
 
  
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel3, 15, BorderColor, BorderThickness, e);
-        }
-
-
         #region
 
         private void ListHoaDon()
