@@ -52,7 +52,6 @@
             this.picTrangChu = new System.Windows.Forms.PictureBox();
             this.btnTrangChu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnTaiKhoan = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbChucVu = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
@@ -419,7 +418,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.btnTaiKhoan);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -427,16 +425,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1184, 96);
             this.panel2.TabIndex = 1;
-            // 
-            // btnTaiKhoan
-            // 
-            this.btnTaiKhoan.Location = new System.Drawing.Point(808, 29);
-            this.btnTaiKhoan.Name = "btnTaiKhoan";
-            this.btnTaiKhoan.Size = new System.Drawing.Size(75, 23);
-            this.btnTaiKhoan.TabIndex = 2;
-            this.btnTaiKhoan.Text = "Tài khoản";
-            this.btnTaiKhoan.UseVisualStyleBackColor = true;
-            this.btnTaiKhoan.Click += new System.EventHandler(this.btnTaiKhoan_Click);
             // 
             // panel4
             // 
@@ -453,7 +441,7 @@
             // 
             this.lbChucVu.AutoSize = true;
             this.lbChucVu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChucVu.Location = new System.Drawing.Point(82, 37);
+            this.lbChucVu.Location = new System.Drawing.Point(79, 31);
             this.lbChucVu.Name = "lbChucVu";
             this.lbChucVu.Size = new System.Drawing.Size(49, 19);
             this.lbChucVu.TabIndex = 2;
@@ -463,7 +451,7 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lbTen.Location = new System.Drawing.Point(75, 13);
+            this.lbTen.Location = new System.Drawing.Point(75, 10);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(165, 21);
             this.lbTen.TabIndex = 1;
@@ -473,12 +461,14 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = global::GUI.Properties.Resources.avatar_trang_1;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            this.pictureBox1.DpiChangedAfterParent += new System.EventHandler(this.pictureBox1_DpiChangedAfterParent);
             // 
             // panel3
             // 
@@ -590,6 +580,5 @@
         private System.Windows.Forms.Panel pnHoaDon;
         private System.Windows.Forms.PictureBox picHoaDon;
         private System.Windows.Forms.Button btnHoaDon;
-        private System.Windows.Forms.Button btnTaiKhoan;
     }
 }

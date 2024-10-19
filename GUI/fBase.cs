@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -24,7 +25,44 @@ namespace GUI
             InitializeComponent();
             this.idLogin = tenDangNhap;
             _nhanVienBLL = new NhanVienBLL();
+            LoadImage(idLogin);
         }
+
+        private void LoadImage(string foodID)
+        {
+            string resourcePath = $@"..\..\Resources\ImageAvatar\";
+            string imagePath = Path.Combine(resourcePath, $"{foodID}.jpg");
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            if (File.Exists(imagePath))
+            {
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(fs);
+                   // pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
+            }
+            else
+            {
+
+                string defaultImagePath = Path.Combine(resourcePath, "default.jpg");
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream stream = new FileStream(defaultImagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(stream);
+                    //pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
+            }
+        }
+
         private void MakePictureBoxRound(PictureBox pictureBox)
         {
             // Tạo Bitmap với kích thước bằng với PictureBox
@@ -115,11 +153,26 @@ namespace GUI
                 forms[index].TopLevel = false;
                 pnPage.Controls.Add(forms[index]);
                 forms[index].Dock = DockStyle.Fill;
+                if (forms[index] is fTaiKhoan taiKhoanForm)
+                {
+                    taiKhoanForm.ImageChanged += OnImageChanged; 
+                }
                 forms[index].Show();
                 pnPage.Update();
             }
         }
-
+        private void OnImageChanged(Image newImage)
+        {
+            if (pictureBox1 != null)
+            {
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                pictureBox1.Image = newImage;
+            }
+        }
 
         private void changeBackgroundColor(Button btn, Panel pn, PictureBox pic, Color cl, Image img, FontStyle fs)
         {
@@ -522,12 +575,19 @@ namespace GUI
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
 
-        private void btnTaiKhoan_Click(object sender, EventArgs e)
+
+
+        private void pictureBox1_DpiChangedAfterParent(object sender, EventArgs e)
         {
-            if (activeBtn == btnTaiKhoan) return;
+
+        }
+        
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            //if (activeBtn == btnTaiKhoan) return;
             ShowForm(7);
             lbTitle.Text = "Hồ sơ";
-            activeBtn = btnTaiKhoan;
+            //activeBtn = btnTaiKhoan;
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
@@ -535,7 +595,6 @@ namespace GUI
             changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
-
         }
 
         // END NHANVIEN

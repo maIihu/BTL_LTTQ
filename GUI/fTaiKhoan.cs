@@ -4,21 +4,24 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace GUI
 {
     public partial class fTaiKhoan : Form
     {
+        public event Action<Image> ImageChanged; 
+
         string idLogin;
         NhanVienBLL _nhanVienBLL;
         bool _isAdmin;
 
-        string conn = "Data Source=MHung\\SQLEXPRESS;Initial Catalog=KT;Integrated Security=True";
         OpenFileDialog openFileDialog;
         string[] filePaths;
         string[] fileNames;
@@ -49,11 +52,10 @@ namespace GUI
             RoundedControlHelper.SetRoundedCorners(pnXemHoSo, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnSuaHoSo, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnDoiMatKhau, 20, true, true, true, true);
-
             pnSua.Visible = false;
             pnButton.Visible = false;   
             pnDoiMK.Visible = false;
-            MakePictureBoxRound(pictureBoxAvt);
+            MakePictureBoxRound(pictureBox1);
             MakePanelRounded(panel7, 22);
             MakePanelRounded(panel8, 22);
             MakePanelRounded(panel9, 22);
@@ -65,7 +67,7 @@ namespace GUI
             MakePanelRounded(panel16, 22);
             MakePanelRounded(panel11, 22);
             MakePanelRounded(panel17, 22);
-
+            LoadImage(idLogin);
             txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
             txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
             txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
@@ -263,17 +265,80 @@ namespace GUI
         }
 
         private void btnTaiAnh_Click(object sender, EventArgs e)
-        {           
-            openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "All | *.*"; // định dạng file  "All | *.*"; 
-            openFileDialog.Multiselect = true;
-            openFileDialog.Title = "Open";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                filePaths = openFileDialog.FileNames; 
-                fileNames = openFileDialog.SafeFileNames; 
-                pictureBoxAvt.Image = System.Drawing.Image.FromFile(openFileDialog.FileNames[0]);
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedImagePath = openFileDialog.FileName;
+                    string resourcePath = $@"..\..\Resources\ImageAvatar\";
+                    string destinationPath = Path.Combine(resourcePath, $"{idLogin}.jpg");
+
+                    if (!Directory.Exists(resourcePath))
+                    {
+                        Directory.CreateDirectory(resourcePath);
+                    }
+                    if (pictureBox1.Image != null)
+                    {
+                        pictureBox1.Image.Dispose();
+                        pictureBox1.Image = null;
+                    }
+
+                    try
+                    {
+                        File.Copy(selectedImagePath, destinationPath, true);
+
+                        LoadImage(idLogin);
+                    }
+                    catch (IOException ioEx)
+                    {
+                        MessageBox.Show($"Error copying file: {ioEx.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                    }
+                }
             }
         }
+        private void LoadImage(string foodID)
+        {
+            string resourcePath = $@"..\..\Resources\ImageAvatar\";
+            string imagePath = Path.Combine(resourcePath, $"{foodID}.jpg");
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            if (File.Exists(imagePath))
+            {
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream fs = new FileStream(imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(fs);
+                    ImageChanged?.Invoke(pictureBox1.Image);
+                    // pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
+            }
+            else
+            {
+
+                string defaultImagePath = Path.Combine(resourcePath, "default.jpg");
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+                using (FileStream stream = new FileStream(defaultImagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    pictureBox1.Image = Image.FromStream(stream);
+                    ImageChanged?.Invoke(pictureBox1.Image);
+                    //pictureBox1.Image = Resize(originalImage, pictureBox1.Width, pictureBox1.Height);
+                }
+            }
+        }
+
+
     }
 }
