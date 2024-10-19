@@ -185,13 +185,11 @@ namespace GUI
             dgvKhachHang.Location = targetPosition;
             dgvKhachHang.Height = targetHeight;
 
-            btnAddNew.Enabled = true;
         }
 
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            btnAddNew.Enabled = false;
             ToggleAddNew();
         }
 
@@ -273,11 +271,6 @@ namespace GUI
             DrawRoundedPanel(panel5, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel6, 15, BorderColor, BorderThickness, e);
-        }
-
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel7, 15, BorderColor, BorderThickness, e);
@@ -292,11 +285,6 @@ namespace GUI
         {
             DrawRoundedPanel(panel9, 15, BorderColor, BorderThickness, e);
         }
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel3, 15, BorderColor, BorderThickness, e);
-        }
-
 
         private void txtSearchBar_Enter(object sender, EventArgs e)
         {
