@@ -91,6 +91,7 @@ namespace GUI
             if (idLogin.Contains("MNV")) lbChucVu.Text = "Nhân viên";
             if (idLogin.Contains("QL")) lbChucVu.Text = "Quản lý";
         }
+
         private async void ShowForm(int index)
         {
             foreach (var form in forms)
