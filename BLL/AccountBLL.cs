@@ -26,7 +26,7 @@ namespace BLL
             {
                 return "Tai khoan khong hop le";
             }
-            if(!Regex.IsMatch(user.MatKhau, passwordPattern))
+            if (!Regex.IsMatch(user.MatKhau, passwordPattern))
             {
                 return "Mat khau khong hop le";
             }
@@ -40,11 +40,13 @@ namespace BLL
         {
             return _accountDAL.CheckUsernameInDatabase(username);
         }
-        public bool InsertAccountInDatabase(AccountDTO user) {
+        public bool InsertAccountInDatabase(AccountDTO user)
+        {
             return _accountDAL.AddAccount(user);
         }
         public bool ChangePassword(string username, string password)
         {
-            return _accountDAL.ChangePassword(username, password);  
+            return _accountDAL.ChangePassword(username, password);
         }
+    }
 }
