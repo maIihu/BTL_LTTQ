@@ -94,7 +94,7 @@ namespace GUI
 
         private void fBase_Load(object sender, EventArgs e)
         {
-            /MakePictureBoxRound(pictureBox1);
+            MakePictureBoxRound(pictureBox1);
 
             RoundedControlHelper.SetRoundedCorners(pnTrangChu, 20, true, true, true, true);
             RoundedControlHelper.SetRoundedCorners(pnKho, 20, true, true, true, true);
