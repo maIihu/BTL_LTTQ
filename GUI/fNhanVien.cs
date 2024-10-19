@@ -267,8 +267,7 @@ namespace GUI
             panelThongTin.Visible = true;
             panelThemNhanVien.Visible = false;
         }
-
-        private void lblThemNhanVien_Click(object sender, EventArgs e)
+        private void ResetTextBox()
         {
             txtHoTen.Text = string.Empty;
             txtNgaySinh.Text = string.Empty;
@@ -278,8 +277,17 @@ namespace GUI
             txtNgayBatDau.Text = string.Empty;
             txtSoDienThoai.Text = string.Empty;
             txtMa.Text = string.Empty;
+        }
+        private void lblThemNhanVien_Click(object sender, EventArgs e)
+        {           
+            ResetTextBox();
+            if (!_isAdmin)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             panelThemNhanVien.Visible = true;
             panelThongTin.Visible = false;
+
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -331,7 +339,7 @@ namespace GUI
             if (themNv)
             {
                 MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblThemNhanVien_Click(sender, e);
+                ResetTextBox();
                 HienThiDSNhaVien();
             }
         }

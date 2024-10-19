@@ -19,7 +19,7 @@ namespace GUI
 
         private NhanVienBLL _nhanVienBLL;
         private Form[] forms;
-        private Button activeBtn;
+        private Control activeControl;
         public fBase(string tenDangNhap)
         {
             InitializeComponent();
@@ -191,7 +191,7 @@ namespace GUI
 
         private void pnTrangChu_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnTrangChu)
+            if (activeControl != btnTrangChu)
                 changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu,
                     Color.White, Properties.Resources.grid1, FontStyle.Regular);
         }
@@ -204,7 +204,7 @@ namespace GUI
 
         private void btnTrangChu_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnTrangChu)
+            if (activeControl != btnTrangChu)
                 changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu,
                 Color.White, Properties.Resources.grid1, FontStyle.Regular);
         }
@@ -217,17 +217,17 @@ namespace GUI
 
         private void picTrangChu_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnTrangChu)
+            if (activeControl != btnTrangChu)
                 changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu,
                 Color.White, Properties.Resources.grid1, FontStyle.Regular);
         }
 
         private void btnTrangChu_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnTrangChu) return;
+            if (activeControl == btnTrangChu) return;
             ShowForm(0);
             lbTitle.Text = "Trang chủ";
-            activeBtn = btnTrangChu;
+            activeControl = btnTrangChu;
 
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
@@ -248,7 +248,7 @@ namespace GUI
 
         private void btnKho_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnKho)
+            if (activeControl != btnKho)
                 changeBackgroundColor(btnKho, pnKho, picKho,
                 Color.White, Properties.Resources.box1, FontStyle.Regular);
         }
@@ -261,7 +261,7 @@ namespace GUI
 
         private void pnKho_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnKho)
+            if (activeControl != btnKho)
                 changeBackgroundColor(btnKho, pnKho, picKho,
                 Color.White, Properties.Resources.box1, FontStyle.Regular);
         }
@@ -274,16 +274,16 @@ namespace GUI
 
         private void picKho_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnKho)
+            if (activeControl != btnKho)
                 changeBackgroundColor(btnKho, pnKho, picKho,
                 Color.White, Properties.Resources.box1, FontStyle.Regular);
         }
         private void btnKho_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnKho) return;
+            if (activeControl == btnKho) return;
             ShowForm(1);
             lbTitle.Text = "Kho phụ tùng";
-            activeBtn = btnKho;
+            activeControl = btnKho;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);
@@ -304,7 +304,7 @@ namespace GUI
 
         private void btnXe_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnXe)
+            if (activeControl != btnXe)
                 changeBackgroundColor(btnXe, pnXe, picXe,
                 Color.White, Properties.Resources.tool1, FontStyle.Regular);
         }
@@ -317,7 +317,7 @@ namespace GUI
 
         private void picXe_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnXe)
+            if (activeControl != btnXe)
                 changeBackgroundColor(btnXe, pnXe, picXe,
                 Color.White, Properties.Resources.tool1, FontStyle.Regular);
         }
@@ -330,16 +330,16 @@ namespace GUI
 
         private void pnXe_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnXe)
+            if (activeControl != btnXe)
                 changeBackgroundColor(btnXe, pnXe, picXe,
                 Color.White, Properties.Resources.tool1, FontStyle.Regular);
         }
         private void btnXe_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnXe) return;
+            if (activeControl == btnXe) return;
             ShowForm(2);
             lbTitle.Text = "Xe máy";
-            activeBtn = btnXe;
+            activeControl = btnXe;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
@@ -361,7 +361,7 @@ namespace GUI
 
         private void btnKhach_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnKhach)
+            if (activeControl != btnKhach)
                 changeBackgroundColor(btnKhach, pnKhach, picKhach,
                 Color.White, Properties.Resources.user1, FontStyle.Regular);
         }
@@ -374,7 +374,7 @@ namespace GUI
 
         private void picKhach_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnKhach)
+            if (activeControl != btnKhach)
                 changeBackgroundColor(btnKhach, pnKhach, picKhach,
                 Color.White, Properties.Resources.user1, FontStyle.Regular);
         }
@@ -387,16 +387,16 @@ namespace GUI
 
         private void pnKhach_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnKhach)
+            if (activeControl != btnKhach)
                 changeBackgroundColor(btnKhach, pnKhach, picKhach,
                 Color.White, Properties.Resources.user1, FontStyle.Regular);
         }
         private void btnKhach_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnKhach) return;
+            if (activeControl == btnKhach) return;
             ShowForm(3);
             lbTitle.Text = "Khách hàng";
-            activeBtn = btnKhach;
+            activeControl = btnKhach;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
@@ -416,7 +416,7 @@ namespace GUI
 
         private void btnYeuCau_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnYeuCau)
+            if (activeControl != btnYeuCau)
                 changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau,
                     Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
@@ -429,7 +429,7 @@ namespace GUI
 
         private void picYeuCau_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnYeuCau)
+            if (activeControl != btnYeuCau)
                 changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau,
                     Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
@@ -442,17 +442,17 @@ namespace GUI
 
         private void pnYeuCau_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnYeuCau)
+            if (activeControl != btnYeuCau)
                 changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau,
                     Color.White, Properties.Resources.cal1, FontStyle.Regular);
         }
 
         public void btnYeuCau_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnYeuCau) return;
+            if (activeControl == btnYeuCau) return;
             ShowForm(4);
             lbTitle.Text = "Yêu cầu sửa chữa";
-            activeBtn = btnYeuCau;
+            activeControl = btnYeuCau;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
@@ -475,7 +475,7 @@ namespace GUI
 
         private void btnHoaDon_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnHoaDon)
+            if (activeControl != btnHoaDon)
                 changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
                     Color.White, Properties.Resources.card1, FontStyle.Regular);
         }
@@ -488,7 +488,7 @@ namespace GUI
 
         private void picHoaDon_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnHoaDon)
+            if (activeControl != btnHoaDon)
                 changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
                     Color.White, Properties.Resources.card1, FontStyle.Regular);
         }
@@ -501,16 +501,16 @@ namespace GUI
 
         private void pnHoaDon_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnHoaDon)
+            if (activeControl != btnHoaDon)
                 changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon,
                     Color.White, Properties.Resources.card1, FontStyle.Regular);
         }
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnHoaDon) return;
+            if (activeControl == btnHoaDon) return;
             ShowForm(5);
             lbTitle.Text = "Hoá đơn";
-            activeBtn = btnHoaDon;
+            activeControl = btnHoaDon;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
@@ -530,7 +530,7 @@ namespace GUI
         }
         private void pnNhanVien_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnNhanVien)
+            if (activeControl != btnNhanVien)
                 changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien,
                 Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
@@ -543,7 +543,7 @@ namespace GUI
 
         private void btnNhanVien_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnNhanVien)
+            if (activeControl != btnNhanVien)
                 changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien,
                 Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
@@ -556,16 +556,16 @@ namespace GUI
 
         private void picNhanVien_MouseLeave(object sender, EventArgs e)
         {
-            if (activeBtn != btnNhanVien)
+            if (activeControl != btnNhanVien)
                 changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien,
                 Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            if (activeBtn == btnNhanVien) return;
+            if (activeControl == btnNhanVien) return;
             ShowForm(6);
             lbTitle.Text = "Nhân viên";
-            activeBtn = btnNhanVien;
+            activeControl = btnNhanVien;
 
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
@@ -584,10 +584,10 @@ namespace GUI
         
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            //if (activeBtn == btnTaiKhoan) return;
+            if (activeControl == pictureBox1) return;
             ShowForm(7);
             lbTitle.Text = "Hồ sơ";
-            //activeBtn = btnTaiKhoan;
+            activeControl = pictureBox1;
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.White, Properties.Resources.grid1, FontStyle.Regular);
             changeBackgroundColor(btnKho, pnKho, picKho, Color.White, Properties.Resources.box1, FontStyle.Regular);
             changeBackgroundColor(btnXe, pnXe, picXe, Color.White, Properties.Resources.tool1, FontStyle.Regular);

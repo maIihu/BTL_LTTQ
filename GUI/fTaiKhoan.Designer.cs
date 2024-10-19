@@ -252,8 +252,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.pnHoSo);
             this.panel3.Controls.Add(this.pnDoiMK);
+            this.panel3.Controls.Add(this.pnHoSo);
             this.panel3.Location = new System.Drawing.Point(20, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 869);
@@ -262,10 +262,10 @@
             // pnHoSo
             // 
             this.pnHoSo.Controls.Add(this.pictureBox1);
-            this.pnHoSo.Controls.Add(this.pnSua);
             this.pnHoSo.Controls.Add(this.pnButton);
-            this.pnHoSo.Controls.Add(this.pnXem);
             this.pnHoSo.Controls.Add(this.pnThongTin);
+            this.pnHoSo.Controls.Add(this.pnSua);
+            this.pnHoSo.Controls.Add(this.pnXem);
             this.pnHoSo.Location = new System.Drawing.Point(16, 0);
             this.pnHoSo.Name = "pnHoSo";
             this.pnHoSo.Size = new System.Drawing.Size(766, 854);
@@ -275,7 +275,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.avatar_trang_1;
             this.pictureBox1.Location = new System.Drawing.Point(70, 50);
-            this.pictureBox1.Name = "pictureBox";
+            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
@@ -738,9 +738,9 @@
             this.txtNhapLaiMk.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNhapLaiMk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNhapLaiMk.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtNhapLaiMk.Location = new System.Drawing.Point(14, 18);
+            this.txtNhapLaiMk.Location = new System.Drawing.Point(5, 15);
             this.txtNhapLaiMk.Name = "txtNhapLaiMk";
-            this.txtNhapLaiMk.Size = new System.Drawing.Size(565, 20);
+            this.txtNhapLaiMk.Size = new System.Drawing.Size(591, 20);
             this.txtNhapLaiMk.TabIndex = 1;
             // 
             // label25
@@ -768,9 +768,9 @@
             this.txtMkMoi.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMkMoi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMkMoi.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtMkMoi.Location = new System.Drawing.Point(14, 18);
+            this.txtMkMoi.Location = new System.Drawing.Point(6, 15);
             this.txtMkMoi.Name = "txtMkMoi";
-            this.txtMkMoi.Size = new System.Drawing.Size(573, 20);
+            this.txtMkMoi.Size = new System.Drawing.Size(589, 20);
             this.txtMkMoi.TabIndex = 1;
             // 
             // label24
@@ -798,9 +798,9 @@
             this.txtMkCu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMkCu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMkCu.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtMkCu.Location = new System.Drawing.Point(14, 18);
+            this.txtMkCu.Location = new System.Drawing.Point(6, 15);
             this.txtMkCu.Name = "txtMkCu";
-            this.txtMkCu.Size = new System.Drawing.Size(565, 20);
+            this.txtMkCu.Size = new System.Drawing.Size(589, 20);
             this.txtMkCu.TabIndex = 1;
             // 
             // label23

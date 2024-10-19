@@ -58,9 +58,9 @@ namespace GUI
             this.lblMaXe = new System.Windows.Forms.Label();
             this.imgXe = new System.Windows.Forms.PictureBox();
             this.panelFooter = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Label();
+            this.btnPrevious = new System.Windows.Forms.Label();
             this.lblShowResult = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrevious = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAddNew = new GUI.CustomDesign.CustomButton();
@@ -380,60 +380,48 @@ namespace GUI
             // 
             // panelFooter
             // 
-            this.panelFooter.Controls.Add(this.lblShowResult);
             this.panelFooter.Controls.Add(this.btnNext);
             this.panelFooter.Controls.Add(this.btnPrevious);
+            this.panelFooter.Controls.Add(this.lblShowResult);
             this.panelFooter.Location = new System.Drawing.Point(31, 750);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Size = new System.Drawing.Size(726, 60);
             this.panelFooter.TabIndex = 24;
             // 
-            // lblShowResult
-            // 
-            this.lblShowResult.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblShowResult.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShowResult.Location = new System.Drawing.Point(592, 7);
-            this.lblShowResult.Name = "lblShowResult";
-            this.lblShowResult.Size = new System.Drawing.Size(96, 40);
-            this.lblShowResult.TabIndex = 0;
-            this.lblShowResult.Text = "6";
-            this.lblShowResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // btnNext
             // 
-            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnNext.AutoSize = true;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnNext.Location = new System.Drawing.Point(555, 10);
+            this.btnNext.Location = new System.Drawing.Point(565, 18);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(35, 35);
-            this.btnNext.TabIndex = 23;
+            this.btnNext.Size = new System.Drawing.Size(25, 25);
+            this.btnNext.TabIndex = 32;
             this.btnNext.Text = ">";
-            this.btnNext.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnPrevious.FlatAppearance.BorderSize = 0;
-            this.btnPrevious.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.btnPrevious.AutoSize = true;
+            this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevious.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnPrevious.Location = new System.Drawing.Point(535, 10);
+            this.btnPrevious.Location = new System.Drawing.Point(495, 18);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(35, 35);
-            this.btnPrevious.TabIndex = 22;
+            this.btnPrevious.Size = new System.Drawing.Size(25, 25);
+            this.btnPrevious.TabIndex = 31;
             this.btnPrevious.Text = "<";
-            this.btnPrevious.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // lblShowResult
+            // 
+            this.lblShowResult.AutoSize = true;
+            this.lblShowResult.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowResult.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblShowResult.Location = new System.Drawing.Point(525, 20);
+            this.lblShowResult.Name = "lblShowResult";
+            this.lblShowResult.Size = new System.Drawing.Size(35, 21);
+            this.lblShowResult.TabIndex = 30;
+            this.lblShowResult.Text = "1/11";
             // 
             // panel3
             // 
@@ -896,7 +884,7 @@ namespace GUI
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_search_32;
             this.pictureBox1.Location = new System.Drawing.Point(12, 15);
-            this.pictureBox1.Name = "pictureBox";
+            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
@@ -954,6 +942,7 @@ namespace GUI
             this.panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgXe)).EndInit();
             this.panelFooter.ResumeLayout(false);
+            this.panelFooter.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelAddNew.ResumeLayout(false);
@@ -1018,9 +1007,6 @@ namespace GUI
         private TextBox txtNgaySua;
         private PictureBox pictureBox2;
         private PictureBox pictureBox4;
-        private Label lblShowResult;
-        private Button btnPrevious;
-        private Button btnNext;
         private DataGridViewTextBoxColumn No;
         private DataGridViewTextBoxColumn TenXe;
         private DataGridViewTextBoxColumn MaXe;
@@ -1051,5 +1037,8 @@ namespace GUI
         private Panel panel21;
         private TextBox txtMaMau;
         private Label label12;
+        private Label btnNext;
+        private Label btnPrevious;
+        private Label lblShowResult;
     }
 }

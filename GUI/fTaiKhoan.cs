@@ -21,16 +21,14 @@ namespace GUI
         string idLogin;
         NhanVienBLL _nhanVienBLL;
         bool _isAdmin;
-
-        OpenFileDialog openFileDialog;
-        string[] filePaths;
-        string[] fileNames;
+        AccountBLL _accountBLL;
 
         public fTaiKhoan(string idLogin)
         {
             InitializeComponent();
             this.idLogin = idLogin;
             _nhanVienBLL = new NhanVienBLL();
+            _accountBLL = new AccountBLL();
         }
         private void ChangeBackgroundColor(Button btn, Panel pn,  Color cl)
         {
@@ -257,6 +255,11 @@ namespace GUI
                 return;
             }
             // update table o day
+            bool changepassword = _accountBLL.ChangePassword(idLogin, mkMoi);
+            if (changepassword)
+            {
+                MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

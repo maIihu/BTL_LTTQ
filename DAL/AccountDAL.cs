@@ -28,5 +28,10 @@ namespace DAL
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { user.TaiKhoan, user.MatKhau });
             return result > 0;
         }
+        public bool ChangePassword(string username, string password) {
+            string query = "UPDATE TAIKHOAN SET MatKhau = @password WHERE TaiKhoan = @taikhoan ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, password });
+            return result > 0;
+        }
     }
 }

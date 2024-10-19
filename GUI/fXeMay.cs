@@ -88,7 +88,7 @@ namespace GUI
             var itemsToShow = allXeMayList.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
             SetUpListXeMay(itemsToShow);
 
-            lblShowResult.Text = $"Page {currentPage}/{totalPages}";
+            lblShowResult.Text = $"{currentPage}/{totalPages}";
         }
 
         private void txtSearchBar_TextChanged(object sender, EventArgs e)
@@ -521,6 +521,16 @@ namespace GUI
         }
 
         private void dgvXeMay_CellBorderStyleChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrevious_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNext_Click_1(object sender, EventArgs e)
         {
 
         }

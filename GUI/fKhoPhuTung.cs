@@ -74,7 +74,7 @@ namespace GUI
             var itemsToShow = listHoaDon.Skip((currentPageHDN - 1) * pageSize).Take(pageSize).ToList();
             ThemDuLieuHoaDon(itemsToShow);
 
-            lblShowResult.Text = $"Page {currentPageHDN}/{totalPagesHDN}";
+            lblShowResult.Text = $"{currentPageHDN}/{totalPagesHDN}";
         }
         private void ThemDuLieuHoaDon(List<HoaDonNhapDTO> dsHoaDonNhap)
         {
@@ -101,7 +101,7 @@ namespace GUI
             var itemsToShow = listPhuTung.Skip((currentPagePT - 1) * pageSize).Take(pageSize).ToList();
             ThemDuLieuPhuTung(itemsToShow);
 
-            lblShowResult.Text = $"Page {currentPagePT}/{totalPagesPT}";
+            lblShowResult.Text = $"{currentPagePT}/{totalPagesPT}";
         }
         private void ThemDuLieuPhuTung(List<PhuTungDTO> dsPhuTung)
         {
@@ -319,7 +319,7 @@ namespace GUI
         }
         private void btnHDN_Click(object sender, EventArgs e)
         {
-            lblShowResult.Text = $"Page {currentPageHDN}/{totalPagesPT}";
+            lblShowResult.Text = $"{currentPageHDN}/{totalPagesPT}";
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -360,7 +360,7 @@ namespace GUI
 
         private void btnPhuTung_Click(object sender, EventArgs e)
         {
-            lblShowResult.Text = $"Page {currentPagePT}/{totalPagesPT}";
+            lblShowResult.Text = $"{currentPagePT}/{totalPagesPT}";
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -655,7 +655,6 @@ namespace GUI
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-
             if(whatIsRunning == "HoaDonNhap" && currentPageHDN < totalPagesHDN)
             {
                 currentPageHDN++;
@@ -680,8 +679,8 @@ namespace GUI
             {
                 currentPagePT--;
                 DisplayCurrentPage_PhuTung();
-            }
-            
+            }        
         }
+
     }
 }

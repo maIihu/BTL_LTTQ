@@ -30,7 +30,6 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private bool addNewClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
-        private int check = 0;
         private string maKhachUpdate = "";
 
         KhachHangBLL _khachHangBLL;

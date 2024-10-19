@@ -43,5 +43,8 @@ namespace BLL
         public bool InsertAccountInDatabase(AccountDTO user) {
             return _accountDAL.AddAccount(user);
         }
-    }
+        public bool ChangePassword(string username, string password)
+        {
+            return _accountDAL.ChangePassword(username, password);  
+        }
 }

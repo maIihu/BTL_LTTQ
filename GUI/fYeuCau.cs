@@ -34,7 +34,6 @@ namespace GUI
         private bool addNewClicked = false, thongTinReveal = false, updateClicked = false;
         private Point posAy = new Point(19, 80), posBy = new Point(19, 227);
         private Size defaultDGVSize = new Size(1060, 402 + 227 - 80), smallerDGVSize = new Size(738, 402 + 227 - 80);
-        private int status = 1;
         private bool isAddNew = true;
         private int rowIndex = -1;
         private Point panelPos = new Point(48, 118);
@@ -787,7 +786,6 @@ namespace GUI
 
                 if (!row.IsNewRow)
                 {
-                    MessageBox.Show(maHoaDon_Chinh);
                     string maPhuTung = row.Cells["Ma"].Value?.ToString();
                     string tenPhuTung = row.Cells["Ten"].Value?.ToString();
                     int soLuong = int.Parse(row.Cells["So"].Value?.ToString() ?? "0");
@@ -798,23 +796,31 @@ namespace GUI
 
                     bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(maHoaDon_Chinh, idLogin, maPhuTung, txtMaSuaChua.Text,
                         ngayIn, txtGiaiPhap.Text, soLuong, thanhTien, maKhach);
-                    MessageBox.Show(maKhach);
                     if (themHd)
                     {
                         maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon();
                         txtMaHoaDon.Text = maHoaDon_Chinh;
                         checkIn++;
-                        MessageBox.Show("Them thanh cong");
+                        
                     }
                     else
                     {
-                        MessageBox.Show("me may ");
+                       
                     }
                 }
             }
-            if (checkIn > 0) _hoaDonYeuCauBLL.XoaYeuCauTheoMa(txtMaKH.Text, txtMaKH.Text);
+            if (checkIn > 0){ 
+                _hoaDonYeuCauBLL.XoaYeuCauTheoMa(txtMaKH.Text, txtMaKH.Text); 
+                MessageBox.Show("Thêm hóa đơn thành công!");
+                btnTroVe_Click(e, new EventArgs());
+            }
         }
 
+        private void btnTroVe_Click(object sender, EventArgs e)
+        {
+            panelHoaDon.Visible = false;
+            panelYeuCau.Visible = true;
+        }
 
         private void panelHoaDon_Paint(object sender, PaintEventArgs e)
         {
