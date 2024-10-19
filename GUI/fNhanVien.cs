@@ -330,6 +330,7 @@ namespace GUI
             {
                 MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblThemNhanVien_Click(sender, e);
+                HienThiDSNhaVien();
             }
         }
 
