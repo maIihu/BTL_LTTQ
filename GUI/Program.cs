@@ -16,10 +16,8 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new fLoad("Login"));
-
-
-            Application.Run(new fBase("QL001"));
+            Application.Run(new fLoad("Login"));
+            //Application.Run(new fBase("QL001"));
 
         }
     }
