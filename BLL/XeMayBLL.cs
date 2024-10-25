@@ -27,9 +27,9 @@ namespace BLL
             _xeMayDAL.ThemXeMay(xeMay);
         }
 
-        public void SuaXeMay(XeMayDTO xeMay)
+        public bool SuaXeMay(XeMayDTO xeMay)
         {
-            _xeMayDAL.SuaXeMay(xeMay);
+            return _xeMayDAL.SuaXeMay(xeMay);
         }
 
         public void XoaXeMay(string maXe)

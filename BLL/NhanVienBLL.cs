@@ -49,5 +49,9 @@ namespace BLL
         public bool ThemNhanVien(NhanVienDTO nhanVienDTO) {
             return _nhanVienDAL.ThemNhanVien(nhanVienDTO);
         }
+        public bool CapNhatThongTin(string maNV, string hoTen, string ngaySinh, string gioiTinh, string diaChi, string sdt)
+        {
+            return _nhanVienDAL.CapNhatThongTin(maNV, hoTen, ngaySinh, gioiTinh, diaChi, sdt);
+        }
     }
 }

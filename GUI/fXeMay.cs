@@ -355,6 +355,7 @@ namespace GUI
                     txtSoKhung.Text = dgvXeMay.Rows[e.RowIndex].Cells["SoKhung"].Value.ToString();
                     txtBienSo.Text = dgvXeMay.Rows[e.RowIndex].Cells["BienSo"].Value.ToString();
                     txtMaMau.Text = dgvXeMay.Rows[e.RowIndex].Cells["MaMau"].Value.ToString();
+                    txtLoaiXe.Text = dgvXeMay.Rows[e.RowIndex].Cells["MaLoai"].Value.ToString();
                 }
             }
         }
@@ -512,13 +513,39 @@ namespace GUI
                 await ToggleThongTin();
             }
         }
-
         private async void btnXong_Click(object sender, EventArgs e)
         {
+            string tx = txtTenXe.Text;
+            string sk = txtSoKhung.Text;
+            string sm = txtSoMay.Text;
+            string bs = txtBienSo.Text;
+            string mm = txtMaMau.Text;
+            string lx = txtLoaiXe.Text;
+
+            if (string.IsNullOrWhiteSpace(tx) || string.IsNullOrWhiteSpace(sk) ||
+                string.IsNullOrWhiteSpace(sm) || string.IsNullOrWhiteSpace(bs) ||
+                string.IsNullOrWhiteSpace(mm) || string.IsNullOrWhiteSpace(lx))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             panelThongTin.Visible = false;
             thongTinReveal = false;
             await AnimateDataGridView2(defaultDGVSize.Width);
+
+            bool capnhat = _xeMayBLL.SuaXeMay(new XeMayDTO(lblMaXe.Text, tx, lx, sk, sm, bs, mm));
+            if (capnhat)
+            {
+                MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowXeMayList();
+            }
+            else
+            {
+               // MessageBox.Show("2");
+            }
         }
+
 
         private void dgvXeMay_CellBorderStyleChanged(object sender, EventArgs e)
         {

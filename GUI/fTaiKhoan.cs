@@ -37,14 +37,32 @@ namespace GUI
         }
         private void MakePictureBoxRound(PictureBox pictureBox)
         {
-            // Tạo một hình ellipse (hình tròn) với kích thước của PictureBox
             System.Drawing.Drawing2D.GraphicsPath circle = new System.Drawing.Drawing2D.GraphicsPath();
             circle.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height);
-
-            // Đặt vùng cắt cho PictureBox
             pictureBox.Region = new Region(circle);
         }
+        private void FillData()
+        {
+            txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+            txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
+            txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
+            txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);
+            txtNgayBatDau.Text = lblNgayBd.Text = _nhanVienBLL.TimNgayBatDau(idLogin);
+            txtNgaySinh.Text = lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(idLogin);
+            txtGioiTinh.Text = lblGioiTinh.Text = _nhanVienBLL.TimGioiTinh(idLogin);
 
+            if (idLogin.Contains("MNV"))
+            {
+                lblChucVu.Text = "Nhân viên";
+                _isAdmin = false;
+            }
+            if (idLogin.Contains("QL"))
+            {
+                lblChucVu.Text = "Quản lý";
+                _isAdmin = true;
+            }
+            txtChucVu.Text = lblChucVu1.Text = lblChucVu.Text;
+        }
         private void fTaiKhoan_Load(object sender, EventArgs e)
         {
             RoundedControlHelper.SetRoundedCorners(pnXemHoSo, 20, true, true, true, true);
@@ -66,23 +84,7 @@ namespace GUI
             MakePanelRounded(panel11, 22);
             MakePanelRounded(panel17, 22);
             LoadImage(idLogin);
-            txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
-            txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
-            txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
-            txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);
-            txtNgayBatDau.Text = lblNgayBd.Text = _nhanVienBLL.TimNgayBatDau(idLogin);
-            txtNgaySinh.Text = lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(idLogin);   
-            txtGioiTinh.Text = lblGioiTinh.Text = _nhanVienBLL.TimGioiTinh(idLogin);
-
-            if (idLogin.Contains("MNV")) { 
-                lblChucVu.Text = "Nhân viên"; 
-                _isAdmin = false; 
-            }
-            if (idLogin.Contains("QL")){ 
-                lblChucVu.Text = "Quản lý"; 
-                _isAdmin = true; 
-            }
-            txtChucVu.Text = lblChucVu1.Text = lblChucVu.Text;
+            FillData();
 
             if (!_isAdmin)
             {
@@ -264,7 +266,17 @@ namespace GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            string ht = txtHoTen.Text;
+            string ns = txtNgaySinh.Text;   
+            string gt = txtGioiTinh.Text;
+            string dc = txtDiaChi.Text; 
+            string sdt = txtSoDienThoai.Text;   
+            bool capnhat = _nhanVienBLL.CapNhatThongTin(idLogin, ht, ns, gt, dc, sdt);
+            if (capnhat)
+            {
+                MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            FillData();
         }
 
         private void btnTaiAnh_Click(object sender, EventArgs e)

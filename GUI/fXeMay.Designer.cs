@@ -103,6 +103,9 @@ namespace GUI
             this.cmsXeMay = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLoaiXe = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelThongTin.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -128,6 +131,7 @@ namespace GUI
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.cmsXeMay.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,7 +152,9 @@ namespace GUI
             // panelThongTin
             // 
             this.panelThongTin.BackColor = System.Drawing.SystemColors.Window;
+            this.panelThongTin.Controls.Add(this.panel2);
             this.panelThongTin.Controls.Add(this.panel21);
+            this.panelThongTin.Controls.Add(this.label1);
             this.panelThongTin.Controls.Add(this.label12);
             this.panelThongTin.Controls.Add(this.panel20);
             this.panelThongTin.Controls.Add(this.label11);
@@ -164,14 +170,14 @@ namespace GUI
             this.panelThongTin.Controls.Add(this.imgXe);
             this.panelThongTin.Location = new System.Drawing.Point(800, 80);
             this.panelThongTin.Name = "panelThongTin";
-            this.panelThongTin.Size = new System.Drawing.Size(313, 630);
+            this.panelThongTin.Size = new System.Drawing.Size(313, 657);
             this.panelThongTin.TabIndex = 24;
             // 
             // panel21
             // 
             this.panel21.BackColor = System.Drawing.SystemColors.Control;
             this.panel21.Controls.Add(this.txtMaMau);
-            this.panel21.Location = new System.Drawing.Point(88, 523);
+            this.panel21.Location = new System.Drawing.Point(88, 488);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(208, 40);
             this.panel21.TabIndex = 18;
@@ -191,7 +197,7 @@ namespace GUI
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(16, 537);
+            this.label12.Location = new System.Drawing.Point(16, 502);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 17);
             this.label12.TabIndex = 19;
@@ -201,7 +207,7 @@ namespace GUI
             // 
             this.panel20.BackColor = System.Drawing.SystemColors.Control;
             this.panel20.Controls.Add(this.txtBienSo);
-            this.panel20.Location = new System.Drawing.Point(88, 465);
+            this.panel20.Location = new System.Drawing.Point(88, 438);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(208, 40);
             this.panel20.TabIndex = 16;
@@ -221,7 +227,7 @@ namespace GUI
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(16, 479);
+            this.label11.Location = new System.Drawing.Point(16, 452);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 17);
             this.label11.TabIndex = 17;
@@ -231,7 +237,7 @@ namespace GUI
             // 
             this.panel19.BackColor = System.Drawing.SystemColors.Control;
             this.panel19.Controls.Add(this.txtSoMay);
-            this.panel19.Location = new System.Drawing.Point(88, 407);
+            this.panel19.Location = new System.Drawing.Point(88, 388);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(208, 40);
             this.panel19.TabIndex = 14;
@@ -251,7 +257,7 @@ namespace GUI
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 421);
+            this.label10.Location = new System.Drawing.Point(16, 402);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 17);
             this.label10.TabIndex = 15;
@@ -261,7 +267,7 @@ namespace GUI
             // 
             this.panel18.BackColor = System.Drawing.SystemColors.Control;
             this.panel18.Controls.Add(this.txtSoKhung);
-            this.panel18.Location = new System.Drawing.Point(88, 349);
+            this.panel18.Location = new System.Drawing.Point(88, 338);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(208, 40);
             this.panel18.TabIndex = 8;
@@ -281,7 +287,7 @@ namespace GUI
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 363);
+            this.label9.Location = new System.Drawing.Point(16, 352);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 17);
             this.label9.TabIndex = 13;
@@ -291,7 +297,7 @@ namespace GUI
             // 
             this.panel16.BackColor = System.Drawing.SystemColors.Control;
             this.panel16.Controls.Add(this.txtTenXe);
-            this.panel16.Location = new System.Drawing.Point(19, 293);
+            this.panel16.Location = new System.Drawing.Point(19, 288);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(275, 40);
             this.panel16.TabIndex = 7;
@@ -311,7 +317,7 @@ namespace GUI
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(16, 264);
+            this.label8.Location = new System.Drawing.Point(16, 259);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 17);
             this.label8.TabIndex = 12;
@@ -338,7 +344,7 @@ namespace GUI
             this.panel17.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel17.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel17.Controls.Add(this.btnXong);
-            this.panel17.Location = new System.Drawing.Point(112, 581);
+            this.panel17.Location = new System.Drawing.Point(107, 596);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(98, 38);
             this.panel17.TabIndex = 10;
@@ -350,7 +356,7 @@ namespace GUI
             this.btnXong.BorderColor = System.Drawing.Color.Empty;
             this.btnXong.BorderThickness = 1.5F;
             this.btnXong.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXong.Location = new System.Drawing.Point(4, 3);
+            this.btnXong.Location = new System.Drawing.Point(4, 2);
             this.btnXong.Name = "btnXong";
             this.btnXong.Size = new System.Drawing.Size(92, 34);
             this.btnXong.TabIndex = 0;
@@ -916,6 +922,35 @@ namespace GUI
             this.toolStripMenuItem2.Text = "Delete";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.Delete_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.txtLoaiXe);
+            this.panel2.Location = new System.Drawing.Point(88, 538);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(208, 40);
+            this.panel2.TabIndex = 20;
+            // 
+            // txtLoaiXe
+            // 
+            this.txtLoaiXe.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLoaiXe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLoaiXe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoaiXe.Location = new System.Drawing.Point(14, 9);
+            this.txtLoaiXe.Name = "txtLoaiXe";
+            this.txtLoaiXe.Size = new System.Drawing.Size(191, 22);
+            this.txtLoaiXe.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 552);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Loại xe";
+            // 
             // fXeMay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -966,6 +1001,8 @@ namespace GUI
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.cmsXeMay.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1040,5 +1077,8 @@ namespace GUI
         private Label btnNext;
         private Label btnPrevious;
         private Label lblShowResult;
+        private Panel panel2;
+        private TextBox txtLoaiXe;
+        private Label label1;
     }
 }

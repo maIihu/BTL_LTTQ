@@ -76,17 +76,19 @@ namespace DAL
 
         public bool SuaXeMay(XeMayDTO xeMay)
         {
-            string query = "UPDATE XeMay SET tenxe = @value2 , loaixe = @value3 , sokhung = @value4 , somay = @value5 , bienso = @value6 , mauxe = @value7 WHERE maxe = @value1 ";
+            string query = "UPDATE XeMay SET tenxe = @value2 , loaixe = @value3 , sokhung = @value4 " +
+                ", somay = @value5 , bienso = @value6 , mamau = @value7 WHERE maxe = @value1 ";
 
             int res = DataProvider.Instance.ExecuteNonQuery(query, new object[]
             {
-                xeMay.MaXe,
+                
                 xeMay.TenXe,
                 xeMay.LoaiXe,
                 xeMay.SoKhung,
                 xeMay.SoMay,
                 xeMay.BienSo,
                 xeMay.MaMau,
+                xeMay.MaXe
             });
 
             return res > 0;

@@ -43,6 +43,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnHoSo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnButton = new System.Windows.Forms.Panel();
+            this.btnXoaAnh = new System.Windows.Forms.Button();
+            this.btnTaiAnh = new System.Windows.Forms.Button();
+            this.pnThongTin = new System.Windows.Forms.Panel();
+            this.lblChucVu1 = new System.Windows.Forms.Label();
             this.pnSua = new System.Windows.Forms.Panel();
             this.btnLuu = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -69,9 +74,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.pnButton = new System.Windows.Forms.Panel();
-            this.btnXoaAnh = new System.Windows.Forms.Button();
-            this.btnTaiAnh = new System.Windows.Forms.Button();
             this.pnXem = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblDiaChi = new System.Windows.Forms.Label();
@@ -81,8 +83,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblChucVu = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.pnThongTin = new System.Windows.Forms.Panel();
-            this.lblChucVu1 = new System.Windows.Forms.Label();
             this.pnDoiMK = new System.Windows.Forms.Panel();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -110,6 +110,8 @@
             this.panel3.SuspendLayout();
             this.pnHoSo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnButton.SuspendLayout();
+            this.pnThongTin.SuspendLayout();
             this.pnSua.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -119,11 +121,9 @@
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.pnButton.SuspendLayout();
             this.pnXem.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.pnThongTin.SuspendLayout();
             this.pnDoiMK.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -252,8 +252,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.pnDoiMK);
             this.panel3.Controls.Add(this.pnHoSo);
+            this.panel3.Controls.Add(this.pnDoiMK);
             this.panel3.Location = new System.Drawing.Point(20, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 869);
@@ -280,6 +280,55 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // pnButton
+            // 
+            this.pnButton.Controls.Add(this.btnXoaAnh);
+            this.pnButton.Controls.Add(this.btnTaiAnh);
+            this.pnButton.Location = new System.Drawing.Point(267, 78);
+            this.pnButton.Name = "pnButton";
+            this.pnButton.Size = new System.Drawing.Size(350, 100);
+            this.pnButton.TabIndex = 9;
+            // 
+            // btnXoaAnh
+            // 
+            this.btnXoaAnh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaAnh.Location = new System.Drawing.Point(200, 30);
+            this.btnXoaAnh.Name = "btnXoaAnh";
+            this.btnXoaAnh.Size = new System.Drawing.Size(130, 40);
+            this.btnXoaAnh.TabIndex = 1;
+            this.btnXoaAnh.Text = "Xóa ảnh";
+            this.btnXoaAnh.UseVisualStyleBackColor = true;
+            // 
+            // btnTaiAnh
+            // 
+            this.btnTaiAnh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaiAnh.Location = new System.Drawing.Point(30, 30);
+            this.btnTaiAnh.Name = "btnTaiAnh";
+            this.btnTaiAnh.Size = new System.Drawing.Size(130, 40);
+            this.btnTaiAnh.TabIndex = 0;
+            this.btnTaiAnh.Text = "Tải ảnh lên";
+            this.btnTaiAnh.UseVisualStyleBackColor = true;
+            this.btnTaiAnh.Click += new System.EventHandler(this.btnTaiAnh_Click);
+            // 
+            // pnThongTin
+            // 
+            this.pnThongTin.Controls.Add(this.lblChucVu1);
+            this.pnThongTin.Controls.Add(this.lblTen);
+            this.pnThongTin.Location = new System.Drawing.Point(277, 83);
+            this.pnThongTin.Name = "pnThongTin";
+            this.pnThongTin.Size = new System.Drawing.Size(300, 100);
+            this.pnThongTin.TabIndex = 8;
+            // 
+            // lblChucVu1
+            // 
+            this.lblChucVu1.AutoSize = true;
+            this.lblChucVu1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChucVu1.Location = new System.Drawing.Point(20, 59);
+            this.lblChucVu1.Name = "lblChucVu1";
+            this.lblChucVu1.Size = new System.Drawing.Size(67, 25);
+            this.lblChucVu1.TabIndex = 2;
+            this.lblChucVu1.Text = "Admin";
             // 
             // pnSua
             // 
@@ -330,7 +379,8 @@
             // 
             this.txtTrinhDo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTrinhDo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTrinhDo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrinhDo.Enabled = false;
+            this.txtTrinhDo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTrinhDo.Location = new System.Drawing.Point(18, 15);
             this.txtTrinhDo.Name = "txtTrinhDo";
             this.txtTrinhDo.Size = new System.Drawing.Size(247, 20);
@@ -360,7 +410,8 @@
             // 
             this.txtNgayBatDau.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNgayBatDau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNgayBatDau.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNgayBatDau.Enabled = false;
+            this.txtNgayBatDau.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNgayBatDau.Location = new System.Drawing.Point(18, 15);
             this.txtNgayBatDau.Name = "txtNgayBatDau";
             this.txtNgayBatDau.Size = new System.Drawing.Size(243, 20);
@@ -420,7 +471,8 @@
             // 
             this.txtChucVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtChucVu.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtChucVu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.Enabled = false;
+            this.txtChucVu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChucVu.Location = new System.Drawing.Point(15, 15);
             this.txtChucVu.Name = "txtChucVu";
             this.txtChucVu.Size = new System.Drawing.Size(220, 20);
@@ -556,36 +608,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Họ và tên";
             // 
-            // pnButton
-            // 
-            this.pnButton.Controls.Add(this.btnXoaAnh);
-            this.pnButton.Controls.Add(this.btnTaiAnh);
-            this.pnButton.Location = new System.Drawing.Point(267, 78);
-            this.pnButton.Name = "pnButton";
-            this.pnButton.Size = new System.Drawing.Size(350, 100);
-            this.pnButton.TabIndex = 9;
-            // 
-            // btnXoaAnh
-            // 
-            this.btnXoaAnh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaAnh.Location = new System.Drawing.Point(200, 30);
-            this.btnXoaAnh.Name = "btnXoaAnh";
-            this.btnXoaAnh.Size = new System.Drawing.Size(130, 40);
-            this.btnXoaAnh.TabIndex = 1;
-            this.btnXoaAnh.Text = "Xóa ảnh";
-            this.btnXoaAnh.UseVisualStyleBackColor = true;
-            // 
-            // btnTaiAnh
-            // 
-            this.btnTaiAnh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaiAnh.Location = new System.Drawing.Point(30, 30);
-            this.btnTaiAnh.Name = "btnTaiAnh";
-            this.btnTaiAnh.Size = new System.Drawing.Size(130, 40);
-            this.btnTaiAnh.TabIndex = 0;
-            this.btnTaiAnh.Text = "Tải ảnh lên";
-            this.btnTaiAnh.UseVisualStyleBackColor = true;
-            this.btnTaiAnh.Click += new System.EventHandler(this.btnTaiAnh_Click);
-            // 
             // pnXem
             // 
             this.pnXem.Controls.Add(this.panel1);
@@ -676,25 +698,6 @@
             this.label11.Size = new System.Drawing.Size(84, 25);
             this.label11.TabIndex = 0;
             this.label11.Text = "Chức vụ";
-            // 
-            // pnThongTin
-            // 
-            this.pnThongTin.Controls.Add(this.lblChucVu1);
-            this.pnThongTin.Controls.Add(this.lblTen);
-            this.pnThongTin.Location = new System.Drawing.Point(277, 83);
-            this.pnThongTin.Name = "pnThongTin";
-            this.pnThongTin.Size = new System.Drawing.Size(300, 100);
-            this.pnThongTin.TabIndex = 8;
-            // 
-            // lblChucVu1
-            // 
-            this.lblChucVu1.AutoSize = true;
-            this.lblChucVu1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChucVu1.Location = new System.Drawing.Point(20, 59);
-            this.lblChucVu1.Name = "lblChucVu1";
-            this.lblChucVu1.Size = new System.Drawing.Size(67, 25);
-            this.lblChucVu1.TabIndex = 2;
-            this.lblChucVu1.Text = "Admin";
             // 
             // pnDoiMK
             // 
@@ -968,6 +971,9 @@
             this.panel3.ResumeLayout(false);
             this.pnHoSo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnButton.ResumeLayout(false);
+            this.pnThongTin.ResumeLayout(false);
+            this.pnThongTin.PerformLayout();
             this.pnSua.ResumeLayout(false);
             this.pnSua.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -986,14 +992,11 @@
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.pnButton.ResumeLayout(false);
             this.pnXem.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.pnThongTin.ResumeLayout(false);
-            this.pnThongTin.PerformLayout();
             this.pnDoiMK.ResumeLayout(false);
             this.pnDoiMK.PerformLayout();
             this.panel17.ResumeLayout(false);

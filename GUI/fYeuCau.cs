@@ -36,7 +36,7 @@ namespace GUI
         private Size defaultDGVSize = new Size(1096, 510 + 227 - 80), smallerDGVSize = new Size(780, 512 + 227 - 80);
         private bool isAddNew = true;
         private int rowIndex = -1;
-        private Point panelPos = new Point(48, 118);
+        private Point panelPos = new Point(27, 34);
 
         int backIndex;
         Dictionary<string, int> soLuongDict = new Dictionary<string, int>();
@@ -190,16 +190,15 @@ namespace GUI
                 System.Reflection.BindingFlags.SetProperty,
                 null, dgvYeuCau, new object[] { true });
 
-            typeof(Panel).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
-                System.Reflection.BindingFlags.SetProperty,
-                null, panelFooter, new object[] { true });
+            //typeof(Panel).InvokeMember("DoubleBuffered",
+            //    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
+            //    System.Reflection.BindingFlags.SetProperty,
+            //    null, panelFooter, new object[] { true });
         }
 
         private void SetupDataGridView()
         {
             dgvYeuCau.Size = defaultDGVSize;
-            panelFooter.Width = defaultDGVSize.Width;
             thongTinReveal = false;
 
             dgvYeuCau.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
@@ -331,7 +330,6 @@ namespace GUI
             for (int i = 0; i < steps; i++)
             {
                 dgvYeuCau.Width -= stepWidth;
-                panelFooter.Width -= stepWidth;
 
                 Application.DoEvents();
 
@@ -339,7 +337,6 @@ namespace GUI
             }
 
             dgvYeuCau.Width = targerWidth;
-            panelFooter.Width = targerWidth;
         }
 
         private async void btnAddNew_Click(object sender, EventArgs e)
@@ -815,7 +812,7 @@ namespace GUI
 
         private void panelHoaDon_Paint(object sender, PaintEventArgs e)
         {
-
+            DrawRoundedPanel(panelHoaDon, 15, BorderColor, BorderThickness, e);
         }
 
         private void dgvPhuTung_CellClick(object sender, DataGridViewCellEventArgs e)

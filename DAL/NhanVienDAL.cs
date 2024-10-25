@@ -71,6 +71,19 @@ namespace DAL
             return result != null ? result.ToString() : null;
         }
 
+        public bool CapNhatThongTin(string maNV, string hoTen, string ngaySinh, string gioiTinh, string diaChi, string sdt)
+        {
+            string query = "UPDATE NHANVIEN SET TenNhanVien = @hoten , NgaySinh = @ngaysinh , " +
+                "GioiTinh = @gioitinh , DiaChi = @diachi , SoDienThoai = @sdt WHERE MaNhanVien = @manv";
+            DateTime ngaySinhDate;
+            if (!DateTime.TryParse(ngaySinh, out ngaySinhDate))
+            {
+                return false;
+            }
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoTen, ngaySinhDate, gioiTinh, diaChi, sdt, maNV });
+            return result > 0;
+        }
+
         public List<NhanVienDTO> LayDSNhanVien()
         {
             string query = "SELECT * FROM NHANVIEN ";
