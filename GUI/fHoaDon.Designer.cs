@@ -184,6 +184,7 @@
             this.panelDSHoaDon.Name = "panelDSHoaDon";
             this.panelDSHoaDon.Size = new System.Drawing.Size(1130, 800);
             this.panelDSHoaDon.TabIndex = 4;
+            this.panelDSHoaDon.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDSHoaDon_Paint);
             // 
             // label2
             // 

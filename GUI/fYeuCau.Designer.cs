@@ -59,6 +59,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.btnExitPanel = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.btnXong = new GUI.CustomDesign.CustomButton();
             this.lblMaXe = new System.Windows.Forms.Label();
             this.imgXe = new System.Windows.Forms.PictureBox();
             this.dgvYeuCau = new System.Windows.Forms.DataGridView();
@@ -81,9 +82,11 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.panelYeuCau = new System.Windows.Forms.Panel();
+            this.btnAddNew = new GUI.CustomDesign.CustomButton();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.panelAddNew = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btnAdd = new GUI.CustomDesign.CustomButton();
             this.panel10 = new System.Windows.Forms.Panel();
             this.txtMaXe = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -98,7 +101,9 @@
             this.txtMaHoaDon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnTroVe = new GUI.CustomDesign.CustomButton();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
             this.label24 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.txtNgayIn = new System.Windows.Forms.TextBox();
@@ -131,11 +136,6 @@
             this.PhuTung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnXong = new GUI.CustomDesign.CustomButton();
-            this.btnAddNew = new GUI.CustomDesign.CustomButton();
-            this.btnAdd = new GUI.CustomDesign.CustomButton();
-            this.btnTroVe = new GUI.CustomDesign.CustomButton();
-            this.btnOKHoaDon = new GUI.CustomDesign.CustomButton();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -474,6 +474,20 @@
             this.panel15.TabIndex = 10;
             this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.panel15_Paint);
             // 
+            // btnXong
+            // 
+            this.btnXong.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnXong.BorderColor = System.Drawing.Color.Empty;
+            this.btnXong.BorderThickness = 1.5F;
+            this.btnXong.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXong.Location = new System.Drawing.Point(4, 3);
+            this.btnXong.Name = "btnXong";
+            this.btnXong.Size = new System.Drawing.Size(92, 34);
+            this.btnXong.TabIndex = 0;
+            this.btnXong.Text = "Xong";
+            this.btnXong.UseVisualStyleBackColor = true;
+            this.btnXong.Click += new System.EventHandler(this.btnXuatHoaDon_Click);
+            // 
             // lblMaXe
             // 
             this.lblMaXe.AutoSize = true;
@@ -743,11 +757,29 @@
             this.panelYeuCau.Controls.Add(this.panelAddNew);
             this.panelYeuCau.Controls.Add(this.panel5);
             this.panelYeuCau.Controls.Add(this.dgvYeuCau);
-            this.panelYeuCau.Location = new System.Drawing.Point(18, 34);
+            this.panelYeuCau.Location = new System.Drawing.Point(27, 34);
             this.panelYeuCau.Name = "panelYeuCau";
             this.panelYeuCau.Size = new System.Drawing.Size(1130, 800);
             this.panelYeuCau.TabIndex = 4;
             this.panelYeuCau.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAddNew.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.btnAddNew.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnAddNew.BorderThickness = 1.5F;
+            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAddNew.Location = new System.Drawing.Point(942, 18);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(140, 53);
+            this.btnAddNew.TabIndex = 4;
+            this.btnAddNew.Text = "Add new";
+            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // panelFooter
             // 
@@ -787,6 +819,20 @@
             this.panel14.Size = new System.Drawing.Size(66, 40);
             this.panel14.TabIndex = 9;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAdd.BorderColor = System.Drawing.Color.Empty;
+            this.btnAdd.BorderThickness = 1.5F;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(4, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(59, 34);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
             // panel10
             // 
@@ -986,6 +1032,21 @@
             this.label23.TabIndex = 42;
             this.label23.Text = "Phụ tùng đã dùng";
             // 
+            // btnTroVe
+            // 
+            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
+            this.btnTroVe.BorderThickness = 1.5F;
+            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
+            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
+            this.btnTroVe.Name = "btnTroVe";
+            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
+            this.btnTroVe.TabIndex = 40;
+            this.btnTroVe.Text = "<  Danh sách hóa đơn";
+            this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
+            // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -994,6 +1055,21 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(167, 49);
             this.panel17.TabIndex = 40;
+            // 
+            // btnOKHoaDon
+            // 
+            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
+            this.btnOKHoaDon.BorderThickness = 1.5F;
+            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.btnOKHoaDon.Name = "btnOKHoaDon";
+            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
+            this.btnOKHoaDon.TabIndex = 39;
+            this.btnOKHoaDon.Text = "Xuất hóa đơn";
+            this.btnOKHoaDon.UseVisualStyleBackColor = true;
+            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
             // 
             // label24
             // 
@@ -1356,82 +1432,6 @@
             this.Gia.Name = "Gia";
             this.Gia.ReadOnly = true;
             this.Gia.Width = 125;
-            // 
-            // btnXong
-            // 
-            this.btnXong.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnXong.BorderColor = System.Drawing.Color.Empty;
-            this.btnXong.BorderThickness = 1.5F;
-            this.btnXong.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXong.Location = new System.Drawing.Point(4, 3);
-            this.btnXong.Name = "btnXong";
-            this.btnXong.Size = new System.Drawing.Size(92, 34);
-            this.btnXong.TabIndex = 0;
-            this.btnXong.Text = "Xong";
-            this.btnXong.UseVisualStyleBackColor = true;
-            this.btnXong.Click += new System.EventHandler(this.btnXuatHoaDon_Click);
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddNew.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnAddNew.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.btnAddNew.BorderThickness = 1.5F;
-            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddNew.Location = new System.Drawing.Point(942, 18);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(140, 53);
-            this.btnAddNew.TabIndex = 4;
-            this.btnAddNew.Text = "Add new";
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddNew.UseVisualStyleBackColor = false;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAdd.BorderColor = System.Drawing.Color.Empty;
-            this.btnAdd.BorderThickness = 1.5F;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(4, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(59, 34);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
-            // 
-            // btnTroVe
-            // 
-            this.btnTroVe.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.btnTroVe.BorderColor = System.Drawing.Color.Empty;
-            this.btnTroVe.BorderThickness = 1.5F;
-            this.btnTroVe.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroVe.ForeColor = System.Drawing.Color.Navy;
-            this.btnTroVe.Location = new System.Drawing.Point(101, 664);
-            this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(198, 43);
-            this.btnTroVe.TabIndex = 40;
-            this.btnTroVe.Text = "<  Danh sách hóa đơn";
-            this.btnTroVe.UseVisualStyleBackColor = true;
-            this.btnTroVe.Click += new System.EventHandler(this.btnTroVe_Click);
-            // 
-            // btnOKHoaDon
-            // 
-            this.btnOKHoaDon.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnOKHoaDon.BorderColor = System.Drawing.Color.Empty;
-            this.btnOKHoaDon.BorderThickness = 1.5F;
-            this.btnOKHoaDon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOKHoaDon.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnOKHoaDon.Location = new System.Drawing.Point(3, 3);
-            this.btnOKHoaDon.Name = "btnOKHoaDon";
-            this.btnOKHoaDon.Size = new System.Drawing.Size(161, 43);
-            this.btnOKHoaDon.TabIndex = 39;
-            this.btnOKHoaDon.Text = "Xuất hóa đơn";
-            this.btnOKHoaDon.UseVisualStyleBackColor = true;
-            this.btnOKHoaDon.Click += new System.EventHandler(this.btnOKHoaDon_Click);
             // 
             // fYeuCau
             // 

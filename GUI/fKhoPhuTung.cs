@@ -654,12 +654,12 @@ namespace GUI
 
         private void panelDS_Paint(object sender, PaintEventArgs e)
         {
-
+            DrawRoundedPanel(panelDS, 15, BorderColor, BorderThickness, e);
         }
 
         private void panelHDN_Paint(object sender, PaintEventArgs e)
         {
-
+            DrawRoundedPanel(panelHDN, 15, BorderColor, BorderThickness, e);
         }
 
         private void dgvPhuTung_CellContentClick(object sender, DataGridViewCellEventArgs e)

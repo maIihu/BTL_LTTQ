@@ -209,5 +209,10 @@ namespace GUI
         {
 
         }
+
+        private void panelDSHoaDon_Paint(object sender, PaintEventArgs e)
+        {
+            DrawRoundedPanel(panelDSHoaDon, 15, BorderColor, BorderThickness, e);
+        }
     }
 }

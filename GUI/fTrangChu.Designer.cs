@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPanel = new System.Windows.Forms.Panel();
-            this.btnMoreYeuCau = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTrangChu = new System.Windows.Forms.DataGridView();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,37 +87,22 @@
             // dgvPanel
             // 
             this.dgvPanel.BackColor = System.Drawing.SystemColors.Window;
-            this.dgvPanel.Controls.Add(this.btnMoreYeuCau);
             this.dgvPanel.Controls.Add(this.label1);
             this.dgvPanel.Controls.Add(this.dgvTrangChu);
             this.dgvPanel.Location = new System.Drawing.Point(30, 140);
             this.dgvPanel.Name = "dgvPanel";
-            this.dgvPanel.Size = new System.Drawing.Size(742, 720);
+            this.dgvPanel.Size = new System.Drawing.Size(742, 700);
             this.dgvPanel.TabIndex = 6;
             this.dgvPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dgvPanel_Paint);
-            // 
-            // btnMoreYeuCau
-            // 
-            this.btnMoreYeuCau.BackgroundImage = global::GUI.Properties.Resources.bacham;
-            this.btnMoreYeuCau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMoreYeuCau.FlatAppearance.BorderSize = 0;
-            this.btnMoreYeuCau.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMoreYeuCau.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnMoreYeuCau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMoreYeuCau.Location = new System.Drawing.Point(690, 20);
-            this.btnMoreYeuCau.Name = "btnMoreYeuCau";
-            this.btnMoreYeuCau.Size = new System.Drawing.Size(20, 20);
-            this.btnMoreYeuCau.TabIndex = 3;
-            this.btnMoreYeuCau.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.label1.Location = new System.Drawing.Point(16, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 37);
+            this.label1.Size = new System.Drawing.Size(200, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Yêu cầu gần đây";
             // 
@@ -132,15 +116,15 @@
             this.dgvTrangChu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTrangChu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvTrangChu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTrangChu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTrangChu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTrangChu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrangChu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
@@ -149,7 +133,7 @@
             this.NgaySua});
             this.dgvTrangChu.GridColor = System.Drawing.SystemColors.Control;
             this.dgvTrangChu.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvTrangChu.Location = new System.Drawing.Point(16, 50);
+            this.dgvTrangChu.Location = new System.Drawing.Point(16, 44);
             this.dgvTrangChu.MultiSelect = false;
             this.dgvTrangChu.Name = "dgvTrangChu";
             this.dgvTrangChu.ReadOnly = true;
@@ -158,7 +142,7 @@
             this.dgvTrangChu.RowTemplate.Height = 30;
             this.dgvTrangChu.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvTrangChu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvTrangChu.Size = new System.Drawing.Size(710, 655);
+            this.dgvTrangChu.Size = new System.Drawing.Size(710, 646);
             this.dgvTrangChu.TabIndex = 0;
             this.dgvTrangChu.TabStop = false;
             this.dgvTrangChu.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvTrangChu_CellPainting);
@@ -430,7 +414,7 @@
             this.panel4.Controls.Add(this.label11);
             this.panel4.Location = new System.Drawing.Point(794, 140);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(360, 400);
+            this.panel4.Size = new System.Drawing.Size(360, 368);
             this.panel4.TabIndex = 10;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -438,7 +422,7 @@
             // 
             this.BieuDoDoanhThu.Location = new System.Drawing.Point(15, 42);
             this.BieuDoDoanhThu.Name = "BieuDoDoanhThu";
-            this.BieuDoDoanhThu.Size = new System.Drawing.Size(330, 350);
+            this.BieuDoDoanhThu.Size = new System.Drawing.Size(330, 313);
             this.BieuDoDoanhThu.TabIndex = 14;
             this.BieuDoDoanhThu.Text = "cartesianChart1";
             // 
@@ -457,9 +441,9 @@
             this.panel5.BackColor = System.Drawing.SystemColors.Window;
             this.panel5.Controls.Add(this.BieuDoTongKet);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Location = new System.Drawing.Point(794, 556);
+            this.panel5.Location = new System.Drawing.Point(794, 530);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(360, 300);
+            this.panel5.Size = new System.Drawing.Size(360, 310);
             this.panel5.TabIndex = 11;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -467,7 +451,7 @@
             // 
             this.BieuDoTongKet.Location = new System.Drawing.Point(20, 39);
             this.BieuDoTongKet.Name = "BieuDoTongKet";
-            this.BieuDoTongKet.Size = new System.Drawing.Size(320, 240);
+            this.BieuDoTongKet.Size = new System.Drawing.Size(320, 261);
             this.BieuDoTongKet.TabIndex = 15;
             this.BieuDoTongKet.Text = "cartesianChart1";
             // 
@@ -560,7 +544,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn NguyenNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySua;
-        private System.Windows.Forms.Button btnMoreYeuCau;
         private LiveCharts.WinForms.CartesianChart BieuDoDoanhThu;
         private LiveCharts.WinForms.CartesianChart BieuDoTongKet;
     }
