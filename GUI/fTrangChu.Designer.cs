@@ -236,9 +236,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(62, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 25);
+            this.label4.Size = new System.Drawing.Size(106, 25);
             this.label4.TabIndex = 7;
-            this.label4.Text = "New Net Income";
+            this.label4.Text = "Doanh thu";
             // 
             // pictureBox10
             // 

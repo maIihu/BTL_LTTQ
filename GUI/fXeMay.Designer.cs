@@ -139,9 +139,9 @@ namespace GUI
             this.panel1.Controls.Add(this.panelAddNew);
             this.panel1.Controls.Add(this.dgvXeMay);
             this.panel1.Controls.Add(this.panel5);
-            this.panel1.Location = new System.Drawing.Point(27, 12);
+            this.panel1.Location = new System.Drawing.Point(27, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 833);
+            this.panel1.Size = new System.Drawing.Size(1130, 800);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -162,7 +162,7 @@ namespace GUI
             this.panelThongTin.Controls.Add(this.panel17);
             this.panelThongTin.Controls.Add(this.lblMaXe);
             this.panelThongTin.Controls.Add(this.imgXe);
-            this.panelThongTin.Location = new System.Drawing.Point(790, 80);
+            this.panelThongTin.Location = new System.Drawing.Point(800, 80);
             this.panelThongTin.Name = "panelThongTin";
             this.panelThongTin.Size = new System.Drawing.Size(313, 630);
             this.panelThongTin.TabIndex = 24;
@@ -385,7 +385,7 @@ namespace GUI
             this.panelFooter.Controls.Add(this.lblShowResult);
             this.panelFooter.Location = new System.Drawing.Point(31, 750);
             this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(726, 60);
+            this.panelFooter.Size = new System.Drawing.Size(726, 40);
             this.panelFooter.TabIndex = 24;
             // 
             // btnNext
@@ -393,7 +393,7 @@ namespace GUI
             this.btnNext.AutoSize = true;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnNext.Location = new System.Drawing.Point(565, 18);
+            this.btnNext.Location = new System.Drawing.Point(597, 7);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(25, 25);
             this.btnNext.TabIndex = 32;
@@ -405,7 +405,7 @@ namespace GUI
             this.btnPrevious.AutoSize = true;
             this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevious.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnPrevious.Location = new System.Drawing.Point(495, 18);
+            this.btnPrevious.Location = new System.Drawing.Point(527, 7);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(25, 25);
             this.btnPrevious.TabIndex = 31;
@@ -417,7 +417,7 @@ namespace GUI
             this.lblShowResult.AutoSize = true;
             this.lblShowResult.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowResult.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblShowResult.Location = new System.Drawing.Point(525, 20);
+            this.lblShowResult.Location = new System.Drawing.Point(557, 9);
             this.lblShowResult.Name = "lblShowResult";
             this.lblShowResult.Size = new System.Drawing.Size(35, 21);
             this.lblShowResult.TabIndex = 30;
@@ -781,7 +781,7 @@ namespace GUI
             this.dgvXeMay.RowHeadersWidth = 51;
             this.dgvXeMay.RowTemplate.Height = 30;
             this.dgvXeMay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvXeMay.Size = new System.Drawing.Size(738, 517);
+            this.dgvXeMay.Size = new System.Drawing.Size(764, 510);
             this.dgvXeMay.TabIndex = 2;
             this.dgvXeMay.TabStop = false;
             this.dgvXeMay.CellBorderStyleChanged += new System.EventHandler(this.dgvXeMay_CellBorderStyleChanged);

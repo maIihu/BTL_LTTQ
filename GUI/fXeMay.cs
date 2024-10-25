@@ -31,7 +31,7 @@ namespace GUI
         private bool addNewClicked = false, thongTinReveal = false, updateClicked = false;
         private Point posA = new Point(19, 80), posB = new Point(19, 227);
 
-        private Size defaultDGVSize = new Size(1060, 517 + 227 - 80), smallerDGVSize = new Size(738, 402 + 227 - 80);
+        private Size defaultDGVSize = new Size(1060, 517 + 227 - 80), smallerDGVSize = new Size(764, 402 + 227 - 80);
         private int rowIndex = -1;
         public fXeMay(string idLogin)
         {

@@ -200,7 +200,7 @@ namespace GUI
             if (!isUsernameUp)
             {
                 lbUsername.AutoSize = true;
-                if (lbUsername.Location.Y > -14)
+                if (lbUsername.Location.Y > -10)
                 {
                     lbUsername.Location = new Point(lbUsername.Location.X, lbUsername.Location.Y - 1);
                 }
@@ -209,7 +209,7 @@ namespace GUI
                     timerUsername.Stop();
                     pnUsername.Controls.Remove(lbUsername);
                     pnLogin.Controls.Add(lbUsername);
-                    lbUsername.Location = new Point(35, 90);
+                    lbUsername.Location = new Point(50, 90);
                     lbUsername.BringToFront();             
                     txtUsername.Focus();
                     isUsernameUp = true;                   
@@ -240,7 +240,7 @@ namespace GUI
             if (!isPasswordUp)
             {
                 lbPassword.AutoSize = true;
-                if (lbPassword.Location.Y > -14)
+                if (lbPassword.Location.Y > -10)
                 {
                     lbPassword.Location = new Point(lbPassword.Location.X, lbPassword.Location.Y - 1);
                 }
@@ -249,7 +249,7 @@ namespace GUI
                     timerPassword.Stop();
                     pnPassword.Controls.Remove(lbPassword);
                     pnLogin.Controls.Add(lbPassword);
-                    lbPassword.Location = new Point(35, 145);
+                    lbPassword.Location = new Point(50, 145);
                     lbPassword.BringToFront();
                     txtPassword.Focus();
                     isPasswordUp = true;

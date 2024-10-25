@@ -76,9 +76,9 @@
             // 
             this.pnPassword.Controls.Add(this.lbPassword);
             this.pnPassword.Controls.Add(this.txtPassword);
-            this.pnPassword.Location = new System.Drawing.Point(25, 155);
+            this.pnPassword.Location = new System.Drawing.Point(40, 155);
             this.pnPassword.Name = "pnPassword";
-            this.pnPassword.Size = new System.Drawing.Size(350, 40);
+            this.pnPassword.Size = new System.Drawing.Size(320, 40);
             this.pnPassword.TabIndex = 34;
             this.pnPassword.Paint += new System.Windows.Forms.PaintEventHandler(this.pnPassword_Paint);
             this.pnPassword.Leave += new System.EventHandler(this.pnPassword_Leave);
@@ -88,7 +88,7 @@
             this.lbPassword.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.Location = new System.Drawing.Point(10, 9);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(330, 22);
+            this.lbPassword.Size = new System.Drawing.Size(300, 22);
             this.lbPassword.TabIndex = 37;
             this.lbPassword.Text = "Password";
             this.lbPassword.Click += new System.EventHandler(this.lbPassword_Click);
@@ -114,9 +114,9 @@
             this.pnUsername.BackColor = System.Drawing.Color.White;
             this.pnUsername.Controls.Add(this.lbUsername);
             this.pnUsername.Controls.Add(this.txtUsername);
-            this.pnUsername.Location = new System.Drawing.Point(25, 100);
+            this.pnUsername.Location = new System.Drawing.Point(40, 100);
             this.pnUsername.Name = "pnUsername";
-            this.pnUsername.Size = new System.Drawing.Size(350, 40);
+            this.pnUsername.Size = new System.Drawing.Size(320, 40);
             this.pnUsername.TabIndex = 33;
             this.pnUsername.Paint += new System.Windows.Forms.PaintEventHandler(this.pnUsername_Paint);
             this.pnUsername.Leave += new System.EventHandler(this.pnUsername_Leave);
@@ -127,7 +127,7 @@
             this.lbUsername.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lbUsername.Location = new System.Drawing.Point(10, 9);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(330, 22);
+            this.lbUsername.Size = new System.Drawing.Size(300, 22);
             this.lbUsername.TabIndex = 31;
             this.lbUsername.Text = "Username";
             this.lbUsername.Click += new System.EventHandler(this.lbUsername_Click);
@@ -151,7 +151,7 @@
             // 
             this.chkBoxShowpassword.AutoSize = true;
             this.chkBoxShowpassword.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.chkBoxShowpassword.Location = new System.Drawing.Point(40, 200);
+            this.chkBoxShowpassword.Location = new System.Drawing.Point(60, 200);
             this.chkBoxShowpassword.Name = "chkBoxShowpassword";
             this.chkBoxShowpassword.Size = new System.Drawing.Size(129, 24);
             this.chkBoxShowpassword.TabIndex = 11;
@@ -186,7 +186,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.LOGO1;
             this.pictureBox1.Location = new System.Drawing.Point(325, 40);
-            this.pictureBox1.Name = "pictureBox";
+            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 35;

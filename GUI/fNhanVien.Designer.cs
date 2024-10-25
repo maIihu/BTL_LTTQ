@@ -31,12 +31,12 @@ namespace GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblBangXepHang = new System.Windows.Forms.Label();
             this.lblThemNhanVien = new System.Windows.Forms.Label();
@@ -51,6 +51,17 @@ namespace GUI
             this.lblVaiTro = new System.Windows.Forms.Label();
             this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panelThongTinCongViec = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblCap3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblCap1 = new System.Windows.Forms.Label();
+            this.pictureBoxLich = new System.Windows.Forms.PictureBox();
+            this.lblCap2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panelThongTinCaNhan = new System.Windows.Forms.Panel();
             this.lblLuong = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -66,17 +77,6 @@ namespace GUI
             this.label15 = new System.Windows.Forms.Label();
             this.lblNgaySinh = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panelThongTinCongViec = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblCap3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblCap1 = new System.Windows.Forms.Label();
-            this.pictureBoxLich = new System.Windows.Forms.PictureBox();
-            this.lblCap2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panelThemNhanVien = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtMa = new System.Windows.Forms.TextBox();
@@ -132,10 +132,10 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panelThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelThongTinCaNhan.SuspendLayout();
             this.panelThongTinCongViec.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLich)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panelThongTinCaNhan.SuspendLayout();
             this.panelThemNhanVien.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -167,10 +167,11 @@ namespace GUI
             this.panel1.Controls.Add(this.lblThemNhanVien);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dgvNhanVien);
-            this.panel1.Location = new System.Drawing.Point(40, 0);
+            this.panel1.Location = new System.Drawing.Point(24, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(659, 869);
+            this.panel1.Size = new System.Drawing.Size(700, 869);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lblBangXepHang
             // 
@@ -210,21 +211,21 @@ namespace GUI
             this.dgvNhanVien.AllowUserToDeleteRows = false;
             this.dgvNhanVien.AllowUserToResizeColumns = false;
             this.dgvNhanVien.AllowUserToResizeRows = false;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvNhanVien.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvNhanVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNhanVien.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvNhanVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.ColumnHeadersVisible = false;
             this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -234,24 +235,24 @@ namespace GUI
             this.NgayBatDau});
             this.dgvNhanVien.GridColor = System.Drawing.SystemColors.Control;
             this.dgvNhanVien.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvNhanVien.Location = new System.Drawing.Point(14, 86);
+            this.dgvNhanVien.Location = new System.Drawing.Point(8, 86);
             this.dgvNhanVien.MultiSelect = false;
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNhanVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNhanVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvNhanVien.RowHeadersVisible = false;
             this.dgvNhanVien.RowHeadersWidth = 51;
             this.dgvNhanVien.RowTemplate.Height = 30;
             this.dgvNhanVien.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(632, 752);
+            this.dgvNhanVien.Size = new System.Drawing.Size(658, 752);
             this.dgvNhanVien.TabIndex = 3;
             this.dgvNhanVien.TabStop = false;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
@@ -339,6 +340,136 @@ namespace GUI
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            // 
+            // panelThongTinCongViec
+            // 
+            this.panelThongTinCongViec.Controls.Add(this.label9);
+            this.panelThongTinCongViec.Controls.Add(this.label8);
+            this.panelThongTinCongViec.Controls.Add(this.lblCap3);
+            this.panelThongTinCongViec.Controls.Add(this.label7);
+            this.panelThongTinCongViec.Controls.Add(this.lblCap1);
+            this.panelThongTinCongViec.Controls.Add(this.pictureBoxLich);
+            this.panelThongTinCongViec.Controls.Add(this.lblCap2);
+            this.panelThongTinCongViec.Controls.Add(this.label6);
+            this.panelThongTinCongViec.Controls.Add(this.pictureBox3);
+            this.panelThongTinCongViec.Controls.Add(this.label5);
+            this.panelThongTinCongViec.Location = new System.Drawing.Point(3, 265);
+            this.panelThongTinCongViec.Name = "panelThongTinCongViec";
+            this.panelThongTinCongViec.Size = new System.Drawing.Size(403, 601);
+            this.panelThongTinCongViec.TabIndex = 14;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label9.Location = new System.Drawing.Point(54, 558);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 17);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Cấp 3";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label8.Location = new System.Drawing.Point(54, 522);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 17);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Cấp 2";
+            // 
+            // lblCap3
+            // 
+            this.lblCap3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCap3.AutoSize = true;
+            this.lblCap3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCap3.Location = new System.Drawing.Point(311, 558);
+            this.lblCap3.Name = "lblCap3";
+            this.lblCap3.Size = new System.Drawing.Size(43, 17);
+            this.lblCap3.TabIndex = 12;
+            this.lblCap3.Text = "35.9%";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label7.Location = new System.Drawing.Point(54, 486);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 17);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Cấp 1";
+            // 
+            // lblCap1
+            // 
+            this.lblCap1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCap1.AutoSize = true;
+            this.lblCap1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCap1.Location = new System.Drawing.Point(311, 486);
+            this.lblCap1.Name = "lblCap1";
+            this.lblCap1.Size = new System.Drawing.Size(43, 17);
+            this.lblCap1.TabIndex = 10;
+            this.lblCap1.Text = "65.8%";
+            // 
+            // pictureBoxLich
+            // 
+            this.pictureBoxLich.Image = global::GUI.Properties.Resources.ChamCong;
+            this.pictureBoxLich.Location = new System.Drawing.Point(26, 3);
+            this.pictureBoxLich.Name = "pictureBoxLich";
+            this.pictureBoxLich.Size = new System.Drawing.Size(359, 268);
+            this.pictureBoxLich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLich.TabIndex = 0;
+            this.pictureBoxLich.TabStop = false;
+            // 
+            // lblCap2
+            // 
+            this.lblCap2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCap2.AutoSize = true;
+            this.lblCap2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCap2.Location = new System.Drawing.Point(311, 522);
+            this.lblCap2.Name = "lblCap2";
+            this.lblCap2.Size = new System.Drawing.Size(43, 17);
+            this.lblCap2.TabIndex = 11;
+            this.lblCap2.Text = "20.5%";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label6.Location = new System.Drawing.Point(339, 292);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 17);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Tháng";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox3.Image = global::GUI.Properties.Resources.Chart;
+            this.pictureBox3.Location = new System.Drawing.Point(116, 313);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(179, 167);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(22, 289);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 21);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Hiệu suất";
             // 
             // panelThongTinCaNhan
             // 
@@ -518,136 +649,6 @@ namespace GUI
             this.label3.TabIndex = 0;
             this.label3.Text = "Ngày sinh";
             // 
-            // panelThongTinCongViec
-            // 
-            this.panelThongTinCongViec.Controls.Add(this.label9);
-            this.panelThongTinCongViec.Controls.Add(this.label8);
-            this.panelThongTinCongViec.Controls.Add(this.lblCap3);
-            this.panelThongTinCongViec.Controls.Add(this.label7);
-            this.panelThongTinCongViec.Controls.Add(this.lblCap1);
-            this.panelThongTinCongViec.Controls.Add(this.pictureBoxLich);
-            this.panelThongTinCongViec.Controls.Add(this.lblCap2);
-            this.panelThongTinCongViec.Controls.Add(this.label6);
-            this.panelThongTinCongViec.Controls.Add(this.pictureBox3);
-            this.panelThongTinCongViec.Controls.Add(this.label5);
-            this.panelThongTinCongViec.Location = new System.Drawing.Point(3, 265);
-            this.panelThongTinCongViec.Name = "panelThongTinCongViec";
-            this.panelThongTinCongViec.Size = new System.Drawing.Size(403, 601);
-            this.panelThongTinCongViec.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label9.Location = new System.Drawing.Point(54, 558);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 17);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Cấp 3";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label8.Location = new System.Drawing.Point(54, 522);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 17);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Cấp 2";
-            // 
-            // lblCap3
-            // 
-            this.lblCap3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblCap3.AutoSize = true;
-            this.lblCap3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCap3.Location = new System.Drawing.Point(311, 558);
-            this.lblCap3.Name = "lblCap3";
-            this.lblCap3.Size = new System.Drawing.Size(43, 17);
-            this.lblCap3.TabIndex = 12;
-            this.lblCap3.Text = "35.9%";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(54, 486);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 17);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Cấp 1";
-            // 
-            // lblCap1
-            // 
-            this.lblCap1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblCap1.AutoSize = true;
-            this.lblCap1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCap1.Location = new System.Drawing.Point(311, 486);
-            this.lblCap1.Name = "lblCap1";
-            this.lblCap1.Size = new System.Drawing.Size(43, 17);
-            this.lblCap1.TabIndex = 10;
-            this.lblCap1.Text = "65.8%";
-            // 
-            // pictureBoxLich
-            // 
-            this.pictureBoxLich.Image = global::GUI.Properties.Resources.ChamCong;
-            this.pictureBoxLich.Location = new System.Drawing.Point(26, 3);
-            this.pictureBoxLich.Name = "pictureBoxLich";
-            this.pictureBoxLich.Size = new System.Drawing.Size(359, 268);
-            this.pictureBoxLich.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxLich.TabIndex = 0;
-            this.pictureBoxLich.TabStop = false;
-            // 
-            // lblCap2
-            // 
-            this.lblCap2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblCap2.AutoSize = true;
-            this.lblCap2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCap2.Location = new System.Drawing.Point(311, 522);
-            this.lblCap2.Name = "lblCap2";
-            this.lblCap2.Size = new System.Drawing.Size(43, 17);
-            this.lblCap2.TabIndex = 11;
-            this.lblCap2.Text = "20.5%";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(339, 292);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 17);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Tháng";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox3.Image = global::GUI.Properties.Resources.Chart;
-            this.pictureBox3.Location = new System.Drawing.Point(116, 313);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(179, 167);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 289);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 21);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Hiệu suất";
-            // 
             // panelThemNhanVien
             // 
             this.panelThemNhanVien.BackColor = System.Drawing.SystemColors.Window;
@@ -671,9 +672,9 @@ namespace GUI
             this.panelThemNhanVien.Controls.Add(this.label4);
             this.panelThemNhanVien.Controls.Add(this.panel3);
             this.panelThemNhanVien.Controls.Add(this.label2);
-            this.panelThemNhanVien.Location = new System.Drawing.Point(709, 3);
+            this.panelThemNhanVien.Location = new System.Drawing.Point(760, 0);
             this.panelThemNhanVien.Name = "panelThemNhanVien";
-            this.panelThemNhanVien.Size = new System.Drawing.Size(409, 869);
+            this.panelThemNhanVien.Size = new System.Drawing.Size(410, 869);
             this.panelThemNhanVien.TabIndex = 2;
             // 
             // panel9
@@ -1111,21 +1112,21 @@ namespace GUI
             this.dgvBXH.AllowUserToDeleteRows = false;
             this.dgvBXH.AllowUserToResizeColumns = false;
             this.dgvBXH.AllowUserToResizeRows = false;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBXH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBXH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvBXH.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvBXH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBXH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvBXH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBXH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBXH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvBXH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBXH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ThuHang,
@@ -1141,14 +1142,14 @@ namespace GUI
             this.dgvBXH.MultiSelect = false;
             this.dgvBXH.Name = "dgvBXH";
             this.dgvBXH.ReadOnly = true;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBXH.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBXH.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvBXH.RowHeadersVisible = false;
             this.dgvBXH.RowHeadersWidth = 51;
             this.dgvBXH.RowTemplate.Height = 30;
@@ -1238,12 +1239,12 @@ namespace GUI
             this.panelThongTin.ResumeLayout(false);
             this.panelThongTin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelThongTinCaNhan.ResumeLayout(false);
-            this.panelThongTinCaNhan.PerformLayout();
             this.panelThongTinCongViec.ResumeLayout(false);
             this.panelThongTinCongViec.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLich)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panelThongTinCaNhan.ResumeLayout(false);
+            this.panelThongTinCaNhan.PerformLayout();
             this.panelThemNhanVien.ResumeLayout(false);
             this.panelThemNhanVien.PerformLayout();
             this.panel9.ResumeLayout(false);

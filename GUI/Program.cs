@@ -21,8 +21,6 @@ namespace GUI
 
             Application.Run(new fBase("QL001"));
 
-            //Application.Run(new fTaiKhoan());
-
         }
     }
 }

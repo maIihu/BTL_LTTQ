@@ -80,7 +80,7 @@
             this.ThanhTien});
             this.dgvHoaDon.GridColor = System.Drawing.SystemColors.Control;
             this.dgvHoaDon.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvHoaDon.Location = new System.Drawing.Point(18, 56);
+            this.dgvHoaDon.Location = new System.Drawing.Point(17, 56);
             this.dgvHoaDon.MultiSelect = false;
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.ReadOnly = true;
@@ -96,7 +96,7 @@
             this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.RowTemplate.Height = 30;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1095, 720);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1096, 720);
             this.dgvHoaDon.TabIndex = 2;
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.yourDataGridView_CellClick);
@@ -180,9 +180,9 @@
             this.panelDSHoaDon.BackColor = System.Drawing.SystemColors.Window;
             this.panelDSHoaDon.Controls.Add(this.label2);
             this.panelDSHoaDon.Controls.Add(this.dgvHoaDon);
-            this.panelDSHoaDon.Location = new System.Drawing.Point(27, 18);
+            this.panelDSHoaDon.Location = new System.Drawing.Point(27, 34);
             this.panelDSHoaDon.Name = "panelDSHoaDon";
-            this.panelDSHoaDon.Size = new System.Drawing.Size(1130, 833);
+            this.panelDSHoaDon.Size = new System.Drawing.Size(1130, 800);
             this.panelDSHoaDon.TabIndex = 4;
             // 
             // label2

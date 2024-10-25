@@ -25,7 +25,7 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private Image[] avatars = new Image[5];
         private Point posThongTinPanel = new Point(3, 265);
-        private Point posThemNhanVienPanel = new Point(730, 0);
+       // private Point posThemNhanVienPanel = new Point(780, 0);
         private int CongViecOrCaNhan = 1;
         private NhanVienBLL _nhanVienBLL = new NhanVienBLL();
        
@@ -38,7 +38,7 @@ namespace GUI
             panelThongTinCaNhan.Location = posThongTinPanel;
             panelThongTinCaNhan.Visible = false;
 
-            panelThemNhanVien.Location = posThemNhanVienPanel;
+           // panelThemNhanVien.Location = posThemNhanVienPanel;
             panelThemNhanVien.Visible = false;
 
             panelBangXepHang.Visible = false;
@@ -476,6 +476,9 @@ namespace GUI
             }
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

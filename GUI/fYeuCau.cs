@@ -33,7 +33,7 @@ namespace GUI
         public float BorderThickness { get; set; } = 0.5f;
         private bool addNewClicked = false, thongTinReveal = false, updateClicked = false;
         private Point posAy = new Point(19, 80), posBy = new Point(19, 227);
-        private Size defaultDGVSize = new Size(1060, 402 + 227 - 80), smallerDGVSize = new Size(738, 402 + 227 - 80);
+        private Size defaultDGVSize = new Size(1096, 510 + 227 - 80), smallerDGVSize = new Size(780, 512 + 227 - 80);
         private bool isAddNew = true;
         private int rowIndex = -1;
         private Point panelPos = new Point(48, 118);
@@ -52,7 +52,7 @@ namespace GUI
 
             panelAddNew.Visible = false;
             dgvYeuCau.Location = posAy;
-            panelThongTin.Location = new Point(763, posAy.Y);
+            panelThongTin.Location = new Point(810, posAy.Y);
 
             _datYeuCauBLL = new DatYeuCauBLL();
             _phuTungBLL = new PhuTungBLL();
@@ -620,11 +620,6 @@ namespace GUI
             DrawRoundedPanel(panel5, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel6, 15, BorderColor, BorderThickness, e);
-        }
-
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel7, 15, BorderColor, BorderThickness, e);
@@ -655,10 +650,6 @@ namespace GUI
             DrawRoundedPanel(panel12, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel3, 15, BorderColor, BorderThickness, e);
-        }
 
         private void panel14_Paint(object sender, PaintEventArgs e)
         {

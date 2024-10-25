@@ -115,7 +115,7 @@ namespace GUI
 
         private void SetupPanelHDN()
         {
-            panelHDN.Location = new Point(48, 118);
+            panelHDN.Location = new Point(27, 34);
 
             dtpNgayNhap.ValueChanged += (s, ev) =>
             {
@@ -343,17 +343,14 @@ namespace GUI
 
             dgvHDN.Visible = true;
 
-            btnHDN.BackgroundColor = Color.Black;
+            btnHDN.BackgroundColor = SystemColors.GradientActiveCaption;
             btnHDN.ForeColor = Color.White;
-            panel4.BackColor = Color.Black;
 
-            btnPhuTung.BackgroundColor = SystemColors.GradientActiveCaption;
+            btnPhuTung.BackgroundColor = SystemColors.Control;
             btnPhuTung.ForeColor = SystemColors.ControlText;
-            panel1.BackColor = SystemColors.GradientActiveCaption;
 
-            btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
+            btnAddHDN.BackgroundColor = SystemColors.Control;
             btnAddHDN.ForeColor = SystemColors.ControlText;
-            panel14.BackColor = SystemColors.GradientActiveCaption;
             whatIsRunning = "HoaDonNhap";
 
         }
@@ -383,17 +380,14 @@ namespace GUI
 
             dgvPhuTung.Visible = true;
 
-            btnPhuTung.BackgroundColor = Color.Black;
+            btnPhuTung.BackgroundColor = SystemColors.GradientActiveCaption;
             btnPhuTung.ForeColor = Color.White;
-            panel1.BackColor = Color.Black;
 
-            btnHDN.BackgroundColor = SystemColors.GradientActiveCaption;
+            btnHDN.BackgroundColor = SystemColors.Control;
             btnHDN.ForeColor = SystemColors.ControlText;
-            panel4.BackColor = SystemColors.GradientActiveCaption;
 
-            btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
+            btnAddHDN.BackgroundColor = SystemColors.Control;
             btnAddHDN.ForeColor = SystemColors.ControlText;
-            panel14.BackColor = SystemColors.GradientActiveCaption;
             whatIsRunning = "PhuTung"; // sao thêm cái này vào bị lỗi nhỉ ( để đầu thì lỗi, đề cuối thì không)
         }
 
@@ -404,17 +398,14 @@ namespace GUI
 
             panelHDN.Visible = true;
 
-            btnAddHDN.BackgroundColor = Color.Black;
+            btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
             btnAddHDN.ForeColor = Color.White;
-            panel14.BackColor = Color.Black;
 
-            btnHDN.BackgroundColor = SystemColors.GradientActiveCaption;
+            btnHDN.BackgroundColor = SystemColors.Control;
             btnHDN.ForeColor = SystemColors.ControlText;
-            panel4.BackColor = SystemColors.GradientActiveCaption;
 
-            btnPhuTung.BackgroundColor = SystemColors.GradientActiveCaption;
+            btnPhuTung.BackgroundColor = SystemColors.Control;
             btnPhuTung.ForeColor = SystemColors.ControlText;
-            panel1.BackColor = SystemColors.GradientActiveCaption;
             txtManv.Text = idLogin;
             txtHdn.Text = "MDN" + countHdn.ToString();
             txtNgayNhap.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy");
@@ -570,22 +561,6 @@ namespace GUI
             }
         }
 
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel4, 15, BorderColor, BorderThickness, e);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel1, 15, BorderColor, BorderThickness, e);
-        }
-
-        private void panel14_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel14, 15, BorderColor, BorderThickness, e);
-        }
-
         private void panel8_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel8, 15, BorderColor, BorderThickness, e);
@@ -647,11 +622,6 @@ namespace GUI
             DrawRoundedPanel(panel5, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel6, 15, BorderColor, BorderThickness, e);
-        }
-
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -682,5 +652,19 @@ namespace GUI
             }        
         }
 
+        private void panelDS_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelHDN_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvPhuTung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

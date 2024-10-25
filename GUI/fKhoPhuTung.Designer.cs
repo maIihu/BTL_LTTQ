@@ -35,11 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnAddHDN = new GUI.CustomDesign.CustomButton();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnFilter = new GUI.CustomDesign.CustomButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -76,7 +71,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.btnThemPhuTung = new GUI.CustomDesign.CustomButton();
             this.label21 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -110,14 +104,10 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtHdn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnPhuTung = new GUI.CustomDesign.CustomButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnHDN = new GUI.CustomDesign.CustomButton();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel14.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.btnAddHDN = new GUI.CustomDesign.CustomButton();
+            this.btnThemPhuTung = new GUI.CustomDesign.CustomButton();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.cmsKho.SuspendLayout();
@@ -137,73 +127,7 @@
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel14.Controls.Add(this.btnAddHDN);
-            this.panel14.Controls.Add(this.panel15);
-            this.panel14.Location = new System.Drawing.Point(1002, 26);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(134, 56);
-            this.panel14.TabIndex = 10;
-            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
-            // 
-            // btnAddHDN
-            // 
-            this.btnAddHDN.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAddHDN.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAddHDN.BorderColor = System.Drawing.Color.Empty;
-            this.btnAddHDN.BorderThickness = 1.5F;
-            this.btnAddHDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddHDN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddHDN.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddHDN.Location = new System.Drawing.Point(3, 3);
-            this.btnAddHDN.Name = "btnAddHDN";
-            this.btnAddHDN.Size = new System.Drawing.Size(128, 50);
-            this.btnAddHDN.TabIndex = 3;
-            this.btnAddHDN.Text = "+ Thêm HDN";
-            this.btnAddHDN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddHDN.UseVisualStyleBackColor = false;
-            this.btnAddHDN.Click += new System.EventHandler(this.btnAddHDN_Click);
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.SystemColors.Control;
-            this.panel15.Location = new System.Drawing.Point(255, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(64, 40);
-            this.panel15.TabIndex = 9;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.Control;
-            this.panel6.Controls.Add(this.btnFilter);
-            this.panel6.Location = new System.Drawing.Point(961, 18);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(110, 56);
-            this.panel6.TabIndex = 1;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.BackColor = System.Drawing.SystemColors.Control;
-            this.btnFilter.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnFilter.BorderColor = System.Drawing.Color.Empty;
-            this.btnFilter.BorderThickness = 1.5F;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilter.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnFilter.Location = new System.Drawing.Point(3, 3);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(104, 50);
-            this.btnFilter.TabIndex = 2;
-            this.btnFilter.Text = "Filters";
-            this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFilter.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -299,7 +223,7 @@
             this.DonGiaBan});
             this.dgvPhuTung.GridColor = System.Drawing.SystemColors.Control;
             this.dgvPhuTung.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvPhuTung.Location = new System.Drawing.Point(19, 94);
+            this.dgvPhuTung.Location = new System.Drawing.Point(17, 94);
             this.dgvPhuTung.MultiSelect = false;
             this.dgvPhuTung.Name = "dgvPhuTung";
             this.dgvPhuTung.ReadOnly = true;
@@ -315,11 +239,12 @@
             this.dgvPhuTung.RowHeadersWidth = 51;
             this.dgvPhuTung.RowTemplate.Height = 30;
             this.dgvPhuTung.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvPhuTung.Size = new System.Drawing.Size(1060, 535);
+            this.dgvPhuTung.Size = new System.Drawing.Size(1096, 656);
             this.dgvPhuTung.TabIndex = 2;
             this.dgvPhuTung.TabStop = false;
             this.dgvPhuTung.Visible = false;
             this.dgvPhuTung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhuTung_CellClick);
+            this.dgvPhuTung.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhuTung_CellContentClick);
             this.dgvPhuTung.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgv_CellPainting);
             // 
             // No
@@ -361,24 +286,25 @@
             // panelDS
             // 
             this.panelDS.BackColor = System.Drawing.SystemColors.Window;
+            this.panelDS.Controls.Add(this.btnAddHDN);
             this.panelDS.Controls.Add(this.btnNext);
             this.panelDS.Controls.Add(this.btnPrevious);
             this.panelDS.Controls.Add(this.lblShowResult);
-            this.panelDS.Controls.Add(this.panel6);
             this.panelDS.Controls.Add(this.panel5);
             this.panelDS.Controls.Add(this.dgvHDN);
             this.panelDS.Controls.Add(this.dgvPhuTung);
-            this.panelDS.Location = new System.Drawing.Point(48, 118);
+            this.panelDS.Location = new System.Drawing.Point(27, 34);
             this.panelDS.Name = "panelDS";
-            this.panelDS.Size = new System.Drawing.Size(1088, 725);
+            this.panelDS.Size = new System.Drawing.Size(1130, 800);
             this.panelDS.TabIndex = 8;
+            this.panelDS.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDS_Paint);
             // 
             // btnNext
             // 
             this.btnNext.AutoSize = true;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnNext.Location = new System.Drawing.Point(567, 671);
+            this.btnNext.Location = new System.Drawing.Point(567, 760);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(25, 25);
             this.btnNext.TabIndex = 29;
@@ -390,7 +316,7 @@
             this.btnPrevious.AutoSize = true;
             this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevious.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnPrevious.Location = new System.Drawing.Point(497, 671);
+            this.btnPrevious.Location = new System.Drawing.Point(497, 760);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(25, 25);
             this.btnPrevious.TabIndex = 28;
@@ -402,7 +328,7 @@
             this.lblShowResult.AutoSize = true;
             this.lblShowResult.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowResult.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblShowResult.Location = new System.Drawing.Point(527, 673);
+            this.lblShowResult.Location = new System.Drawing.Point(527, 760);
             this.lblShowResult.Name = "lblShowResult";
             this.lblShowResult.Size = new System.Drawing.Size(35, 21);
             this.lblShowResult.TabIndex = 27;
@@ -438,7 +364,7 @@
             this.Tien});
             this.dgvHDN.GridColor = System.Drawing.SystemColors.Control;
             this.dgvHDN.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.dgvHDN.Location = new System.Drawing.Point(19, 94);
+            this.dgvHDN.Location = new System.Drawing.Point(17, 94);
             this.dgvHDN.MultiSelect = false;
             this.dgvHDN.Name = "dgvHDN";
             this.dgvHDN.ReadOnly = true;
@@ -454,7 +380,7 @@
             this.dgvHDN.RowHeadersWidth = 51;
             this.dgvHDN.RowTemplate.Height = 30;
             this.dgvHDN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvHDN.Size = new System.Drawing.Size(1060, 574);
+            this.dgvHDN.Size = new System.Drawing.Size(1096, 656);
             this.dgvHDN.TabIndex = 22;
             this.dgvHDN.TabStop = false;
             this.dgvHDN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHDN_CellClick);
@@ -526,10 +452,11 @@
             this.panelHDN.Controls.Add(this.panel9);
             this.panelHDN.Controls.Add(this.panel8);
             this.panelHDN.Controls.Add(this.label2);
-            this.panelHDN.Location = new System.Drawing.Point(28, 89);
+            this.panelHDN.Location = new System.Drawing.Point(12, 34);
             this.panelHDN.Name = "panelHDN";
-            this.panelHDN.Size = new System.Drawing.Size(1088, 725);
+            this.panelHDN.Size = new System.Drawing.Size(1130, 800);
             this.panelHDN.TabIndex = 23;
+            this.panelHDN.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHDN_Paint);
             // 
             // lbWarningGiaBan1
             // 
@@ -659,24 +586,6 @@
             this.panel21.Size = new System.Drawing.Size(167, 48);
             this.panel21.TabIndex = 2;
             this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panel21_Paint);
-            // 
-            // btnThemPhuTung
-            // 
-            this.btnThemPhuTung.BackColor = System.Drawing.SystemColors.Control;
-            this.btnThemPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnThemPhuTung.BorderColor = System.Drawing.Color.Empty;
-            this.btnThemPhuTung.BorderThickness = 1.5F;
-            this.btnThemPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemPhuTung.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnThemPhuTung.Location = new System.Drawing.Point(3, 3);
-            this.btnThemPhuTung.Name = "btnThemPhuTung";
-            this.btnThemPhuTung.Size = new System.Drawing.Size(161, 42);
-            this.btnThemPhuTung.TabIndex = 2;
-            this.btnThemPhuTung.Text = "Thêm phụ tùng";
-            this.btnThemPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThemPhuTung.UseVisualStyleBackColor = false;
-            this.btnThemPhuTung.Click += new System.EventHandler(this.btnThemPhuTung_Click);
             // 
             // label21
             // 
@@ -1030,96 +939,91 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Hóa đơn nhập";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.btnPhuTung);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(847, 26);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 56);
-            this.panel1.TabIndex = 11;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
             // btnPhuTung
             // 
             this.btnPhuTung.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPhuTung.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
             this.btnPhuTung.BorderColor = System.Drawing.Color.Empty;
             this.btnPhuTung.BorderThickness = 1.5F;
             this.btnPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhuTung.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPhuTung.Location = new System.Drawing.Point(3, 3);
+            this.btnPhuTung.Location = new System.Drawing.Point(50, 4);
             this.btnPhuTung.Name = "btnPhuTung";
-            this.btnPhuTung.Size = new System.Drawing.Size(127, 50);
+            this.btnPhuTung.Size = new System.Drawing.Size(200, 30);
             this.btnPhuTung.TabIndex = 3;
-            this.btnPhuTung.Text = "DS Phụ tùng";
+            this.btnPhuTung.Text = "Danh sách phụ tùng";
             this.btnPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPhuTung.UseVisualStyleBackColor = false;
             this.btnPhuTung.Click += new System.EventHandler(this.btnPhuTung_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Location = new System.Drawing.Point(255, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(64, 40);
-            this.panel3.TabIndex = 9;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel4.Controls.Add(this.btnHDN);
-            this.panel4.Controls.Add(this.panel7);
-            this.panel4.Location = new System.Drawing.Point(727, 26);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(98, 56);
-            this.panel4.TabIndex = 12;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
             // btnHDN
             // 
             this.btnHDN.BackColor = System.Drawing.SystemColors.Control;
-            this.btnHDN.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnHDN.BackgroundColor = System.Drawing.SystemColors.Control;
             this.btnHDN.BorderColor = System.Drawing.Color.Empty;
             this.btnHDN.BorderThickness = 1.5F;
             this.btnHDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHDN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHDN.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnHDN.Location = new System.Drawing.Point(3, 3);
+            this.btnHDN.Location = new System.Drawing.Point(250, 4);
             this.btnHDN.Name = "btnHDN";
-            this.btnHDN.Size = new System.Drawing.Size(92, 50);
+            this.btnHDN.Size = new System.Drawing.Size(200, 30);
             this.btnHDN.TabIndex = 3;
-            this.btnHDN.Text = "DS HDN";
+            this.btnHDN.Text = "Danh sách hóa đơn nhập";
             this.btnHDN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHDN.UseVisualStyleBackColor = false;
             this.btnHDN.Click += new System.EventHandler(this.btnHDN_Click);
             // 
-            // panel7
+            // btnAddHDN
             // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Control;
-            this.panel7.Location = new System.Drawing.Point(255, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(64, 40);
-            this.panel7.TabIndex = 9;
+            this.btnAddHDN.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddHDN.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAddHDN.BorderColor = System.Drawing.Color.Empty;
+            this.btnAddHDN.BorderThickness = 1.5F;
+            this.btnAddHDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddHDN.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHDN.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAddHDN.Location = new System.Drawing.Point(947, 18);
+            this.btnAddHDN.Name = "btnAddHDN";
+            this.btnAddHDN.Size = new System.Drawing.Size(165, 56);
+            this.btnAddHDN.TabIndex = 3;
+            this.btnAddHDN.Text = "Thêm hóa đơn";
+            this.btnAddHDN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddHDN.UseVisualStyleBackColor = false;
+            this.btnAddHDN.Click += new System.EventHandler(this.btnAddHDN_Click);
+            // 
+            // btnThemPhuTung
+            // 
+            this.btnThemPhuTung.BackColor = System.Drawing.SystemColors.Control;
+            this.btnThemPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.btnThemPhuTung.BorderColor = System.Drawing.Color.Empty;
+            this.btnThemPhuTung.BorderThickness = 1.5F;
+            this.btnThemPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemPhuTung.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnThemPhuTung.Location = new System.Drawing.Point(3, 3);
+            this.btnThemPhuTung.Name = "btnThemPhuTung";
+            this.btnThemPhuTung.Size = new System.Drawing.Size(161, 42);
+            this.btnThemPhuTung.TabIndex = 2;
+            this.btnThemPhuTung.Text = "Thêm phụ tùng";
+            this.btnThemPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThemPhuTung.UseVisualStyleBackColor = false;
+            this.btnThemPhuTung.Click += new System.EventHandler(this.btnThemPhuTung_Click);
             // 
             // fKhoPhuTung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 869);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.btnPhuTung);
+            this.Controls.Add(this.btnHDN);
             this.Controls.Add(this.panelDS);
             this.Controls.Add(this.panelHDN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "fKhoPhuTung";
             this.Text = "fKho";
             this.Load += new System.EventHandler(this.fKho_Load);
-            this.panel14.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1152,18 +1056,12 @@
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel14;
         private CustomDesign.CustomButton btnAddHDN;
-        private System.Windows.Forms.Panel panel15;
-        private CustomDesign.CustomButton btnFilter;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtSearchBar;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -1172,12 +1070,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.DataGridView dgvPhuTung;
         private System.Windows.Forms.Panel panelDS;
-        private System.Windows.Forms.Panel panel1;
         private CustomDesign.CustomButton btnPhuTung;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private CustomDesign.CustomButton btnHDN;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dgvHDN;
         private System.Windows.Forms.Panel panelHDN;
         private System.Windows.Forms.Label label2;

@@ -100,7 +100,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.icons8_search_32;
             this.pictureBox1.Location = new System.Drawing.Point(12, 15);
-            this.pictureBox1.Name = "pictureBox";
+            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
@@ -137,7 +137,7 @@
             this.lbNext.AutoSize = true;
             this.lbNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNext.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbNext.Location = new System.Drawing.Point(588, 780);
+            this.lbNext.Location = new System.Drawing.Point(588, 760);
             this.lbNext.Name = "lbNext";
             this.lbNext.Size = new System.Drawing.Size(25, 25);
             this.lbNext.TabIndex = 21;
@@ -190,7 +190,7 @@
             this.dgvKhachHang.RowTemplate.Height = 30;
             this.dgvKhachHang.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvKhachHang.Size = new System.Drawing.Size(1096, 550);
+            this.dgvKhachHang.Size = new System.Drawing.Size(1096, 520);
             this.dgvKhachHang.TabIndex = 2;
             this.dgvKhachHang.TabStop = false;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
@@ -239,9 +239,9 @@
             this.panel1.Controls.Add(this.panelAddNew);
             this.panel1.Controls.Add(this.dgvKhachHang);
             this.panel1.Controls.Add(this.panel5);
-            this.panel1.Location = new System.Drawing.Point(27, 18);
+            this.panel1.Location = new System.Drawing.Point(27, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 833);
+            this.panel1.Size = new System.Drawing.Size(1130, 800);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -250,7 +250,7 @@
             this.lbPrevious.AutoSize = true;
             this.lbPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPrevious.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbPrevious.Location = new System.Drawing.Point(518, 780);
+            this.lbPrevious.Location = new System.Drawing.Point(518, 760);
             this.lbPrevious.Name = "lbPrevious";
             this.lbPrevious.Size = new System.Drawing.Size(25, 25);
             this.lbPrevious.TabIndex = 20;
@@ -262,7 +262,7 @@
             this.lbPage.AutoSize = true;
             this.lbPage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPage.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbPage.Location = new System.Drawing.Point(548, 782);
+            this.lbPage.Location = new System.Drawing.Point(548, 762);
             this.lbPage.Name = "lbPage";
             this.lbPage.Size = new System.Drawing.Size(35, 21);
             this.lbPage.TabIndex = 14;
