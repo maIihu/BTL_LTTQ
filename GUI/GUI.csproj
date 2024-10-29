@@ -110,6 +110,12 @@
     <Compile Include="fBase.Designer.cs">
       <DependentUpon>fBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="fChiTietHoaDonNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fChiTietHoaDonNhap.Designer.cs">
+      <DependentUpon>fChiTietHoaDonNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </Compile>
     <EmbeddedResource Include="fBase.resx">
       <DependentUpon>fBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fChiTietHoaDonNhap.resx">
+      <DependentUpon>fChiTietHoaDonNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fHoaDon.resx">
       <DependentUpon>fHoaDon.cs</DependentUpon>

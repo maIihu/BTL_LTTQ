@@ -262,7 +262,7 @@
             this.lbPage.AutoSize = true;
             this.lbPage.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPage.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lbPage.Location = new System.Drawing.Point(548, 762);
+            this.lbPage.Location = new System.Drawing.Point(549, 762);
             this.lbPage.Name = "lbPage";
             this.lbPage.Size = new System.Drawing.Size(35, 21);
             this.lbPage.TabIndex = 14;

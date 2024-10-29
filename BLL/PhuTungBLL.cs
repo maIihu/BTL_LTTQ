@@ -31,6 +31,10 @@ namespace BLL
             }
             return null; // Trả về null nếu không tìm thấy bản ghi
         }
+        public string LayMaHoaDonLonNhat()
+        {
+            return _phuTungDAL.LayMaHoaDonLonNhat();    
+        }
         public bool TimPhuTung(string ma)
         {
             return _phuTungDAL.KiemTraPhuTung(ma);

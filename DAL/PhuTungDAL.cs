@@ -11,6 +11,20 @@ namespace DAL
 {
     public class PhuTungDAL
     {
+        public string LayMaHoaDonLonNhat()
+        {
+            string query = "SELECT TOP 1 MaHDN from HOADONNHAPPHUTUNG order by MaHDN desc";
+
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow row = dataTable.Rows[0];
+                return row["MaHDN"].ToString();
+            }
+
+            return null;
+        }
         public bool KiemTraPhuTung(string maPt)
         {
             string query = "SELECT COUNT(*) FROM PHUTUNG WHERE MaPhuTung = @mapt ";
@@ -22,7 +36,7 @@ namespace DAL
             string query = "SELECT TenPhuTung, SoLuong, DonGiaNhap, DonGiaBan FROM PHUTUNG WHERE MaPhuTung = @mapt";
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { maPt });
 
-            if (dataTable.Rows.Count > 0) // Nếu có bản ghi
+            if (dataTable.Rows.Count > 0) 
             {
                 DataRow row = dataTable.Rows[0]; 
                 return new object[]

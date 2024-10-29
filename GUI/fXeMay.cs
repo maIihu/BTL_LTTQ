@@ -77,10 +77,6 @@ namespace GUI
                 System.Reflection.BindingFlags.SetProperty,
                 null, dgvXeMay, new object[] { true });
 
-            typeof(Panel).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
-                System.Reflection.BindingFlags.SetProperty,
-                null, panelFooter, new object[] { true });
         }
 
         private void DisplayCurrentPage()
@@ -129,7 +125,6 @@ namespace GUI
         private void SetupDataGridView()
         {
             dgvXeMay.Size = defaultDGVSize;
-            panelFooter.Width = defaultDGVSize.Width;
             thongTinReveal = false;
 
             dgvXeMay.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
@@ -230,7 +225,7 @@ namespace GUI
             for (int i = 0; i < steps; i++)
             {
                 dgvXeMay.Width -= stepWidth;
-                panelFooter.Width -= stepWidth;
+                
 
                 Application.DoEvents();
 
@@ -238,7 +233,7 @@ namespace GUI
             }
 
             dgvXeMay.Width = targerWidth;
-            panelFooter.Width = targerWidth;
+            
         }
 
         private async Task ToggleThongTin()

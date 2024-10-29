@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using DAL;
 using DTO;
 using BLL;
+using System.Globalization;
 namespace GUI
 {
     public partial class fKhoPhuTung : Form
@@ -37,7 +38,7 @@ namespace GUI
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
-        private string whatIsRunning = "PhuTung"; // 0 là ds hđn, 1 là ds phụ tùng
+        private string whatIsRunning = "PhuTung"; 
         public fKhoPhuTung(string idLogin)
         {
             InitializeComponent();
@@ -59,6 +60,13 @@ namespace GUI
 
             btnPhuTung_Click(this, EventArgs.Empty);
         }
+        private void LaySoLieuHoaDon()
+        {
+            string temp = _phuTungBLL.LayMaHoaDonLonNhat();
+            string numberPart = temp.Substring(3);
+            countHdn = int.Parse(numberPart);
+            countHdn++;
+        }
         public void HienThiDSHoaDonNhap()
         {
             listHoaDon = _hoaDonNhapBLL.LayHoaDonNhap();
@@ -66,8 +74,8 @@ namespace GUI
             currentPageHDN = 1;
 
             DisplayCurrentPage_HoaDon();
-
-            countHdn = listHoaDon.Count;
+            LaySoLieuHoaDon();
+            
         }
         private void DisplayCurrentPage_HoaDon()
         {
@@ -83,7 +91,8 @@ namespace GUI
             foreach (var hdn in dsHoaDonNhap)
             {
                 string formattedDate = hdn.NgayNhap.ToString("dd/MM/yyyy");
-                dgvHDN.Rows.Add(i++, hdn.MaHDN, hdn.MaNV, formattedDate, hdn.TongTien);
+                string tienVND = hdn.TongTien.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
+                dgvHDN.Rows.Add(i++, hdn.MaHDN, hdn.MaNV, formattedDate, tienVND);
             }
         }
         private void HienThiDSPhuTung()
@@ -109,7 +118,10 @@ namespace GUI
             int i = (currentPagePT - 1) * pageSize + 1;
             foreach (var phuTung in dsPhuTung)
             {
-                dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaNhap, phuTung.DonGiaBan);
+                string donGiaNhapVND = phuTung.DonGiaNhap.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
+                string donGiaBanVND = phuTung.DonGiaNhap.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
+                dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, 
+                    phuTung.SoLuong, donGiaNhapVND, donGiaBanVND);
             }
         }
 
@@ -296,15 +308,13 @@ namespace GUI
 
                     if (phuTung != null)
                     {
-                        // Gán giá trị vào các TextBox
                         txtTenPhuTung.Text = phuTung.TenPhuTung;
                         // txtSoLuong.Text = phuTung.SoLuong.ToString();
-                        txtDonGiaNhap.Text = phuTung.DonGiaNhap.ToString("N0"); // Định dạng số nếu cần
-                        txtDonGiaBan.Text = phuTung.DonGiaBan.ToString("N0"); // Định dạng số nếu cần
+                        txtDonGiaNhap.Text = phuTung.DonGiaNhap.ToString("N0"); 
+                        txtDonGiaBan.Text = phuTung.DonGiaBan.ToString("N0"); 
                     }
                     else
                     {
-                        // Nếu không tìm thấy, làm sạch các TextBox
                         txtTenPhuTung.Text = string.Empty;
                         txtSoLuong.Text = string.Empty;
                         txtDonGiaNhap.Text = string.Empty;
@@ -320,6 +330,7 @@ namespace GUI
         private void btnHDN_Click(object sender, EventArgs e)
         {
             lblShowResult.Text = $"{currentPageHDN}/{totalPagesPT}";
+            lblChiTiet.Visible = true;
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -349,8 +360,8 @@ namespace GUI
             btnPhuTung.BackgroundColor = SystemColors.Control;
             btnPhuTung.ForeColor = SystemColors.ControlText;
 
-            btnAddHDN.BackgroundColor = SystemColors.Control;
-            btnAddHDN.ForeColor = SystemColors.ControlText;
+            //btnAddHDN.BackgroundColor = SystemColors.Control;
+            //btnAddHDN.ForeColor = SystemColors.ControlText;
             whatIsRunning = "HoaDonNhap";
 
         }
@@ -358,6 +369,7 @@ namespace GUI
         private void btnPhuTung_Click(object sender, EventArgs e)
         {
             lblShowResult.Text = $"{currentPagePT}/{totalPagesPT}";
+            lblChiTiet.Visible = false;
             if (panelDS.Visible == false)
             {
                 panelDS.Visible = true;
@@ -386,8 +398,6 @@ namespace GUI
             btnHDN.BackgroundColor = SystemColors.Control;
             btnHDN.ForeColor = SystemColors.ControlText;
 
-            btnAddHDN.BackgroundColor = SystemColors.Control;
-            btnAddHDN.ForeColor = SystemColors.ControlText;
             whatIsRunning = "PhuTung"; // sao thêm cái này vào bị lỗi nhỉ ( để đầu thì lỗi, đề cuối thì không)
         }
 
@@ -398,8 +408,6 @@ namespace GUI
 
             panelHDN.Visible = true;
 
-            btnAddHDN.BackgroundColor = SystemColors.GradientActiveCaption;
-            btnAddHDN.ForeColor = Color.White;
 
             btnHDN.BackgroundColor = SystemColors.Control;
             btnHDN.ForeColor = SystemColors.ControlText;
@@ -493,13 +501,12 @@ namespace GUI
                 }
             }
 
-            // HDN -> PHUTUNG -> CHITIET
-            // HIEN TAI LA THEM
+            // HDN -> PHUTUNG -> CHITIET           
             bool themHdn = _hoaDonNhapBLL.ThemHoaDonNhap(new HoaDonNhapDTO(mahdn, idLogin, DateTime.Parse(ngayNhap), thanhTien));
 
             if (themHdn)
             {
-                //MessageBox.Show("Them duoc HDN");
+                MessageBox.Show("Thêm hóa đơn nhập");
             }
             // ton tai phu tung roi
             if (coPhuTung)
@@ -523,8 +530,12 @@ namespace GUI
             bool themCt = _chiTietHoaDonNhapBLL.ThemHDN(new ChiTietHDNDTO(mahdn, maPt, soLuong));
             if (themCt)
             {
-                MessageBox.Show("Thêm hóa đơn thành công", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Thêm chi tiết hóa đơn", "Thông báo", MessageBoxButtons.OK);  
                 
+            }
+            else
+            {
+                MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK);
             }
 
             //txtHdn.Clear();
@@ -662,9 +673,14 @@ namespace GUI
             DrawRoundedPanel(panelHDN, 15, BorderColor, BorderThickness, e);
         }
 
-        private void dgvPhuTung_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvHDN_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                string maHDN = dgvHDN.Rows[e.RowIndex].Cells["MaHDN"].Value.ToString();
+                fChiTietHoaDonNhap x = new fChiTietHoaDonNhap(maHDN);
+                x.Show();
+            }
         }
     }
 }

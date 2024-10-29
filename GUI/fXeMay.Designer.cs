@@ -37,8 +37,11 @@ namespace GUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelThongTin = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLoaiXe = new System.Windows.Forms.TextBox();
             this.panel21 = new System.Windows.Forms.Panel();
             this.txtMaMau = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.txtBienSo = new System.Windows.Forms.TextBox();
@@ -54,21 +57,17 @@ namespace GUI
             this.label8 = new System.Windows.Forms.Label();
             this.btnExitPanel = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.btnXong = new GUI.CustomDesign.CustomButton();
             this.lblMaXe = new System.Windows.Forms.Label();
             this.imgXe = new System.Windows.Forms.PictureBox();
-            this.panelFooter = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Label();
             this.btnPrevious = new System.Windows.Forms.Label();
             this.lblShowResult = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnAddNew = new GUI.CustomDesign.CustomButton();
             this.panelAddNew = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.btnAdd = new GUI.CustomDesign.CustomButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -103,11 +102,12 @@ namespace GUI
             this.cmsXeMay = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtLoaiXe = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnXong = new GUI.CustomDesign.CustomButton();
+            this.btnAddNew = new GUI.CustomDesign.CustomButton();
+            this.btnAdd = new GUI.CustomDesign.CustomButton();
             this.panel1.SuspendLayout();
             this.panelThongTin.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -115,7 +115,6 @@ namespace GUI
             this.panel16.SuspendLayout();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgXe)).BeginInit();
-            this.panelFooter.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelAddNew.SuspendLayout();
@@ -131,14 +130,15 @@ namespace GUI
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.cmsXeMay.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.panelThongTin);
-            this.panel1.Controls.Add(this.panelFooter);
+            this.panel1.Controls.Add(this.btnPrevious);
+            this.panel1.Controls.Add(this.lblShowResult);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panelAddNew);
             this.panel1.Controls.Add(this.dgvXeMay);
@@ -173,6 +173,25 @@ namespace GUI
             this.panelThongTin.Size = new System.Drawing.Size(313, 657);
             this.panelThongTin.TabIndex = 24;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.txtLoaiXe);
+            this.panel2.Location = new System.Drawing.Point(88, 538);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(208, 40);
+            this.panel2.TabIndex = 20;
+            // 
+            // txtLoaiXe
+            // 
+            this.txtLoaiXe.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLoaiXe.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLoaiXe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoaiXe.Location = new System.Drawing.Point(14, 9);
+            this.txtLoaiXe.Name = "txtLoaiXe";
+            this.txtLoaiXe.Size = new System.Drawing.Size(191, 22);
+            this.txtLoaiXe.TabIndex = 3;
+            // 
             // panel21
             // 
             this.panel21.BackColor = System.Drawing.SystemColors.Control;
@@ -192,6 +211,16 @@ namespace GUI
             this.txtMaMau.Name = "txtMaMau";
             this.txtMaMau.Size = new System.Drawing.Size(191, 22);
             this.txtMaMau.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(16, 552);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Loại xe";
             // 
             // label12
             // 
@@ -350,20 +379,6 @@ namespace GUI
             this.panel17.TabIndex = 10;
             this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.panel17_Paint);
             // 
-            // btnXong
-            // 
-            this.btnXong.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnXong.BorderColor = System.Drawing.Color.Empty;
-            this.btnXong.BorderThickness = 1.5F;
-            this.btnXong.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXong.Location = new System.Drawing.Point(4, 2);
-            this.btnXong.Name = "btnXong";
-            this.btnXong.Size = new System.Drawing.Size(92, 34);
-            this.btnXong.TabIndex = 0;
-            this.btnXong.Text = "Xong";
-            this.btnXong.UseVisualStyleBackColor = true;
-            this.btnXong.Click += new System.EventHandler(this.btnXong_Click);
-            // 
             // lblMaXe
             // 
             this.lblMaXe.AutoSize = true;
@@ -384,22 +399,12 @@ namespace GUI
             this.imgXe.TabIndex = 0;
             this.imgXe.TabStop = false;
             // 
-            // panelFooter
-            // 
-            this.panelFooter.Controls.Add(this.btnNext);
-            this.panelFooter.Controls.Add(this.btnPrevious);
-            this.panelFooter.Controls.Add(this.lblShowResult);
-            this.panelFooter.Location = new System.Drawing.Point(31, 750);
-            this.panelFooter.Name = "panelFooter";
-            this.panelFooter.Size = new System.Drawing.Size(726, 40);
-            this.panelFooter.TabIndex = 24;
-            // 
             // btnNext
             // 
             this.btnNext.AutoSize = true;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnNext.Location = new System.Drawing.Point(597, 7);
+            this.btnNext.Location = new System.Drawing.Point(588, 760);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(25, 25);
             this.btnNext.TabIndex = 32;
@@ -411,7 +416,7 @@ namespace GUI
             this.btnPrevious.AutoSize = true;
             this.btnPrevious.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrevious.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnPrevious.Location = new System.Drawing.Point(527, 7);
+            this.btnPrevious.Location = new System.Drawing.Point(518, 760);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(25, 25);
             this.btnPrevious.TabIndex = 31;
@@ -423,7 +428,7 @@ namespace GUI
             this.lblShowResult.AutoSize = true;
             this.lblShowResult.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShowResult.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblShowResult.Location = new System.Drawing.Point(557, 9);
+            this.lblShowResult.Location = new System.Drawing.Point(549, 762);
             this.lblShowResult.Name = "lblShowResult";
             this.lblShowResult.Size = new System.Drawing.Size(35, 21);
             this.lblShowResult.TabIndex = 30;
@@ -451,24 +456,6 @@ namespace GUI
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
-            // 
-            // btnAddNew
-            // 
-            this.btnAddNew.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAddNew.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.btnAddNew.BorderColor = System.Drawing.Color.Empty;
-            this.btnAddNew.BorderThickness = 1.5F;
-            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAddNew.Location = new System.Drawing.Point(0, 0);
-            this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(143, 53);
-            this.btnAddNew.TabIndex = 4;
-            this.btnAddNew.Text = "Add new";
-            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddNew.UseVisualStyleBackColor = false;
-            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // panelAddNew
             // 
@@ -519,24 +506,6 @@ namespace GUI
             this.panel14.Size = new System.Drawing.Size(66, 40);
             this.panel14.TabIndex = 10;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAdd.BorderColor = System.Drawing.Color.Empty;
-            this.btnAdd.BorderThickness = 1.5F;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(60, 34);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel15
             // 
@@ -922,34 +891,55 @@ namespace GUI
             this.toolStripMenuItem2.Text = "Delete";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // panel2
+            // btnXong
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.txtLoaiXe);
-            this.panel2.Location = new System.Drawing.Point(88, 538);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(208, 40);
-            this.panel2.TabIndex = 20;
+            this.btnXong.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnXong.BorderColor = System.Drawing.Color.Empty;
+            this.btnXong.BorderThickness = 1.5F;
+            this.btnXong.Font = new System.Drawing.Font("Segoe UI Light", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXong.Location = new System.Drawing.Point(4, 2);
+            this.btnXong.Name = "btnXong";
+            this.btnXong.Size = new System.Drawing.Size(92, 34);
+            this.btnXong.TabIndex = 0;
+            this.btnXong.Text = "Xong";
+            this.btnXong.UseVisualStyleBackColor = true;
+            this.btnXong.Click += new System.EventHandler(this.btnXong_Click);
             // 
-            // txtLoaiXe
+            // btnAddNew
             // 
-            this.txtLoaiXe.BackColor = System.Drawing.SystemColors.Control;
-            this.txtLoaiXe.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLoaiXe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLoaiXe.Location = new System.Drawing.Point(14, 9);
-            this.txtLoaiXe.Name = "txtLoaiXe";
-            this.txtLoaiXe.Size = new System.Drawing.Size(191, 22);
-            this.txtLoaiXe.TabIndex = 3;
+            this.btnAddNew.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddNew.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.btnAddNew.BorderColor = System.Drawing.Color.Empty;
+            this.btnAddNew.BorderThickness = 1.5F;
+            this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNew.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAddNew.Location = new System.Drawing.Point(0, 0);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(143, 53);
+            this.btnAddNew.TabIndex = 4;
+            this.btnAddNew.Text = "Add new";
+            this.btnAddNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddNew.UseVisualStyleBackColor = false;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
-            // label1
+            // btnAdd
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 552);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Loại xe";
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAdd.BorderColor = System.Drawing.Color.Empty;
+            this.btnAdd.BorderThickness = 1.5F;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(60, 34);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // fXeMay
             // 
@@ -962,8 +952,11 @@ namespace GUI
             this.Text = "fXeMay";
             this.Load += new System.EventHandler(this.fXeMay_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelThongTin.ResumeLayout(false);
             this.panelThongTin.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
             this.panel20.ResumeLayout(false);
@@ -976,8 +969,6 @@ namespace GUI
             this.panel16.PerformLayout();
             this.panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgXe)).EndInit();
-            this.panelFooter.ResumeLayout(false);
-            this.panelFooter.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelAddNew.ResumeLayout(false);
@@ -1001,8 +992,6 @@ namespace GUI
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.cmsXeMay.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1052,7 +1041,6 @@ namespace GUI
         private DataGridViewTextBoxColumn SoMay;
         private DataGridViewTextBoxColumn BienSo;
         private DataGridViewTextBoxColumn MaMau;
-        private Panel panelFooter;
         private Panel panelThongTin;
         private Button btnExitPanel;
         private Panel panel17;

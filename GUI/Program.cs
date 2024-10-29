@@ -18,7 +18,6 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new fLoad("Login"));
             Application.Run(new fBase("QL001"));
-
         }
     }
 }

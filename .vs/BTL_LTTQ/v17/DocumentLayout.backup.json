@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\BTL\\BTL_LTTQ\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fxemay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fxemay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fkhophutung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkhophutung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|D:\\BTL\\BTL_LTTQ\\gui\\fxemay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fxemay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fkhophutung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fkhophutung.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fchitiethoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fchitiethoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|d:\\btl\\btl_lttq\\gui\\fchitiethoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5BC5DE7-ECCA-4B29-A2AA-0E89F2FDC5AF}|GUI\\GUI.csproj|solutionrelative:gui\\fchitiethoadonnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,27 +42,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "fXeMay.cs",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fXeMay.cs",
-              "RelativeDocumentMoniker": "GUI\\fXeMay.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fXeMay.cs",
-              "RelativeToolTip": "GUI\\fXeMay.cs",
-              "ViewState": "AgIAAN0AAAAAAAAAAAAqwOIAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\Program.cs",
+              "RelativeDocumentMoniker": "GUI\\Program.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\Program.cs",
+              "RelativeToolTip": "GUI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T12:17:48.092Z",
+              "WhenOpened": "2024-10-29T18:44:54.986Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fXeMay.cs [Design]",
-              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fXeMay.cs",
-              "RelativeDocumentMoniker": "GUI\\fXeMay.cs",
-              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fXeMay.cs [Design]",
-              "RelativeToolTip": "GUI\\fXeMay.cs [Design]",
+              "DocumentIndex": 4,
+              "Title": "fChiTietHoaDonNhap.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fChiTietHoaDonNhap.cs",
+              "RelativeDocumentMoniker": "GUI\\fChiTietHoaDonNhap.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fChiTietHoaDonNhap.cs",
+              "RelativeToolTip": "GUI\\fChiTietHoaDonNhap.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T12:17:46.479Z"
+              "WhenOpened": "2024-10-29T18:43:28.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fChiTietHoaDonNhap.cs [Design]",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fChiTietHoaDonNhap.cs",
+              "RelativeDocumentMoniker": "GUI\\fChiTietHoaDonNhap.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fChiTietHoaDonNhap.cs [Design]",
+              "RelativeToolTip": "GUI\\fChiTietHoaDonNhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T18:43:10.172Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fKhoPhuTung.cs",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fKhoPhuTung.cs",
+              "RelativeDocumentMoniker": "GUI\\fKhoPhuTung.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKhoPhuTung.cs*",
+              "RelativeToolTip": "GUI\\fKhoPhuTung.cs*",
+              "ViewState": "AgIAAF4BAAAAAAAAAAApwHMBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T18:39:09.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "fKhoPhuTung.cs [Design]",
+              "DocumentMoniker": "D:\\BTL\\BTL_LTTQ\\GUI\\fKhoPhuTung.cs",
+              "RelativeDocumentMoniker": "GUI\\fKhoPhuTung.cs",
+              "ToolTip": "D:\\BTL\\BTL_LTTQ\\GUI\\fKhoPhuTung.cs [Design]*",
+              "RelativeToolTip": "GUI\\fKhoPhuTung.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T18:39:08.143Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
