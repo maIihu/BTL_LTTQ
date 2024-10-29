@@ -51,91 +51,132 @@ namespace DAL
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
             int data = 0;
-
-            using (SqlConnection connection = GetConnection())
+            try
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlConnection connection = GetConnection())
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
 
-                if (parameter != null)                {
-
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string para in listPara)
+                    if (parameter != null)
                     {
-                        if (para.StartsWith("@"))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string para in listPara)
                         {
-                            command.Parameters.AddWithValue(para, parameter[i]);
-                            i++;
+                            if (para.StartsWith("@"))
+                            {
+                                command.Parameters.AddWithValue(para, parameter[i]);
+                                i++;
+                            }
                         }
                     }
-                }
 
-                data = command.ExecuteNonQuery();
-                connection.Close();
+                    data = command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
 
             return data;
         }
+
 
 
         // Thực hiện câu lệnh SQL và trả về 1 bảng dữ liệu
         public DataTable ExecuteQuery(string query, object[] paramentor = null)
         {
             DataTable data = new DataTable();
-            using (SqlConnection connection = GetConnection())
+
+            try
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                if (paramentor != null)
+                using (SqlConnection connection = GetConnection())
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string para in listPara)
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    if (paramentor != null)
                     {
-                        if (para.Contains("@"))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string para in listPara)
                         {
-                            command.Parameters.AddWithValue(para, paramentor[i]);
-                            i++;
+                            if (para.Contains("@"))
+                            {
+                                command.Parameters.AddWithValue(para, paramentor[i]);
+                                i++;
+                            }
                         }
                     }
-                }
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(data);
 
-                connection.Close();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
+
+                    connection.Close();
+                }
             }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
             return data;
         }
+
 
         // Thực hiện câu lệnh SQL và trả về 1 dòng dữ liệu
         public object ExecuteScalar(string query, object[] parameter = null)
         {
             object data = null;
 
-            using (SqlConnection connection = GetConnection())
+            try
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-
-                if (parameter != null)
+                using (SqlConnection connection = GetConnection())
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listPara)
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listPara)
                         {
-                            command.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                command.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
+
+                    data = command.ExecuteScalar();
+                    connection.Close();
                 }
-                data = command.ExecuteScalar();
-                connection.Close();
             }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
             return data;
         }
+
 
     }
 }
