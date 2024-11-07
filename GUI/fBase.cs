@@ -16,19 +16,23 @@ namespace GUI
     public partial class fBase : Form
     {
         private string idLogin;
-
         private NhanVienBLL _nhanVienBLL;
         private Form[] forms;
         private Control activeControl;
+
+        public event Action CloseForm;
+
         public fBase(string tenDangNhap)
         {
             InitializeComponent();
             this.idLogin = tenDangNhap;
             _nhanVienBLL = new NhanVienBLL();
             LoadImage(idLogin);
+
         }
 
-        private void LoadImage(string foodID)
+
+		private void LoadImage(string foodID)
         {
             string resourcePath = $@"..\..\Resources\ImageAvatar\";
             string imagePath = Path.Combine(resourcePath, $"{foodID}.jpg");
@@ -65,30 +69,22 @@ namespace GUI
 
         private void MakePictureBoxRound(PictureBox pictureBox)
         {
-            // Tạo Bitmap với kích thước bằng với PictureBox
             Bitmap bm = new Bitmap(pictureBox.Width, pictureBox.Height);
-
-            // Vẽ vào Bitmap
             using (Graphics g = Graphics.FromImage(bm))
             {
-                // Bật chế độ smoothing để chống răng cưa
                 g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-                // Tạo hình ellipse với kích thước PictureBox
                 using (System.Drawing.Drawing2D.GraphicsPath circle = new System.Drawing.Drawing2D.GraphicsPath())
                 {
                     circle.AddEllipse(0, 0, pictureBox.Width, pictureBox.Height);
 
-                    // Đặt vùng cắt
                     pictureBox.Region = new Region(circle);
 
-                    // Vẽ hình ảnh lên với hình ellipse
                     g.SetClip(circle);
                     g.DrawImage(pictureBox.Image, 0, 0, pictureBox.Width, pictureBox.Height);
                 }
             }
 
-            // Gán lại hình ảnh đã xử lý cho PictureBox
             pictureBox.Image = bm;
         }
 
@@ -130,38 +126,45 @@ namespace GUI
             if (idLogin.Contains("QL")) lbChucVu.Text = "Quản lý";
         }
 
-        private async void ShowForm(int index)
-        {
-            foreach (var form in forms)
-            {
-                if (form != null && !form.IsDisposed)
-                {
-                    pnPage.Controls.Remove(form);
-                    form.Close();
-                }
-            }
+		private async void ShowForm(int index)
+		{
+			foreach (var form in forms)
+			{
+				if (form != null && !form.IsDisposed)
+				{
+					pnPage.Controls.Remove(form);
+					form.Close();
+				}
+			}
 
-            await Task.Delay(100);
+			await Task.Delay(100);
 
-            if (forms[index] != null && forms[index].IsDisposed)
-            {
-                forms[index] = (Form)Activator.CreateInstance(forms[index].GetType(), new object[] { idLogin });
-            }
+			if (forms[index] != null && forms[index].IsDisposed)
+			{
+				forms[index] = (Form)Activator.CreateInstance(forms[index].GetType(), new object[] { idLogin });
+			}
 
-            if (forms[index] != null)
-            {
-                forms[index].TopLevel = false;
-                pnPage.Controls.Add(forms[index]);
-                forms[index].Dock = DockStyle.Fill;
-                if (forms[index] is fTaiKhoan taiKhoanForm)
-                {
-                    taiKhoanForm.ImageChanged += OnImageChanged; 
-                }
-                forms[index].Show();
-                pnPage.Update();
-            }
-        }
-        private void OnImageChanged(Image newImage)
+			if (forms[index] != null)
+			{
+				forms[index].TopLevel = false;
+				pnPage.Controls.Add(forms[index]);
+				forms[index].Dock = DockStyle.Fill;
+
+				if (forms[index] is fTaiKhoan taiKhoanForm)
+				{
+					taiKhoanForm.ImageChanged += OnImageChanged;
+                    taiKhoanForm.CloseFormEvent += (s, e) => {
+						this.Close(); // Đóng Form2 khi nhận tín hiệu từ Form1
+					};
+				}
+
+				forms[index].Show();
+				pnPage.Update();
+			}
+		}
+
+
+		private void OnImageChanged(Image newImage)
         {
             if (pictureBox1 != null)
             {
@@ -573,13 +576,6 @@ namespace GUI
             changeBackgroundColor(btnKhach, pnKhach, picKhach, Color.White, Properties.Resources.user1, FontStyle.Regular);
             changeBackgroundColor(btnHoaDon, pnHoaDon, picHoaDon, Color.White, Properties.Resources.card1, FontStyle.Regular);
             changeBackgroundColor(btnYeuCau, pnYeuCau, picYeuCau, Color.White, Properties.Resources.cal1, FontStyle.Regular);
-        }
-
-
-
-        private void pictureBox1_DpiChangedAfterParent(object sender, EventArgs e)
-        {
-
         }
         
         private void pictureBox1_DoubleClick(object sender, EventArgs e)

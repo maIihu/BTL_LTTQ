@@ -29,8 +29,9 @@ namespace GUI
             this.idLogin = idLogin;
             _nhanVienBLL = new NhanVienBLL();
             _accountBLL = new AccountBLL();
-        }
-        private void ChangeBackgroundColor(Button btn, Panel pn,  Color cl)
+		}
+
+		private void ChangeBackgroundColor(Button btn, Panel pn,  Color cl)
         {
             btn.BackColor = cl;
             pn.BackColor = cl;
@@ -353,7 +354,13 @@ namespace GUI
                 }
             }
         }
-
-
-    }
+		public event EventHandler CloseFormEvent;
+		private void btnDangXuat_Click(object sender, EventArgs e)
+		{
+            fLoad fLoad = new fLoad("Login");
+			this.Close();
+			CloseFormEvent?.Invoke(this, EventArgs.Empty);			
+			fLoad.Show();
+		}
+	}
 }
