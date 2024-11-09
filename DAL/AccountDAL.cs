@@ -30,7 +30,7 @@ namespace DAL
         }
         public bool ChangePassword(string username, string password) {
             string query = "UPDATE TAIKHOAN SET MatKhau = @password WHERE TaiKhoan = @taikhoan ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, password });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { password, username });
             return result > 0;
         }
     }

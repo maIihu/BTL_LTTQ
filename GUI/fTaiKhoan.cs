@@ -44,15 +44,14 @@ namespace GUI
         }
         private void FillData()
         {
-            txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
-            txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
-            txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
-            txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);
-            txtNgayBatDau.Text = lblNgayBd.Text = _nhanVienBLL.TimNgayBatDau(idLogin);
-            txtNgaySinh.Text = lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(idLogin);
-            txtGioiTinh.Text = lblGioiTinh.Text = _nhanVienBLL.TimGioiTinh(idLogin);
-
-            if (idLogin.Contains("MNV"))
+			txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+			txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
+			txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
+			txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);
+			txtNgayBatDau.Text = lblNgayBd.Text = _nhanVienBLL.TimNgayBatDau(idLogin);
+			txtNgaySinh.Text = lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(idLogin);
+			txtGioiTinh.Text = lblGioiTinh.Text = _nhanVienBLL.TimGioiTinh(idLogin);
+			if (idLogin.Contains("MNV"))
             {
                 lblChucVu.Text = "Nhân viên";
                 _isAdmin = false;
@@ -91,8 +90,9 @@ namespace GUI
             {
                 txtChucVu.Enabled = false;
                 txtTrinhDo.Enabled = false;
-            }
-            btnXem_Click(sender, e);
+			}
+			
+			btnXem_Click(sender, e);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -106,7 +106,14 @@ namespace GUI
             pnThongTin.Visible = false;
             pnXem.Visible = false;
             pnButton.Visible = true;
-        }
+			txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+			txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
+			txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
+			txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);
+			txtNgayBatDau.Text = lblNgayBd.Text = _nhanVienBLL.TimNgayBatDau(idLogin);
+			txtNgaySinh.Text = lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(idLogin);
+			txtGioiTinh.Text = lblGioiTinh.Text = _nhanVienBLL.TimGioiTinh(idLogin);
+		}
 
         private void btnXem_Click(object sender, EventArgs e)
         {
@@ -216,6 +223,9 @@ namespace GUI
             ChangeBackgroundColor(btnDoiMK, pnDoiMatKhau, Color.FromArgb(217, 217, 217));
             pnHoSo.Visible = false;
             pnDoiMK.Visible = true;
+            txtMkCu.Clear();
+            txtMkMoi.Clear();
+            txtNhapLaiMk.Clear();   
         }
 
         private void panel7_Paint(object sender, PaintEventArgs e)
@@ -235,6 +245,7 @@ namespace GUI
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
+
             string mkCu = txtMkCu.Text; 
             string mkMoi = txtMkMoi.Text;
             string nhapLai = txtNhapLaiMk.Text;
@@ -262,6 +273,11 @@ namespace GUI
             if (changepassword)
             {
                 MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnDangXuat_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Hi");
             }
         }
 
@@ -361,6 +377,11 @@ namespace GUI
 			this.Close();
 			CloseFormEvent?.Invoke(this, EventArgs.Empty);			
 			fLoad.Show();
+		}
+
+		private void btnCapTK_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
