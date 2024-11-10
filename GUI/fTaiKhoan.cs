@@ -373,11 +373,17 @@ namespace GUI
 		public event EventHandler CloseFormEvent;
 		private void btnDangXuat_Click(object sender, EventArgs e)
 		{
-            fLoad fLoad = new fLoad("Login");
-			this.Close();
-			CloseFormEvent?.Invoke(this, EventArgs.Empty);			
-			fLoad.Show();
+			DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+			if (result == DialogResult.Yes)
+			{
+				fLoad fLoad = new fLoad("Login");
+				this.Close();
+				CloseFormEvent?.Invoke(this, EventArgs.Empty);
+				fLoad.Show();
+			}
 		}
+
 
 		private void btnCapTK_Click(object sender, EventArgs e)
 		{

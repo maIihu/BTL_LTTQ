@@ -33,5 +33,10 @@ namespace DAL
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { password, username });
             return result > 0;
         }
+        public bool CreateAccount(string username, string password) {
+            string query = "INSERT INTO TAIKHOAN (TaiKhoan, MatKhau) VALUES ( @username , @password ) ";
+			int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, password });
+			return result > 0;
+		}
     }
 }

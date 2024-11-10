@@ -48,5 +48,9 @@ namespace BLL
         {
             return _accountDAL.ChangePassword(username, password);
         }
+        public bool CreateAccount(string username, string password)
+        {
+            return _accountDAL.CreateAccount(username, password);   
+        }
     }
 }

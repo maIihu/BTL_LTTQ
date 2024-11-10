@@ -593,6 +593,12 @@ namespace GUI
             changeBackgroundColor(btnNhanVien, pnNhanVien, picNhanVien, Color.White, Properties.Resources.alt1, FontStyle.Regular);
         }
 
-        // END NHANVIEN
-    }
+		private void button1_Click(object sender, EventArgs e)
+		{
+            fCapTaiKhoan form = new fCapTaiKhoan();
+            form.ShowDialog();
+		}
+
+		// END NHANVIEN
+	}
 }

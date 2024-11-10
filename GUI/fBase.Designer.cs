@@ -53,6 +53,7 @@
 			this.picTrangChu = new System.Windows.Forms.PictureBox();
 			this.btnTrangChu = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.lbChucVu = new System.Windows.Forms.Label();
 			this.lbTen = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.lbTitle = new System.Windows.Forms.Label();
 			this.pnPage = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.pnHoaDon.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picHoaDon)).BeginInit();
@@ -429,6 +429,20 @@
 			this.panel2.Size = new System.Drawing.Size(1184, 96);
 			this.panel2.TabIndex = 1;
 			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.Color.Transparent;
+			this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.button1.FlatAppearance.BorderSize = 0;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.Location = new System.Drawing.Point(880, 33);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(30, 30);
+			this.button1.TabIndex = 2;
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// panel4
 			// 
 			this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -509,19 +523,6 @@
 			this.pnPage.Name = "pnPage";
 			this.pnPage.Size = new System.Drawing.Size(1184, 869);
 			this.pnPage.TabIndex = 2;
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.Color.Transparent;
-			this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Location = new System.Drawing.Point(880, 33);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(30, 30);
-			this.button1.TabIndex = 2;
-			this.button1.UseVisualStyleBackColor = false;
 			// 
 			// fBase
 			// 
