@@ -810,7 +810,7 @@ namespace GUI
             panelYeuCau.Visible = true;
         }
 
-        private void panelHoaDon_Paint(object sender, PaintEventArgs e)
+		private void panelHoaDon_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panelHoaDon, 15, BorderColor, BorderThickness, e);
         }
