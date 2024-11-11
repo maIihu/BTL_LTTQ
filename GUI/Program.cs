@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GUI.Login;
 
 namespace GUI
 {
@@ -16,8 +17,9 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new fLoad("Login"));
-            Application.Run(new fBase("QL001"));
-        }
+			Application.Run(new fLoad("Login"));
+			//Application.Run(new fBase("QL001"));
+			//Application.Run(new fLogin());
+		}
     }
 }

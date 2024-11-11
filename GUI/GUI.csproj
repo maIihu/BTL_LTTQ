@@ -182,6 +182,12 @@
     <Compile Include="fXeMay.Designer.cs">
       <DependentUpon>fXeMay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\fLogin2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\fLogin2.Designer.cs">
+      <DependentUpon>fLogin2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fXeMay.resx">
       <DependentUpon>fXeMay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\fLogin2.resx">
+      <DependentUpon>fLogin2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>

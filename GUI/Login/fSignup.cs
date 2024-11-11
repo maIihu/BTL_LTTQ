@@ -73,7 +73,7 @@ namespace GUI
 
         private async void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fLogin login = new fLogin();
+            fLogin2 login = new fLogin2();
             this.Dispose();
             await Task.Delay(100);
             login.Visible = true;
@@ -144,7 +144,7 @@ namespace GUI
             if (isInserted)
             {
                 MessageBox.Show("Registration successful!", "Notification", MessageBoxButtons.OK);
-                fLogin login = new fLogin();
+                fLogin2 login = new fLogin2();
                 this.Close();
                 login.Visible = true;
             }
