@@ -23,7 +23,9 @@ namespace GUI
         private int totalPagesHDN = 1;
 
         private string _idLogin;
-        private string _idChoosing;
+        private string _idPhuTung;
+        private string _idHoaDon;
+
         private PhuTungBLL _phuTungBLL;
         private HoaDonNhapBLL _hoaDonNhapBLL;
         private ChiTietHoaDonNhapBLL _chiTietHoaDonNhapBLL;
@@ -39,7 +41,8 @@ namespace GUI
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
-        private string whatIsRunning = "PhuTung"; 
+        private string whatIsRunning = "PhuTung";
+        private bool _isAdmin;
         public fKhoPhuTung(string idLogin)
         {
             InitializeComponent();
@@ -60,7 +63,15 @@ namespace GUI
             SetupPanelHDN();
 
             btnPhuTung_Click(this, EventArgs.Empty);
-        }
+			if (_idLogin.Contains("MNV"))
+			{
+				_isAdmin = false;
+			}
+			if (_idLogin.Contains("QL"))
+			{
+				_isAdmin = true;
+			}
+		}
         private void LaySoLieuHoaDon()
         {
             string temp = _phuTungBLL.LayMaHoaDonLonNhat();
@@ -273,7 +284,8 @@ namespace GUI
             {
                 var cellRectangle = dgvHDN.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 cmsKho.Show(dgvHDN, cellRectangle.Left, cellRectangle.Bottom - 20);
-            }
+                _idHoaDon = dgvHDN.Rows[e.RowIndex].Cells["MaHDN"].Value?.ToString();
+			}
         }
         private void dgvPhuTung_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -281,21 +293,52 @@ namespace GUI
             {
                 var cellRectangle = dgvPhuTung.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 cmsKho.Show(dgvPhuTung, cellRectangle.Left, cellRectangle.Bottom - 20);
-                _idChoosing = dgvPhuTung.Rows[e.RowIndex].Cells["MaPhuTung_PhuTung"].Value?.ToString();
+                _idPhuTung = dgvPhuTung.Rows[e.RowIndex].Cells["MaPhuTung_PhuTung"].Value?.ToString();
 			}
          
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            fCapNhatPhuTung form = new fCapNhatPhuTung(_idChoosing);
-            form.ShowDialog();
-            HienThiDSPhuTung();
+            if(whatIsRunning == "PhuTung")
+            {
+				fCapNhatPhuTung form = new fCapNhatPhuTung(_idPhuTung);
+				form.ShowDialog();
+				HienThiDSPhuTung();
+			}
+
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Delete selected!");
+            if (!_isAdmin){
+                MessageBox.Show("Chỉ quản lý mới xóa được!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error );
+            }
+
+            if(whatIsRunning == "PhuTung")
+            {
+                bool xoa = _phuTungBLL.XoaPhuTung(_idPhuTung);
+                if (xoa)
+                {
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+					MessageBox.Show("Sản phẩm đang sử dụng không xóa được!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+            }
+            else
+            {
+				bool xoa = _hoaDonNhapBLL.XoaHoaDonNhap(_idHoaDon);
+				if (xoa)
+				{
+					MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show("Sản phẩm đang sử dụng không xóa được!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
         }
         private void txtMaPhuTung_Leave(object sender, EventArgs e)
         {

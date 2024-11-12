@@ -17,7 +17,12 @@ namespace BLL
         public bool ThemHoaDonNhap(HoaDonNhapDTO hoaDonNhap) {
             return _hoaDonNhapDAL.ThemHoaDonNhap(hoaDonNhap);
         }
-        public List<HoaDonNhapDTO> LayHoaDonNhap()
+		public bool XoaHoaDonNhap(string ma)
+        {
+            return _hoaDonNhapDAL.XoaHoaDonNhap(ma);
+        }
+
+		public List<HoaDonNhapDTO> LayHoaDonNhap()
         {
             return _hoaDonNhapDAL.LayHoaDonNhap();
         }

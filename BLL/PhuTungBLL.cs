@@ -39,7 +39,12 @@ namespace BLL
         {
             return _phuTungDAL.KiemTraPhuTung(ma);
         }
-        public bool SuaSLPhuTung(string ma, int sl)
+        public bool XoaPhuTung(string maPt)
+        {
+            return _phuTungDAL.XoaPhuTung(maPt);
+        }
+
+		public bool SuaSLPhuTung(string ma, int sl)
         {
             return _phuTungDAL.SuaSLPhuTung(ma, sl);
         }

@@ -29,6 +29,12 @@ namespace DAL
                 return result2 > 0;
             }
         }
+        public bool XoaHoaDonNhap(string ma)
+        {
+			string query = "DELETE FROM HOADONNHAPPHUTUNG WHERE MaPhuTung = @ma ";
+			object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ma });
+			return Convert.ToInt32(result) > 0;
+		}
         public List<HoaDonNhapDTO> LayHoaDonNhap()
         {           
             string query = "SELECT * FROM HOADONNHAPPHUTUNG ORDER BY NgayNhap DESC";

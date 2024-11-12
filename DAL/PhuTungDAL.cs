@@ -31,6 +31,12 @@ namespace DAL
             object result = DataProvider.Instance.ExecuteScalar(query, new object[] { maPt});
             return Convert.ToInt32(result) > 0;
         }
+        public bool XoaPhuTung(string maPt)
+        {
+			string query = "DELETE FROM PhuTung WHERE MaPhuTung = @mapt ";
+			object result = DataProvider.Instance.ExecuteScalar(query, new object[] { maPt });
+			return Convert.ToInt32(result) > 0;
+		}
         public object[] LayPhuTung(string maPt)
         {
             string query = "SELECT TenPhuTung, SoLuong, DonGiaNhap, DonGiaBan FROM PHUTUNG WHERE MaPhuTung = @mapt";
