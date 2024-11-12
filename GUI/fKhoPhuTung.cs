@@ -158,7 +158,7 @@ namespace GUI
         }
         private void txtSearchBar_Click(object sender, EventArgs e)
         {
-            if (txtSearchBar.Text == "Search...")
+            if (txtSearchBar.Text == "Tìm kiếm...")
             {
                 txtSearchBar.Text = "";
             }
@@ -169,9 +169,9 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
-                txtSearchBar.Text = "Search...";
+                txtSearchBar.Text = "Tìm kiếm...";
             }
-            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search...")
+            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Tìm kiếm...")
             {
                 listPhuTung = _phuTungBLL.LayDSPhuTung();
                 currentPagePT = 1;

@@ -186,13 +186,6 @@ namespace GUI
 
         }
 
-
-        private void btnAddNew_Click(object sender, EventArgs e)
-        {
-            ToggleAddNew();
-        }
-
-
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgvKhachHang.Columns["Actions"].Index && e.RowIndex >= 0)
@@ -287,7 +280,7 @@ namespace GUI
 
         private void txtSearchBar_Enter(object sender, EventArgs e)
         {
-            if (txtSearchBar.Text == "Search...")
+            if (txtSearchBar.Text == "Tìm kiếm...")
             {
                 txtSearchBar.Text = string.Empty;
             }
@@ -297,9 +290,9 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
-                txtSearchBar.Text = "Search...";
+                txtSearchBar.Text = "Tìm kiếm...";
             }
-            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search...")
+            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Tìm kiếm...")
             {
                 khachHangList =  _khachHangBLL.GetCustomerList();
                 currentPage = 1;
@@ -346,7 +339,14 @@ namespace GUI
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+		private void btnExitPanel_Click(object sender, EventArgs e)
+		{
+
+			ToggleAddNew();
+			
+		}
+
+		private void btnUpdate_Click(object sender, EventArgs e)
         {
 
             string tenkh = txtTenKH.Text;

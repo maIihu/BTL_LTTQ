@@ -214,7 +214,6 @@ namespace GUI
             dgvXeMay.Location = targetPosition;
             dgvXeMay.Height = targetHeight;
 
-			btnAddNew.Enabled = true;
 		}
 
         private async Task AnimateDataGridView2(int targerWidth)
@@ -258,40 +257,6 @@ namespace GUI
         }
 
 
-        private async void btnAddNew_Click(object sender, EventArgs e)
-        {
-            btnAddNew.Enabled = false;
-
-            ClearAddNewPanel();
-
-            if (addNewClicked)
-            {
-                await ToggleAddNew();
-
-                addNewClicked = false;
-            }
-            else
-            {
-                if (!updateClicked)
-                {
-                    btnAddNew.Enabled = false;
-
-                    panelThongTin.Visible = false;
-                    thongTinReveal = false;
-                    await AnimateDataGridView2(defaultDGVSize.Width);
-
-                    await ToggleAddNew();
-                }
-                else
-                {
-                    updateClicked = false;
-                }
-
-                addNewClicked = true;
-            }
-
-            btnAddNew.Enabled = true;
-        }
 
         private void ClearAddNewPanel()
         {
@@ -430,11 +395,6 @@ namespace GUI
             DrawRoundedPanel(panel12, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel3, 15, BorderColor, BorderThickness, e);
-        }
-
         private void panel14_Paint(object sender, PaintEventArgs e)
         {
             DrawRoundedPanel(panel14, 15, BorderColor, BorderThickness, e);
@@ -489,7 +449,7 @@ namespace GUI
 
         private void txtSearchBar_Enter(object sender, EventArgs e)
         {
-            if (txtSearchBar.Text == "Search by name, email, or orthers ...")
+            if (txtSearchBar.Text == "Tìm kiếm...")
             {
                 txtSearchBar.Text = string.Empty;
             }
@@ -561,9 +521,9 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
-                txtSearchBar.Text = "Search by name, email, or orthers ...";
+                txtSearchBar.Text = "Tìm kiếm...";
             }
-            if(string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search by name, email, or orthers ...")
+            if(string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Tìm kiếm...")
             {
                 allXeMayList = _xeMayBLL.LayDanhSachXeMay();
                 currentPage = 1; 
