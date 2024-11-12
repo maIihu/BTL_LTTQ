@@ -54,6 +54,7 @@
 			this.label23 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
 			this.pnHoSo = new System.Windows.Forms.Panel();
+			this.panel18 = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pnButton = new System.Windows.Forms.Panel();
 			this.btnXoaAnh = new System.Windows.Forms.Button();
@@ -106,7 +107,6 @@
 			this.pnXemHoSo = new System.Windows.Forms.Panel();
 			this.picXemHoSo = new System.Windows.Forms.PictureBox();
 			this.btnXemHoSo = new System.Windows.Forms.Button();
-			this.panel18 = new System.Windows.Forms.Panel();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -115,6 +115,7 @@
 			this.panel11.SuspendLayout();
 			this.panel7.SuspendLayout();
 			this.pnHoSo.SuspendLayout();
+			this.panel18.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.pnButton.SuspendLayout();
 			this.pnThongTin.SuspendLayout();
@@ -137,7 +138,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.picSuaHoSo)).BeginInit();
 			this.pnXemHoSo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.picXemHoSo)).BeginInit();
-			this.panel18.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lblTen
@@ -279,11 +279,14 @@
 			// 
 			// btnDoiMatKhau
 			// 
-			this.btnDoiMatKhau.FlatAppearance.BorderSize = 2;
-			this.btnDoiMatKhau.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDoiMatKhau.Location = new System.Drawing.Point(14, 433);
+			this.btnDoiMatKhau.BackgroundImage = global::GUI.Properties.Resources.background_button;
+			this.btnDoiMatKhau.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.btnDoiMatKhau.FlatAppearance.BorderSize = 0;
+			this.btnDoiMatKhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDoiMatKhau.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnDoiMatKhau.Location = new System.Drawing.Point(14, 423);
 			this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-			this.btnDoiMatKhau.Size = new System.Drawing.Size(140, 40);
+			this.btnDoiMatKhau.Size = new System.Drawing.Size(160, 65);
 			this.btnDoiMatKhau.TabIndex = 19;
 			this.btnDoiMatKhau.Text = "Đổi mật khẩu";
 			this.btnDoiMatKhau.UseVisualStyleBackColor = true;
@@ -400,6 +403,18 @@
 			this.pnHoSo.Size = new System.Drawing.Size(766, 854);
 			this.pnHoSo.TabIndex = 3;
 			// 
+			// panel18
+			// 
+			this.panel18.Controls.Add(this.pictureBox1);
+			this.panel18.Controls.Add(this.pnButton);
+			this.panel18.Controls.Add(this.pnThongTin);
+			this.panel18.Controls.Add(this.pnSua);
+			this.panel18.Controls.Add(this.pnXem);
+			this.panel18.Location = new System.Drawing.Point(38, 31);
+			this.panel18.Name = "panel18";
+			this.panel18.Size = new System.Drawing.Size(687, 772);
+			this.panel18.TabIndex = 10;
+			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = global::GUI.Properties.Resources.avatar_trang_1;
@@ -485,10 +500,14 @@
 			// 
 			// btnLuu
 			// 
-			this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnLuu.BackgroundImage = global::GUI.Properties.Resources.background_button;
+			this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnLuu.FlatAppearance.BorderSize = 0;
+			this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLuu.Location = new System.Drawing.Point(13, 515);
 			this.btnLuu.Name = "btnLuu";
-			this.btnLuu.Size = new System.Drawing.Size(140, 40);
+			this.btnLuu.Size = new System.Drawing.Size(150, 60);
 			this.btnLuu.TabIndex = 19;
 			this.btnLuu.Text = "Lưu thay đổi";
 			this.btnLuu.UseVisualStyleBackColor = true;
@@ -974,18 +993,6 @@
 			this.btnXemHoSo.UseVisualStyleBackColor = false;
 			this.btnXemHoSo.Click += new System.EventHandler(this.btnXem_Click);
 			// 
-			// panel18
-			// 
-			this.panel18.Controls.Add(this.pictureBox1);
-			this.panel18.Controls.Add(this.pnButton);
-			this.panel18.Controls.Add(this.pnThongTin);
-			this.panel18.Controls.Add(this.pnSua);
-			this.panel18.Controls.Add(this.pnXem);
-			this.panel18.Location = new System.Drawing.Point(38, 31);
-			this.panel18.Name = "panel18";
-			this.panel18.Size = new System.Drawing.Size(687, 772);
-			this.panel18.TabIndex = 10;
-			// 
 			// fTaiKhoan
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1012,6 +1019,7 @@
 			this.panel7.ResumeLayout(false);
 			this.panel7.PerformLayout();
 			this.pnHoSo.ResumeLayout(false);
+			this.panel18.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.pnButton.ResumeLayout(false);
 			this.pnThongTin.ResumeLayout(false);
@@ -1046,7 +1054,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.picSuaHoSo)).EndInit();
 			this.pnXemHoSo.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.picXemHoSo)).EndInit();
-			this.panel18.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }

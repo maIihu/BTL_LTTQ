@@ -44,7 +44,7 @@ namespace GUI
         }
         private void FillData()
         {
-			txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+			txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimTenNhanVienTheoMa(idLogin);
 			txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
 			txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
 			txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);
@@ -106,7 +106,7 @@ namespace GUI
             pnThongTin.Visible = false;
             pnXem.Visible = false;
             pnButton.Visible = true;
-			txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+			txtHoTen.Text = lblTen.Text = _nhanVienBLL.TimTenNhanVienTheoMa(idLogin);
 			txtTrinhDo.Text = lblTrinhDo.Text = _nhanVienBLL.TimTrinhDoTheoMa(idLogin);
 			txtSoDienThoai.Text = lblDienThoai.Text = _nhanVienBLL.TimSoDienThoai(idLogin);
 			txtDiaChi.Text = lblDiaChi.Text = _nhanVienBLL.TimDiaChi(idLogin);

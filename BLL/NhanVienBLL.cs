@@ -14,7 +14,7 @@ namespace BLL
         public NhanVienBLL() { 
             _nhanVienDAL = new NhanVienDAL(); 
         }    
-        public string TimNhanVienTheoMa(string maNV)
+        public string TimTenNhanVienTheoMa(string maNV)
         {
             return _nhanVienDAL.TimTenNhanVienTheoMa(maNV);
         }
@@ -49,7 +49,11 @@ namespace BLL
         public bool ThemNhanVien(NhanVienDTO nhanVienDTO) {
             return _nhanVienDAL.ThemNhanVien(nhanVienDTO);
         }
-        public bool CapNhatThongTin(string maNV, string hoTen, string ngaySinh, string gioiTinh, string diaChi, string sdt)
+		public bool CapNhatThongTinDayDu(string maNV, string hoTen, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string mtd, DateTime ngaybd)
+		{
+			return _nhanVienDAL.CapNhatThongTinDayDu(maNV, hoTen, ngaySinh, gioiTinh, diaChi, sdt, mtd, ngaybd);
+		}
+		public bool CapNhatThongTin(string maNV, string hoTen, string ngaySinh, string gioiTinh, string diaChi, string sdt)
         {
             return _nhanVienDAL.CapNhatThongTin(maNV, hoTen, ngaySinh, gioiTinh, diaChi, sdt);
         }

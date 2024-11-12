@@ -71,7 +71,15 @@ namespace DAL
             return result != null ? result.ToString() : null;
         }
 
-        public bool CapNhatThongTin(string maNV, string hoTen, string ngaySinh, string gioiTinh, string diaChi, string sdt)
+		public bool CapNhatThongTinDayDu(string maNV, string hoTen, DateTime ngaySinh, string gioiTinh, string diaChi, string sdt, string mtd, DateTime ngaybd)
+		{
+			string query = "UPDATE NHANVIEN SET TenNhanVien = @hoten , MaTrinhDo = @mtd , NgaySinh = @ngaysinh , " +
+				"GioiTinh = @gioitinh , DiaChi = @diachi , SoDienThoai = @sdt , NgayBatDau = @nbd WHERE MaNhanVien = @manv";
+			int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoTen, mtd, ngaySinh, gioiTinh, diaChi, sdt, ngaybd, maNV });
+			return result > 0;
+		}
+
+		public bool CapNhatThongTin(string maNV, string hoTen, string ngaySinh, string gioiTinh, string diaChi, string sdt)
         {
             string query = "UPDATE NHANVIEN SET TenNhanVien = @hoten , NgaySinh = @ngaysinh , " +
                 "GioiTinh = @gioitinh , DiaChi = @diachi , SoDienThoai = @sdt WHERE MaNhanVien = @manv";

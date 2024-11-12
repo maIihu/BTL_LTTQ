@@ -121,7 +121,7 @@ namespace GUI
             btnTrangChu_Click(sender, e);
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.FromArgb(210, 224, 251), Properties.Resources.grid2, FontStyle.Bold);
 
-            lbTen.Text = _nhanVienBLL.TimNhanVienTheoMa(idLogin);
+            lbTen.Text = _nhanVienBLL.TimTenNhanVienTheoMa(idLogin);
             if (idLogin.Contains("MNV")) lbChucVu.Text = "Nhân viên";
             if (idLogin.Contains("QL")) lbChucVu.Text = "Quản lý";
         }

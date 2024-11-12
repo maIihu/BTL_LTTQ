@@ -28,8 +28,9 @@ namespace GUI
        // private Point posThemNhanVienPanel = new Point(780, 0);
         private int CongViecOrCaNhan = 1;
         private NhanVienBLL _nhanVienBLL = new NhanVienBLL();
-       
-        bool _isAdmin;
+        private bool _isUpdating;
+        private bool _isAdmin;
+
         public fNhanVien(string idLogin)
         {
             InitializeComponent();
@@ -51,7 +52,6 @@ namespace GUI
 
             if (idLogin.Contains("MNV"))
             {
-
                 _isAdmin = false;
             }
             if (idLogin.Contains("QL"))
@@ -59,7 +59,11 @@ namespace GUI
                 lblChucVu.Text = "Quản lý";
                 _isAdmin = true;
             }
-
+            if (!_isAdmin)
+            {
+                lblSuaNhanVien.Visible = false;
+                lblThemNhanVien.Visible = false;
+            }
             dtpNgayBatDau.ValueChanged += (s, ev) =>
             {
                 txtNgayBatDau.Text = dtpNgayBatDau.Value.ToString("dddd, dd/MM/yyyy");
@@ -76,7 +80,7 @@ namespace GUI
                 dgvNhanVien_CellClick(dgvNhanVien, new DataGridViewCellEventArgs(0, 0));
             }
         }
-        private void HienThiDSNhaVien()
+        private void HienThiDSNhanVien()
         {
             List<NhanVienDTO> listNhanVien = _nhanVienBLL.LayDSNhanVien();
             ThemDuLieuPhuTung(listNhanVien);
@@ -94,7 +98,7 @@ namespace GUI
                 if (x.MaNhanVien.Contains("QL")) { 
                     lblChucVu.Text = _chucVu = "Quản lý"; 
                 }
-                dgvNhanVien.Rows.Add(x.MaNhanVien, x.GioiTinh, _chucVu, x.NgayBatDau.ToString("dd/MM/yyyy"));
+                dgvNhanVien.Rows.Add(x.MaNhanVien, x.TenNhanVien, x.GioiTinh, _chucVu, x.NgayBatDau.ToString("dd/MM/yyyy"));
             }
         }
         private void ImportAvatar()
@@ -121,9 +125,10 @@ namespace GUI
 
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-
-            dgvNhanVien.Columns["TenNV"].FillWeight = 40;
-            dgvNhanVien.Columns["NgayBatDau"].FillWeight = 40;
+			dgvNhanVien.Columns["MaNV"].FillWeight = 20;
+			dgvNhanVien.Columns["TenNV"].FillWeight = 40;
+			
+			dgvNhanVien.Columns["NgayBatDau"].FillWeight = 30;
             dgvNhanVien.Columns["ChucVu"].FillWeight = 30;
             dgvNhanVien.Columns["GioiTinh"].FillWeight = 20;
 
@@ -133,7 +138,7 @@ namespace GUI
             dgvNhanVien.ColumnHeadersHeight = 60;
 
 
-            HienThiDSNhaVien();
+            HienThiDSNhanVien();
 
             dgvBXH.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
             dgvBXH.GridColor = SystemColors.Window;
@@ -279,15 +284,12 @@ namespace GUI
             txtMa.Text = string.Empty;
         }
         private void lblThemNhanVien_Click(object sender, EventArgs e)
-        {           
+        {
+            _isUpdating = false;
             ResetTextBox();
-            if (!_isAdmin)
-            {
-                MessageBox.Show("Bạn không có quyền truy cập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             panelThemNhanVien.Visible = true;
             panelThongTin.Visible = false;
-
+            lblTieude.Text = "Thêm nhân viên";
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -334,14 +336,23 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+			if (_isUpdating)
+			{
+                bool suaNv = _nhanVienBLL.CapNhatThongTinDayDu(ma, hoTen, ngaySinh, gioiTinh,  diaChi, soDienThoai, trinhDo, ngayBatDau);
+				MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				HienThiDSNhanVien();
+			}
+			else
+			{
+				bool themNv = _nhanVienBLL.ThemNhanVien(new NhanVienDTO(ma, hoTen, ngaySinh, trinhDo, gioiTinh, diaChi, soDienThoai, ngayBatDau));
+				if (themNv)
+				{
+					MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					ResetTextBox();
+					HienThiDSNhanVien();
+				}
+			}
 
-            bool themNv = _nhanVienBLL.ThemNhanVien(new NhanVienDTO(ma, hoTen, ngaySinh, trinhDo, gioiTinh, diaChi, soDienThoai, ngayBatDau));
-            if (themNv)
-            {
-                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetTextBox();
-                HienThiDSNhaVien();
-            }
         }
 
 
@@ -441,6 +452,7 @@ namespace GUI
         {
             if (e.RowIndex >= 0)
             {
+
                 foreach (DataGridViewRow row in dgvNhanVien.Rows)
                 {
                     row.DefaultCellStyle.BackColor = Color.White;
@@ -450,9 +462,9 @@ namespace GUI
                 dgvNhanVien.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
                 dgvNhanVien.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.LightBlue;
 
-                string maChon = dgvNhanVien.Rows[e.RowIndex].Cells["TenNV"].Value.ToString();
+                string maChon = dgvNhanVien.Rows[e.RowIndex].Cells["MaNV"].Value.ToString();
                 nhanVienChon = maChon;
-                lblTenNhanVien.Text = _nhanVienBLL.TimNhanVienTheoMa(maChon);
+                lblTenNhanVien.Text = _nhanVienBLL.TimTenNhanVienTheoMa(maChon);
                  
                 lblNgaySinh.Text = _nhanVienBLL.TimNgaySinh(maChon);
                 lblDiaChi.Text = _nhanVienBLL.TimDiaChi(maChon);
@@ -473,12 +485,50 @@ namespace GUI
                 lblCap1.Text = (rand.NextDouble() * 100).ToString("F2") + "%";
                 lblCap2.Text = (rand.NextDouble() * 100).ToString("F2") + "%";
                 lblCap3.Text = (rand.NextDouble() * 100).ToString("F2") + "%";
-            }
+				if (_isUpdating)
+				{
+					lblSuaNhanVien_Click(sender, e);
+
+				}
+			}
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-    }
+
+		private void lblSuaNhanVien_Click(object sender, EventArgs e)
+		{
+            _isUpdating = true;
+			panelThemNhanVien.Visible = true;
+			panelThongTin.Visible = false;
+			lblTieude.Text = "Sửa thông tin";
+
+			txtMa.Text = nhanVienChon;
+			txtHoTen.Text = _nhanVienBLL.TimTenNhanVienTheoMa(nhanVienChon);
+			txtNgaySinh.Text = _nhanVienBLL.TimNgaySinh(nhanVienChon);
+
+			string gioiTinh = _nhanVienBLL.TimGioiTinh(nhanVienChon);
+			if (gioiTinh == "Nam")
+			{
+				rbtnNam.Checked = true;
+			}
+			else if (gioiTinh == "Nữ")
+			{
+				rbtnNu.Checked = true;
+			}
+
+			txtDiaChi.Text = _nhanVienBLL.TimDiaChi(nhanVienChon);
+			txtSoDienThoai.Text = _nhanVienBLL.TimSoDienThoai(nhanVienChon);
+			txtNgayBatDau.Text = _nhanVienBLL.TimNgayBatDau(nhanVienChon);
+
+			string trinhDo = _nhanVienBLL.TimTrinhDoTheoMa(nhanVienChon);
+			if (!string.IsNullOrEmpty(trinhDo))
+			{
+				combTrinhDo.SelectedItem = trinhDo;
+			}
+		}
+
+	}
 }

@@ -36,12 +36,12 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.btnClose = new System.Windows.Forms.Button();
 			this.btnDangNhap = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
 			this.ckBoxHienMK = new System.Windows.Forms.CheckBox();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.btnClose = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.panel2.SuspendLayout();
@@ -143,6 +143,20 @@
 			this.panel2.Size = new System.Drawing.Size(400, 450);
 			this.panel2.TabIndex = 1;
 			// 
+			// btnClose
+			// 
+			this.btnClose.BackColor = System.Drawing.Color.Transparent;
+			this.btnClose.BackgroundImage = global::GUI.Properties.Resources.exit_button;
+			this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnClose.FlatAppearance.BorderSize = 0;
+			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnClose.Location = new System.Drawing.Point(365, 5);
+			this.btnClose.Name = "btnClose";
+			this.btnClose.Size = new System.Drawing.Size(30, 30);
+			this.btnClose.TabIndex = 10;
+			this.btnClose.UseVisualStyleBackColor = false;
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+			// 
 			// btnDangNhap
 			// 
 			this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 13F);
@@ -197,20 +211,6 @@
 			this.panel3.Size = new System.Drawing.Size(350, 40);
 			this.panel3.TabIndex = 5;
 			// 
-			// btnClose
-			// 
-			this.btnClose.BackColor = System.Drawing.Color.Transparent;
-			this.btnClose.BackgroundImage = global::GUI.Properties.Resources.exit_button;
-			this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.btnClose.FlatAppearance.BorderSize = 0;
-			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnClose.Location = new System.Drawing.Point(365, 5);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(30, 30);
-			this.btnClose.TabIndex = 10;
-			this.btnClose.UseVisualStyleBackColor = false;
-			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-			// 
 			// fLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +222,7 @@
 			this.Name = "fLogin";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Load += new System.EventHandler(this.fLogin_Load);
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.fLogin_Paint);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
