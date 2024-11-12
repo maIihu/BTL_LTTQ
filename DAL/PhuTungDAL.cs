@@ -50,13 +50,19 @@ namespace DAL
 
             return null;
         }
-        public bool SuaPhuTung(string ma, int sl)
+        public bool SuaSLPhuTung(string ma, int sl)
         {
             string query = "UPDATE PHUTUNG SET SoLuong += @soLuongNhap WHERE MaPhuTung = @maPhuTung ";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { sl, ma });
             return result > 0;
         }
-        public bool ThemPhuTung(PhuTungDTO phuTung)
+		public bool SuaPhuTung(string ma, string ten, int sl, decimal dgn, decimal dgb)
+		{
+			string query = "UPDATE PHUTUNG SET TenPhuTung = @ten , SoLuong = @soLuongNhap , DonGiaNhap = @dgn , DonGiaBan = @dgb WHERE MaPhuTung = @maPhuTung ";
+			int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ten, sl, dgn, dgb, ma });
+			return result > 0;
+		}
+		public bool ThemPhuTung(PhuTungDTO phuTung)
         {
             string query = "INSERT INTO PHUTUNG (MaPhuTung, TenPhuTung, SoLuong, DonGiaNhap, DonGiaBan) VALUES ( @maPhuTung , @tenPhuTung , @soLuong , @donGiaNhap , @donGiaBan )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, 

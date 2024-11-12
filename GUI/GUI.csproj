@@ -110,6 +110,12 @@
     <Compile Include="fBase.Designer.cs">
       <DependentUpon>fBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="fCapNhatPhuTung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCapNhatPhuTung.Designer.cs">
+      <DependentUpon>fCapNhatPhuTung.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCapTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </Compile>
     <EmbeddedResource Include="fBase.resx">
       <DependentUpon>fBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCapNhatPhuTung.resx">
+      <DependentUpon>fCapNhatPhuTung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCapTaiKhoan.resx">
       <DependentUpon>fCapTaiKhoan.cs</DependentUpon>
@@ -435,6 +444,7 @@
     <None Include="Resources\defaultImage.jpg" />
     <None Include="Resources\icons8-log-out-50.png" />
     <None Include="Resources\icons8-log-out-24.png" />
+    <None Include="Resources\background_button.png" />
     <Content Include="Resources\ImageAvatar\default.jpg" />
     <Content Include="Resources\ImageAvatar\QL001.jpg" />
     <Content Include="Resources\page_info_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" />

@@ -832,7 +832,7 @@ namespace GUI
                 if (soLuong1 > 0)
                 {
                     soLuongDict[maPhuTung]++;
-                    _phuTungBLL.SuaPhuTung(maPhuTung, -1);
+                    _phuTungBLL.SuaSLPhuTung(maPhuTung, -1);
                     HienThiDSPhuTung();
 
                     decimal tongTien = giaBan * soLuongDict[maPhuTung];
@@ -885,7 +885,7 @@ namespace GUI
                 }
 
                 dgvKqPhuTung.Rows.RemoveAt(e.RowIndex);
-                _phuTungBLL.SuaPhuTung(maPhuTung, soLuong1);
+                _phuTungBLL.SuaSLPhuTung(maPhuTung, soLuong1);
                 HienThiDSPhuTung();
 
                 dgvPhuTung.FirstDisplayedScrollingRowIndex = backIndex;

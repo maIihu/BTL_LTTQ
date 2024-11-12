@@ -32,7 +32,6 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fKhoPhuTung));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -74,7 +73,6 @@
 			this.label23 = new System.Windows.Forms.Label();
 			this.label22 = new System.Windows.Forms.Label();
 			this.panel21 = new System.Windows.Forms.Panel();
-			this.btnThemPhuTung = new GUI.CustomDesign.CustomButton();
 			this.label21 = new System.Windows.Forms.Label();
 			this.panel20 = new System.Windows.Forms.Panel();
 			this.txtGhiChu = new System.Windows.Forms.TextBox();
@@ -110,6 +108,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnPhuTung = new GUI.CustomDesign.CustomButton();
 			this.btnHDN = new GUI.CustomDesign.CustomButton();
+			this.btnThemPhuTung = new GUI.CustomDesign.CustomButton();
 			this.panel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.cmsKho.SuspendLayout();
@@ -176,13 +175,13 @@
             this.toolStripMenuItem2});
 			this.cmsKho.Name = "cmsXeMay";
 			this.cmsKho.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.cmsKho.Size = new System.Drawing.Size(181, 70);
+			this.cmsKho.Size = new System.Drawing.Size(124, 48);
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
 			this.toolStripMenuItem1.Text = "Cật nhật";
 			this.toolStripMenuItem1.Click += new System.EventHandler(this.Update_Click);
 			// 
@@ -190,7 +189,7 @@
 			// 
 			this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(123, 22);
 			this.toolStripMenuItem2.Text = "Xóa";
 			this.toolStripMenuItem2.Click += new System.EventHandler(this.Delete_Click);
 			// 
@@ -293,8 +292,8 @@
 			this.panelDS.Controls.Add(this.btnPrevious);
 			this.panelDS.Controls.Add(this.lblShowResult);
 			this.panelDS.Controls.Add(this.panel5);
-			this.panelDS.Controls.Add(this.dgvHDN);
 			this.panelDS.Controls.Add(this.dgvPhuTung);
+			this.panelDS.Controls.Add(this.dgvHDN);
 			this.panelDS.Location = new System.Drawing.Point(27, 34);
 			this.panelDS.Name = "panelDS";
 			this.panelDS.Size = new System.Drawing.Size(1130, 800);
@@ -314,7 +313,7 @@
 			// btnAddHDN
 			// 
 			this.btnAddHDN.BackColor = System.Drawing.Color.Transparent;
-			this.btnAddHDN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddHDN.BackgroundImage")));
+			this.btnAddHDN.BackgroundImage = global::GUI.Properties.Resources.background_button;
 			this.btnAddHDN.FlatAppearance.BorderSize = 0;
 			this.btnAddHDN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAddHDN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -615,24 +614,6 @@
 			this.panel21.Size = new System.Drawing.Size(167, 48);
 			this.panel21.TabIndex = 2;
 			this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panel21_Paint);
-			// 
-			// btnThemPhuTung
-			// 
-			this.btnThemPhuTung.BackColor = System.Drawing.SystemColors.Control;
-			this.btnThemPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
-			this.btnThemPhuTung.BorderColor = System.Drawing.Color.Empty;
-			this.btnThemPhuTung.BorderThickness = 1.5F;
-			this.btnThemPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnThemPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnThemPhuTung.ForeColor = System.Drawing.SystemColors.GrayText;
-			this.btnThemPhuTung.Location = new System.Drawing.Point(3, 3);
-			this.btnThemPhuTung.Name = "btnThemPhuTung";
-			this.btnThemPhuTung.Size = new System.Drawing.Size(161, 42);
-			this.btnThemPhuTung.TabIndex = 2;
-			this.btnThemPhuTung.Text = "Thêm phụ tùng";
-			this.btnThemPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnThemPhuTung.UseVisualStyleBackColor = false;
-			this.btnThemPhuTung.Click += new System.EventHandler(this.btnThemPhuTung_Click);
 			// 
 			// label21
 			// 
@@ -1021,6 +1002,24 @@
 			this.btnHDN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnHDN.UseVisualStyleBackColor = false;
 			this.btnHDN.Click += new System.EventHandler(this.btnHDN_Click);
+			// 
+			// btnThemPhuTung
+			// 
+			this.btnThemPhuTung.BackColor = System.Drawing.SystemColors.Control;
+			this.btnThemPhuTung.BackgroundColor = System.Drawing.SystemColors.Control;
+			this.btnThemPhuTung.BorderColor = System.Drawing.Color.Empty;
+			this.btnThemPhuTung.BorderThickness = 1.5F;
+			this.btnThemPhuTung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnThemPhuTung.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThemPhuTung.ForeColor = System.Drawing.SystemColors.GrayText;
+			this.btnThemPhuTung.Location = new System.Drawing.Point(3, 3);
+			this.btnThemPhuTung.Name = "btnThemPhuTung";
+			this.btnThemPhuTung.Size = new System.Drawing.Size(161, 42);
+			this.btnThemPhuTung.TabIndex = 2;
+			this.btnThemPhuTung.Text = "Thêm phụ tùng";
+			this.btnThemPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThemPhuTung.UseVisualStyleBackColor = false;
+			this.btnThemPhuTung.Click += new System.EventHandler(this.btnThemPhuTung_Click);
 			// 
 			// fKhoPhuTung
 			// 

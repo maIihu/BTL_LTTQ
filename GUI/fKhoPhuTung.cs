@@ -22,7 +22,8 @@ namespace GUI
         private int totalPagesPT = 1;
         private int totalPagesHDN = 1;
 
-        private string idLogin;
+        private string _idLogin;
+        private string _idChoosing;
         private PhuTungBLL _phuTungBLL;
         private HoaDonNhapBLL _hoaDonNhapBLL;
         private ChiTietHoaDonNhapBLL _chiTietHoaDonNhapBLL;
@@ -45,7 +46,7 @@ namespace GUI
             _phuTungBLL = new PhuTungBLL();
             _hoaDonNhapBLL = new HoaDonNhapBLL();
             _chiTietHoaDonNhapBLL = new ChiTietHoaDonNhapBLL();
-            this.idLogin = idLogin;
+            this._idLogin = idLogin;
         }
         private void fKho_Load(object sender, EventArgs e)
         {
@@ -119,7 +120,7 @@ namespace GUI
             foreach (var phuTung in dsPhuTung)
             {
                 string donGiaNhapVND = phuTung.DonGiaNhap.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
-                string donGiaBanVND = phuTung.DonGiaNhap.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
+                string donGiaBanVND = phuTung.DonGiaBan.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
                 dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, 
                     phuTung.SoLuong, donGiaNhapVND, donGiaBanVND);
             }
@@ -179,8 +180,6 @@ namespace GUI
 
                 DisplayCurrentPage_PhuTung();
             }
-
-
         }
         private void SetupDGVPhuTung()
         {
@@ -282,13 +281,16 @@ namespace GUI
             {
                 var cellRectangle = dgvPhuTung.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 cmsKho.Show(dgvPhuTung, cellRectangle.Left, cellRectangle.Bottom - 20);
-            }
+                _idChoosing = dgvPhuTung.Rows[e.RowIndex].Cells["MaPhuTung_PhuTung"].Value?.ToString();
+			}
          
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Update selected!");
+            fCapNhatPhuTung form = new fCapNhatPhuTung(_idChoosing);
+            form.ShowDialog();
+            HienThiDSPhuTung();
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -414,7 +416,7 @@ namespace GUI
 
             btnPhuTung.BackgroundColor = SystemColors.Control;
             btnPhuTung.ForeColor = SystemColors.ControlText;
-            txtManv.Text = idLogin;
+            txtManv.Text = _idLogin;
             txtHdn.Text = "MDN" + countHdn.ToString();
             txtNgayNhap.Text = DateTime.Now.ToString("dddd, dd/MM/yyyy");
             thanhTien = 0;
@@ -502,7 +504,7 @@ namespace GUI
             }
 
             // HDN -> PHUTUNG -> CHITIET           
-            bool themHdn = _hoaDonNhapBLL.ThemHoaDonNhap(new HoaDonNhapDTO(mahdn, idLogin, DateTime.Parse(ngayNhap), thanhTien));
+            bool themHdn = _hoaDonNhapBLL.ThemHoaDonNhap(new HoaDonNhapDTO(mahdn, _idLogin, DateTime.Parse(ngayNhap), thanhTien));
 
             if (themHdn)
             {
@@ -512,7 +514,7 @@ namespace GUI
             if (coPhuTung)
             {
 
-                bool suaPt = _phuTungBLL.SuaPhuTung(maPt, soLuong);
+                bool suaPt = _phuTungBLL.SuaSLPhuTung(maPt, soLuong);
                 if (suaPt)
                 {
                     //MessageBox.Show("Them so luong thanh cong");
