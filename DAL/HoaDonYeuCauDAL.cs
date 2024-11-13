@@ -76,7 +76,19 @@ namespace DAL
             }
             return null; 
         }
+        public string LayTongDoanhThu()
+        {
+            string query = "SELECT SUM(TongTien) AS 'DoanhThu' FROM HOADON";
+			DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
 
+			if (dataTable.Rows.Count > 0)
+			{
+				DataRow row = dataTable.Rows[0];
+				return row["DoanhThu"].ToString();
+			}
+			return null;
+
+		}
         public List<Tuple<int, decimal>> LayDoanhThuTheoThang()
         {
             string query = "WITH ThangCTE AS ( " +

@@ -38,6 +38,7 @@ namespace GUI
         private int rowIndex = -1;
         private Point panelPos = new Point(27, 34);
 
+        private KhachHangBLL _khachHangBLL;
         int backIndex;
         Dictionary<string, int> soLuongDict = new Dictionary<string, int>();
 
@@ -59,6 +60,7 @@ namespace GUI
             _xeMayBLL = new XeMayBLL();
             _hoaDonNhapBLL = new HoaDonNhapBLL();
             _hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
+            _khachHangBLL = new KhachHangBLL();
 
             SetupAddPanel();
 
@@ -1014,8 +1016,13 @@ namespace GUI
                 string soDienThoai = txtSDT.Text;
                 string maKhachHang = dgvYeuCau.Rows[rowIndex].Cells["MaKhachHang"].Value.ToString();
                 string maSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
-
-                bool success = _datYeuCauBLL.UpdateYeuCau(tenKhachHang, nguyenNhan, diaChi, soDienThoai, maKhachHang, maSuaChua);
+				bool checkSdt = _khachHangBLL.IsPhoneNumberExists(soDienThoai, maKhachHang);
+				if (checkSdt)
+				{
+					MessageBox.Show("Số điện thoại đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+				bool success = _datYeuCauBLL.UpdateYeuCau(tenKhachHang, nguyenNhan, diaChi, soDienThoai, maKhachHang, maSuaChua);
                 if (success)
                 {
                     MessageBox.Show("Sửa yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

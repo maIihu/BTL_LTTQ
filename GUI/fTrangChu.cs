@@ -13,6 +13,7 @@ using LiveCharts.Wpf;
 using LiveCharts;
 using System.Windows;
 using FontStyle = System.Drawing.FontStyle;
+using System.Globalization;
 
 namespace GUI
 {
@@ -48,7 +49,15 @@ namespace GUI
             HienThiDSYeuCau();
             lbTongYeuCau.Text = _hoaDonYeuCauBLL.LaySLYeuCau().ToString() + " đơn";
             lbTongHoaDon.Text = _hoaDonYeuCauBLL.LaySLHoaDon().ToString() + " đơn";
-            SetUpChartDoanhThuThang();             
+			if (decimal.TryParse(_hoaDonYeuCauBLL.LayTongDoanhThu(), out decimal doanhThu))
+			{
+				lblDoanhThu.Text = doanhThu.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
+			}
+			else
+			{
+				lblDoanhThu.Text = "0 ₫";
+			}
+			SetUpChartDoanhThuThang();             
             SetUpChartThongKeTuan();
         }
         private void SetUpChartThongKeTuan()

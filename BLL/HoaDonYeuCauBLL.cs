@@ -56,5 +56,10 @@ namespace BLL
         {
             return hoaDonYeuCauDAL.GetMaHoaDon();
         }
+        public string LayTongDoanhThu()
+        {
+            return hoaDonYeuCauDAL.LayTongDoanhThu();
+
+		}
     }
 }
