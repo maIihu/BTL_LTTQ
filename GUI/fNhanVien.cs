@@ -298,47 +298,76 @@ namespace GUI
             panelThemNhanVien.Visible = false;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            string hoTen = txtHoTen.Text;
-            DateTime ngaySinh = DateTime.Parse(txtNgaySinh.Text);
-            string diaChi = txtDiaChi.Text;
-            string sdt = txtSoDienThoai.Text;
-            DateTime ngayBatDau = DateTime.Parse(txtNgayBatDau.Text); 
-            string trinhDo = combTrinhDo.Text;
-            string ma = txtMa.Text;
-            string soDienThoai = txtSoDienThoai.Text;
-            string gioiTinh = rbtnNam.Checked ? "Nam" : "Nữ";
-            if (string.IsNullOrWhiteSpace(hoTen))
-            {
-                MessageBox.Show("Vui lòng nhập họ tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(diaChi))
-            {
-                MessageBox.Show("Vui lòng nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(sdt))
-            {
-                MessageBox.Show("Vui lòng nhập số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+		private void btnThem_Click(object sender, EventArgs e)
+		{
+			string hoTen = txtHoTen.Text;
+			string diaChi = txtDiaChi.Text;
+			string sdt = txtSoDienThoai.Text;
+			string trinhDo = combTrinhDo.Text;
+			string ma = txtMa.Text;
+			string soDienThoai = txtSoDienThoai.Text;
+			string gioiTinh = rbtnNam.Checked ? "Nam" : "Nữ";
 
-            if (string.IsNullOrWhiteSpace(trinhDo))
-            {
-                MessageBox.Show("Vui lòng chọn trình độ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+			if (string.IsNullOrWhiteSpace(hoTen))
+			{
+				MessageBox.Show("Vui lòng nhập họ tên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(diaChi))
+			{
+				MessageBox.Show("Vui lòng nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(sdt))
+			{
+				MessageBox.Show("Vui lòng nhập số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(trinhDo))
+			{
+				MessageBox.Show("Vui lòng chọn trình độ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (!rbtnNam.Checked && !rbtnNu.Checked)
+			{
+				MessageBox.Show("Vui lòng chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
-            if (!rbtnNam.Checked && !rbtnNu.Checked)
-            {
-                MessageBox.Show("Vui lòng chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+			if (string.IsNullOrWhiteSpace(txtNgaySinh.Text))
+			{
+				MessageBox.Show("Vui lòng nhập ngày sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (string.IsNullOrWhiteSpace(txtNgayBatDau.Text))
+			{
+				MessageBox.Show("Vui lòng nhập ngày bắt đầu làm việc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			DateTime ngaySinh = DateTime.Parse(txtNgaySinh.Text);
+			DateTime ngayBatDau = DateTime.Parse(txtNgayBatDau.Text);
+
+			if (ngaySinh > DateTime.Now)
+			{
+				MessageBox.Show("Ngày sinh không thể là ngày trong tương lai", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			if (ngayBatDau > DateTime.Now)
+			{
+				MessageBox.Show("Ngày bắt đầu làm việc không thể là ngày trong tương lai", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			if (ngayBatDau < ngaySinh)
+			{
+				MessageBox.Show("Ngày bắt đầu làm việc không thể sớm hơn ngày sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
 			if (_isUpdating)
 			{
-                bool suaNv = _nhanVienBLL.CapNhatThongTinDayDu(ma, hoTen, ngaySinh, gioiTinh,  diaChi, soDienThoai, trinhDo, ngayBatDau);
+				bool suaNv = _nhanVienBLL.CapNhatThongTinDayDu(ma, hoTen, ngaySinh, gioiTinh, diaChi, soDienThoai, trinhDo, ngayBatDau);
 				MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				HienThiDSNhanVien();
 			}
@@ -352,11 +381,9 @@ namespace GUI
 					HienThiDSNhanVien();
 				}
 			}
+		}
 
-        }
-
-
-        private void picAddImage_Click(object sender, EventArgs e)
+		private void picAddImage_Click(object sender, EventArgs e)
         {
 
         }

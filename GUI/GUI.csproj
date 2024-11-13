@@ -104,6 +104,12 @@
     </Compile>
     <Compile Include="CustomDesign\CustomPictureBox.cs" />
     <Compile Include="CustomDesign\TypeAssistant.cs" />
+    <Compile Include="fBaoCaoHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBaoCaoHoaDon.Designer.cs">
+      <DependentUpon>fBaoCaoHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="fBase.cs">
       <SubType>Form</SubType>
     </Compile>

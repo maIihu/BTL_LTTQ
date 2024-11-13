@@ -231,6 +231,10 @@ namespace GUI
                     MessageBox.Show("Bạn đã xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     HienThiDSKhachHang();
                 }
+                else
+                {
+					MessageBox.Show("Khách hàng hiện đang còn yêu cầu không xóa được!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
             }
         }
 

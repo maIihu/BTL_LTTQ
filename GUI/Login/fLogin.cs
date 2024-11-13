@@ -84,15 +84,15 @@ namespace GUI.Login
 
 			if (thongTinTk == "" || thongTinTk == "Nhập tài khoản")
 			{
-				//MessageBox.Show("Enter a Username.", "Notification",  MessageBoxButtons.OK, MessageBoxIcon.Information);
-				//txtUsername.Focus();              
+				MessageBox.Show("Nhập tài khoản.", "Thông báo",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+				txtTaiKhoan.Focus();              
 				return;
 			}
 
 			if (thongTinMk == "" || thongTinMk == "Nhập mật khẩu")
 			{
-				//MessageBox.Show("Enter a Password.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				//txtPassword.Focus();
+				MessageBox.Show("Nhập mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				txtMatKhau.Focus();
 				return;
 			}
 

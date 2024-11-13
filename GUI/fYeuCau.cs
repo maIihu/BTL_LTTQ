@@ -571,6 +571,7 @@ namespace GUI
                     string MaSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
                     string MaXe = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
                     _datYeuCauBLL.DeleteYeuCau(MaSuaChua, MaXe);
+
                     ListYeuCau();
                     dgvYeuCau.Refresh();
                 }

@@ -88,8 +88,7 @@
 			this.txtTaiKhoan.Location = new System.Drawing.Point(9, 8);
 			this.txtTaiKhoan.Name = "txtTaiKhoan";
 			this.txtTaiKhoan.Size = new System.Drawing.Size(330, 22);
-			this.txtTaiKhoan.TabIndex = 1;
-			this.txtTaiKhoan.TabStop = false;
+			this.txtTaiKhoan.TabIndex = 30;
 			this.txtTaiKhoan.Enter += new System.EventHandler(this.txtTaiKhoan_Enter);
 			this.txtTaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTaiKhoan_KeyDown);
 			this.txtTaiKhoan.Leave += new System.EventHandler(this.txtTaiKhoan_Leave);
@@ -101,8 +100,7 @@
 			this.txtMatKhau.Location = new System.Drawing.Point(14, 8);
 			this.txtMatKhau.Name = "txtMatKhau";
 			this.txtMatKhau.Size = new System.Drawing.Size(320, 22);
-			this.txtMatKhau.TabIndex = 2;
-			this.txtMatKhau.TabStop = false;
+			this.txtMatKhau.TabIndex = 31;
 			this.txtMatKhau.Enter += new System.EventHandler(this.txtMatKhau_Enter);
 			this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
 			this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
@@ -154,18 +152,22 @@
 			this.btnClose.Name = "btnClose";
 			this.btnClose.Size = new System.Drawing.Size(30, 30);
 			this.btnClose.TabIndex = 10;
+			this.btnClose.TabStop = false;
 			this.btnClose.UseVisualStyleBackColor = false;
 			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// btnDangNhap
 			// 
+			this.btnDangNhap.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 13F);
+			this.btnDangNhap.ForeColor = System.Drawing.Color.White;
 			this.btnDangNhap.Location = new System.Drawing.Point(30, 350);
 			this.btnDangNhap.Name = "btnDangNhap";
-			this.btnDangNhap.Size = new System.Drawing.Size(150, 40);
+			this.btnDangNhap.Size = new System.Drawing.Size(161, 47);
 			this.btnDangNhap.TabIndex = 9;
+			this.btnDangNhap.TabStop = false;
 			this.btnDangNhap.Text = "ĐĂNG NHẬP";
-			this.btnDangNhap.UseVisualStyleBackColor = true;
+			this.btnDangNhap.UseVisualStyleBackColor = false;
 			this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
 			// 
 			// label3
@@ -187,6 +189,7 @@
 			this.ckBoxHienMK.Name = "ckBoxHienMK";
 			this.ckBoxHienMK.Size = new System.Drawing.Size(130, 25);
 			this.ckBoxHienMK.TabIndex = 7;
+			this.ckBoxHienMK.TabStop = false;
 			this.ckBoxHienMK.Text = "Hiện mật khẩu";
 			this.ckBoxHienMK.UseVisualStyleBackColor = true;
 			this.ckBoxHienMK.CheckedChanged += new System.EventHandler(this.ckBoxHienMK_CheckedChanged);
