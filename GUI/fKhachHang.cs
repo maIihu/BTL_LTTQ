@@ -222,10 +222,15 @@ namespace GUI
         private void Delete_Click(object sender, EventArgs e)
         {
             string mkh = dgvKhachHang.CurrentRow.Cells["MaKH"].Value.ToString();
-            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "thông báo", MessageBoxButtons.YesNo);
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo);
+            
             if (result == DialogResult.Yes)
             {
-                MessageBox.Show("bạn đã xóa thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				bool xoaKh = _khachHangBLL.DeleteCustomer(mkh);
+                if(xoaKh){
+                    MessageBox.Show("Bạn đã xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HienThiDSKhachHang();
+                }
             }
         }
 
@@ -373,7 +378,12 @@ namespace GUI
                 MessageBox.Show("Số điện thoại chỉ gồm chữ số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return ;
             }
-            bool addCustomer = _khachHangBLL.UpdateCustomer(new KhachHangDTO(maKhachUpdate, tenkh, diachi, sdt));
+            bool checkSdt = _khachHangBLL.IsPhoneNumberExists(sdt, maKhachUpdate);
+            if (checkSdt) {
+				MessageBox.Show("Số điện thoại đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+			}
+			bool addCustomer = _khachHangBLL.UpdateCustomer(new KhachHangDTO(maKhachUpdate, tenkh, diachi, sdt));
 
             if (addCustomer)
             {

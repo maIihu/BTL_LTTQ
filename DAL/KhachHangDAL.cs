@@ -25,17 +25,23 @@ namespace DAL
                 return false;
             }
         }
-        public bool UpdateCustomer(KhachHangDTO khachHang)
+		public bool IsPhoneNumberExists(string soDienThoai, string maKhachHang)
+		{
+			string query = "SELECT COUNT(*) FROM KHACHHANG WHERE SoDienThoai = @SoDienThoai AND MaKhachHang != @maKhach";
+			int count = (int)DataProvider.Instance.ExecuteScalar(query, new object[] { soDienThoai, maKhachHang });
+			return count > 0;
+		}
+		public bool UpdateCustomer(KhachHangDTO khachHang)
         {
             string query = "UPDATE KHACHHANG SET TenKhachHang = @ten , DiaChi = @diaChi , SoDienThoai = @SoDienThoai WHERE MaKhachHang = @maKhach ";
             int result = DataProvider.Instance.ExecuteNonQuery
                 (query, new object[] { khachHang.TenKhachHang, khachHang.DiaChi, khachHang.SoDienThoai, khachHang.MaKhachHang });
             return result > 0;
         }
-        public bool DeleteCustomer(string maNhanVien)
+        public bool DeleteCustomer(string maKhachHang)
         {
             string query = "DELETE FROM KHACHHANG WHERE MaKhachHang = @maKhachHang";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maNhanVien });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maKhachHang });
             return result > 0;
         }
         public List<KhachHangDTO> SearchCustomerByName(string tenKhachHang, string soDienThoai)

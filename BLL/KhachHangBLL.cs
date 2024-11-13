@@ -19,13 +19,18 @@ namespace BLL
         {
             return _khachHangDAL.AddCustomer(khachHang);
         }
-        public bool UpdateCustomer(KhachHangDTO khachHang)
+        public bool IsPhoneNumberExists(string soDienThoai, string maKhachHang)
+        {
+            return _khachHangDAL.IsPhoneNumberExists(soDienThoai, maKhachHang);
+        }
+
+		public bool UpdateCustomer(KhachHangDTO khachHang)
         {
             return _khachHangDAL.UpdateCustomer(khachHang);
         }
-        public bool DeleteCustomer(string maNhanVien)
+        public bool DeleteCustomer(string maKhachHang)
         {
-            return _khachHangDAL.DeleteCustomer(maNhanVien);
+            return _khachHangDAL.DeleteCustomer(maKhachHang);
         }
         public List<KhachHangDTO> SearchCustomerByName(string tenKhachHang, string soDienThoai)
         {
