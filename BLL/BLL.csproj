@@ -68,7 +68,7 @@
   <ItemGroup>
     <Compile Include="ChiTietHoaDonNhapBLL.cs" />
     <Compile Include="ChiTietNhapBLL.cs" />
-    <Compile Include="DatYeuCauBLL.cs" />
+    <Compile Include="YeuCauBLL.cs" />
     <Compile Include="HoaDonNhapBLL.cs" />
     <Compile Include="HoaDonYeuCauBLL.cs" />
     <Compile Include="KhachHangBLL.cs" />

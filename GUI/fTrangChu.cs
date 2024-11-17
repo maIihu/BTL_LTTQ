@@ -19,7 +19,7 @@ namespace GUI
 {
 	public partial class fTrangChu : Form
 	{
-		DatYeuCauBLL _datYeuCauBLL;
+		YeuCauBLL _datYeuCauBLL;
         HoaDonYeuCauBLL _hoaDonYeuCauBLL;
 
 		string idLogin;
@@ -31,7 +31,7 @@ namespace GUI
         private Image[] avatars = new Image[5];
         public fTrangChu(string idLogin)
 		{
-            _datYeuCauBLL = new DatYeuCauBLL();
+            _datYeuCauBLL = new YeuCauBLL();
             _hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
 
             InitializeComponent();
@@ -154,7 +154,7 @@ namespace GUI
             return random.Next(min, max);
         }
 
-        private void SetUpData(List<DatYeuCauDTO> listYeuCau)
+        private void SetUpData(List<YeuCauDTO> listYeuCau)
         {
             dgvTrangChu.Rows.Clear();
             int stt = 1;
@@ -167,7 +167,7 @@ namespace GUI
 
         private void HienThiDSYeuCau()
 		{
-			List<DatYeuCauDTO> listYeuCau = _datYeuCauBLL.GetListTop10();
+			List<YeuCauDTO> listYeuCau = _datYeuCauBLL.GetListTop10();
 			SetUpData(listYeuCau);	
 
 

@@ -25,6 +25,27 @@ namespace DAL
                 return false;
             }
         }
+		public string GetCustomerNameWithId(string ma)
+		{
+			string query = "SELECT TenKhachHang FROM KHACHHANG WHERE MaKhachHang = @ma ";
+			object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ma });
+
+			return result != null ? result.ToString() : null;
+		}
+		public string GetCustomerPhoneWithId(string ma)
+		{
+			string query = "SELECT DiaChi FROM KHACHHANG WHERE MaKhachHang = @ma ";
+			object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ma });
+
+			return result != null ? result.ToString() : null;
+		}
+		public string GetCustomerAddressWithId(string ma)
+		{
+			string query = "SELECT SoDienThoai FROM KHACHHANG WHERE MaKhachHang = @ma ";
+			object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ma });
+
+			return result != null ? result.ToString() : null;
+		}
 		public bool IsPhoneNumberExists(string soDienThoai, string maKhachHang)
 		{
 			string query = "SELECT COUNT(*) FROM KHACHHANG WHERE SoDienThoai = @SoDienThoai AND MaKhachHang != @maKhach";

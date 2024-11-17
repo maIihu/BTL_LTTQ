@@ -20,11 +20,13 @@ namespace GUI
 
         string idLogin;
 
-        private DatYeuCauBLL _datYeuCauBLL;
-        PhuTungBLL _phuTungBLL;
-        XeMayBLL _xeMayBLL;
-        HoaDonNhapBLL _hoaDonNhapBLL;
-        HoaDonYeuCauBLL _hoaDonYeuCauBLL;
+        private YeuCauBLL _yeuCauBLL;
+        private PhuTungBLL _phuTungBLL;
+        private XeMayBLL _xeMayBLL;
+        private HoaDonNhapBLL _hoaDonNhapBLL;
+        private HoaDonYeuCauBLL _hoaDonYeuCauBLL;
+        private KhachHangBLL _khachHangBLL;
+        private NhanVienBLL _nhanVienBLL;
 
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -38,7 +40,6 @@ namespace GUI
         private int rowIndex = -1;
         private Point panelPos = new Point(27, 34);
 
-        private KhachHangBLL _khachHangBLL;
         int backIndex;
         Dictionary<string, int> soLuongDict = new Dictionary<string, int>();
 
@@ -55,12 +56,13 @@ namespace GUI
             dgvYeuCau.Location = posAy;
             panelThongTin.Location = new Point(810, posAy.Y);
 
-            _datYeuCauBLL = new DatYeuCauBLL();
+            _yeuCauBLL = new YeuCauBLL();
             _phuTungBLL = new PhuTungBLL();
             _xeMayBLL = new XeMayBLL();
             _hoaDonNhapBLL = new HoaDonNhapBLL();
             _hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
             _khachHangBLL = new KhachHangBLL();
+            _nhanVienBLL = new NhanVienBLL();
 
             SetupAddPanel();
 
@@ -72,7 +74,7 @@ namespace GUI
             this.idLogin = idLogin;
             SetupDataGridViewPhuTung();
             SetupDataGridViewKqPhuTung();
-            string tmpMaKhach = _datYeuCauBLL.LayMaKhachLonNhat();
+            string tmpMaKhach = _yeuCauBLL.LayMaKhachLonNhat();
             string numberPart = tmpMaKhach.Substring(2);
             maxKhach = int.Parse(numberPart);
         }
@@ -241,7 +243,7 @@ namespace GUI
         {
             dgvYeuCau.Rows.Clear();
 
-            List<DatYeuCauDTO> dsYeuCau = _datYeuCauBLL.GetListYeuCau();
+            List<YeuCauDTO> dsYeuCau = _yeuCauBLL.GetListYeuCau();
             foreach (var yeuCau in dsYeuCau)
             {
                 dgvYeuCau.Rows.Add(yeuCau.MaSuaChua, yeuCau.TenKhachHang, yeuCau.MaXe, yeuCau.NguyenNhan, yeuCau.NgaySua, yeuCau.MaKhachHang, yeuCau.DiaChi, yeuCau.SoDienThoai);
@@ -358,7 +360,6 @@ namespace GUI
             if (addNewClicked)
             {
                 await ToggleAddNew();
-
                 addNewClicked = false;
             }
             else
@@ -366,11 +367,9 @@ namespace GUI
                 if (!updateClicked)
                 {
                     btnAddNew.Enabled = false;
-
                     panelThongTin.Visible = false;
                     thongTinReveal = false;
                     await AnimateDataGridView2(defaultDGVSize.Width);
-
                     await ToggleAddNew();
                 }
                 else
@@ -380,7 +379,6 @@ namespace GUI
 
                 addNewClicked = true;
             }
-
             btnAddNew.Enabled = true;
         }
 
@@ -570,7 +568,7 @@ namespace GUI
                 {
                     string MaSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
                     string MaXe = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
-                    _datYeuCauBLL.DeleteYeuCau(MaSuaChua, MaXe);
+                    _yeuCauBLL.DeleteYeuCau(MaSuaChua, MaXe);
 
                     ListYeuCau();
                     dgvYeuCau.Refresh();
@@ -711,7 +709,7 @@ namespace GUI
 
         private void txtSearchBar_Enter(object sender, EventArgs e)
         {
-            if (txtSearchBar.Text == "Search by name, email, or orthers ...")
+            if (txtSearchBar.Text == "Tìm kiếm...")
             {
                 txtSearchBar.Text = String.Empty;
             }
@@ -765,7 +763,9 @@ namespace GUI
 
         private void btnOKHoaDon_Click(object sender, EventArgs e)
         {
-            if (txtGiaiPhap.Text == "")
+            string tmp = _yeuCauBLL.LayNguyenNhanTheoMa(maSuaChuaChon);
+
+			if (txtGiaiPhap.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập giải pháp!");
                 return;
@@ -774,7 +774,6 @@ namespace GUI
             int checkIn = 0;
             foreach (DataGridViewRow row in dgvKqPhuTung.Rows)
             {
-
                 if (!row.IsNewRow)
                 {
                     string maPhuTung = row.Cells["Ma"].Value?.ToString();
@@ -800,9 +799,15 @@ namespace GUI
                     }
                 }
             }
-            if (checkIn > 0){ 
-                _hoaDonYeuCauBLL.XoaYeuCauTheoMa(txtMaKH.Text, txtMaKH.Text); 
+            if (checkIn > 0){
+                
+				fBaoCaoHoaDon form = new fBaoCaoHoaDon(maHoaDon_Chinh, _khachHangBLL.GetCustomerNameWithId(txtMaKH.Text), 
+                    _khachHangBLL.GetCustomerAddressWithId(txtMaKH.Text), _khachHangBLL.GetCustomerPhoneWithId(txtMaKH.Text),
+					tmp, txtGiaiPhap.Text, _nhanVienBLL.TimTenNhanVienTheoMa(idLogin));
+
+				_hoaDonYeuCauBLL.XoaYeuCauTheoMa(txtMaKH.Text, txtMaKH.Text); 
                 MessageBox.Show("Thêm hóa đơn thành công!");
+                form.ShowDialog();
                 btnTroVe_Click(e, new EventArgs());
             }
         }
@@ -928,9 +933,9 @@ namespace GUI
         {
             if (string.IsNullOrWhiteSpace(txtSearchBar.Text))
             {
-                txtSearchBar.Text = "Search by name, email, or orthers ...";
+                txtSearchBar.Text = "Tìm kiếm...";
             }
-            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Search by name, email, or orthers ...")
+            if (string.IsNullOrWhiteSpace(txtSearchBar.Text) || txtSearchBar.Text == "Tìm kiếm...")
             {
                 ListYeuCau();
             }
@@ -941,7 +946,7 @@ namespace GUI
 
             string searchText = txtSearchBar.Text.ToLower().Trim();
 
-            if (string.IsNullOrWhiteSpace(searchText) || searchText == "Search by name, email, or orthers ...")
+            if (string.IsNullOrWhiteSpace(searchText) || searchText == "Tìm kiếm...")
             {
                 foreach (DataGridViewRow row in dgvYeuCau.Rows)
                 {
@@ -994,10 +999,11 @@ namespace GUI
                         return;
                     }
 
-                    bool success = _datYeuCauBLL.AddYeuCau(tenKhachHang, maXe, nguyenNhan, ngaySua, diaChi, soDienThoai);
+                    bool success = _yeuCauBLL.AddYeuCau(tenKhachHang, maXe, nguyenNhan, ngaySua, diaChi, soDienThoai);
                     if (success)
                     {
                         MessageBox.Show("Thêm yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListYeuCau();
                         maxKhach++;
                         maxXe++;
                         dgvYeuCau.Rows.Clear();
@@ -1023,7 +1029,7 @@ namespace GUI
 					MessageBox.Show("Số điện thoại đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				bool success = _datYeuCauBLL.UpdateYeuCau(tenKhachHang, nguyenNhan, diaChi, soDienThoai, maKhachHang, maSuaChua);
+				bool success = _yeuCauBLL.UpdateYeuCau(tenKhachHang, nguyenNhan, diaChi, soDienThoai, maKhachHang, maSuaChua);
                 if (success)
                 {
                     MessageBox.Show("Sửa yêu cầu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

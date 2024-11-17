@@ -53,7 +53,7 @@
 			this.picTrangChu = new System.Windows.Forms.PictureBox();
 			this.btnTrangChu = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnCapTK = new System.Windows.Forms.Button();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.lbChucVu = new System.Windows.Forms.Label();
 			this.lbTen = new System.Windows.Forms.Label();
@@ -420,7 +420,7 @@
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.White;
-			this.panel2.Controls.Add(this.button1);
+			this.panel2.Controls.Add(this.btnCapTK);
 			this.panel2.Controls.Add(this.panel4);
 			this.panel2.Controls.Add(this.panel3);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -429,19 +429,19 @@
 			this.panel2.Size = new System.Drawing.Size(1184, 96);
 			this.panel2.TabIndex = 1;
 			// 
-			// button1
+			// btnCapTK
 			// 
-			this.button1.BackColor = System.Drawing.Color.Transparent;
-			this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Location = new System.Drawing.Point(880, 33);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(30, 30);
-			this.button1.TabIndex = 2;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.btnCapTK.BackColor = System.Drawing.Color.Transparent;
+			this.btnCapTK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCapTK.BackgroundImage")));
+			this.btnCapTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnCapTK.FlatAppearance.BorderSize = 0;
+			this.btnCapTK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCapTK.Location = new System.Drawing.Point(880, 33);
+			this.btnCapTK.Name = "btnCapTK";
+			this.btnCapTK.Size = new System.Drawing.Size(30, 30);
+			this.btnCapTK.TabIndex = 2;
+			this.btnCapTK.UseVisualStyleBackColor = false;
+			this.btnCapTK.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// panel4
 			// 
@@ -596,6 +596,6 @@
         private System.Windows.Forms.Panel pnHoaDon;
         private System.Windows.Forms.PictureBox picHoaDon;
         private System.Windows.Forms.Button btnHoaDon;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnCapTK;
 	}
 }

@@ -72,7 +72,7 @@
     <Compile Include="ChiTietHDNDAL.cs" />
     <Compile Include="ChiTietNhapDAL.cs" />
     <Compile Include="DataProvider.cs" />
-    <Compile Include="DatYeuCauDAL.cs" />
+    <Compile Include="YeuCauDAL.cs" />
     <Compile Include="HoaDonNhapDAL.cs" />
     <Compile Include="HoaDonYeuCauDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />

@@ -22,7 +22,9 @@ namespace GUI
 
         public event Action CloseForm;
 
-        public fBase(string tenDangNhap)
+		private bool _isAdmin;
+
+		public fBase(string tenDangNhap)
         {
             InitializeComponent();
             this.idLogin = tenDangNhap;
@@ -107,7 +109,6 @@ namespace GUI
             picYeuCau.Image = Properties.Resources.cal1;
             picNhanVien.Image = Properties.Resources.alt1;
 
-
             forms = new Form[8];
             forms[0] = new fTrangChu(idLogin);
             forms[1] = new fKhoPhuTung(idLogin);
@@ -122,9 +123,22 @@ namespace GUI
             changeBackgroundColor(btnTrangChu, pnTrangChu, picTrangChu, Color.FromArgb(210, 224, 251), Properties.Resources.grid2, FontStyle.Bold);
 
             lbTen.Text = _nhanVienBLL.TimTenNhanVienTheoMa(idLogin);
-            if (idLogin.Contains("MNV")) lbChucVu.Text = "Nhân viên";
-            if (idLogin.Contains("QL")) lbChucVu.Text = "Quản lý";
-        }
+
+			if (idLogin.Contains("MNV"))
+			{
+				lbChucVu.Text = "Nhân viên";
+				_isAdmin = false;
+			}
+			if (idLogin.Contains("QL"))
+			{
+				lbChucVu.Text = "Quản lý";
+				_isAdmin = true;
+			}
+			if (!_isAdmin)
+			{
+                btnCapTK.Visible = false;
+			}
+		}
 
 		private async void ShowForm(int index)
 		{

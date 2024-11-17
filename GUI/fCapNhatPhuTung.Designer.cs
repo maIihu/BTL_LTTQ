@@ -35,17 +35,17 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.txtMaPT = new System.Windows.Forms.TextBox();
 			this.panel3 = new System.Windows.Forms.Panel();
+			this.txtSoLuong = new System.Windows.Forms.TextBox();
 			this.panel5 = new System.Windows.Forms.Panel();
+			this.txtTenPT = new System.Windows.Forms.TextBox();
 			this.panel7 = new System.Windows.Forms.Panel();
+			this.txtDGB = new System.Windows.Forms.TextBox();
 			this.panel8 = new System.Windows.Forms.Panel();
+			this.txtDGN = new System.Windows.Forms.TextBox();
 			this.btnHuy = new System.Windows.Forms.Button();
 			this.btnCapNhat = new System.Windows.Forms.Button();
-			this.txtSoLuong = new System.Windows.Forms.TextBox();
-			this.txtDGN = new System.Windows.Forms.TextBox();
-			this.txtDGB = new System.Windows.Forms.TextBox();
-			this.txtTenPT = new System.Windows.Forms.TextBox();
-			this.txtMaPT = new System.Windows.Forms.TextBox();
 			this.panel1.SuspendLayout();
 			this.panel3.SuspendLayout();
 			this.panel5.SuspendLayout();
@@ -123,6 +123,17 @@
 			this.panel1.Size = new System.Drawing.Size(250, 40);
 			this.panel1.TabIndex = 6;
 			// 
+			// txtMaPT
+			// 
+			this.txtMaPT.BackColor = System.Drawing.Color.White;
+			this.txtMaPT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtMaPT.Enabled = false;
+			this.txtMaPT.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.txtMaPT.Location = new System.Drawing.Point(9, 8);
+			this.txtMaPT.Name = "txtMaPT";
+			this.txtMaPT.Size = new System.Drawing.Size(230, 22);
+			this.txtMaPT.TabIndex = 0;
+			// 
 			// panel3
 			// 
 			this.panel3.BackColor = System.Drawing.Color.White;
@@ -132,6 +143,16 @@
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(250, 40);
 			this.panel3.TabIndex = 7;
+			// 
+			// txtSoLuong
+			// 
+			this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtSoLuong.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.txtSoLuong.Location = new System.Drawing.Point(9, 8);
+			this.txtSoLuong.Name = "txtSoLuong";
+			this.txtSoLuong.Size = new System.Drawing.Size(230, 22);
+			this.txtSoLuong.TabIndex = 1;
+			this.txtSoLuong.TabStop = false;
 			// 
 			// panel5
 			// 
@@ -143,6 +164,16 @@
 			this.panel5.Size = new System.Drawing.Size(567, 40);
 			this.panel5.TabIndex = 8;
 			// 
+			// txtTenPT
+			// 
+			this.txtTenPT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtTenPT.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.txtTenPT.Location = new System.Drawing.Point(12, 8);
+			this.txtTenPT.Name = "txtTenPT";
+			this.txtTenPT.Size = new System.Drawing.Size(540, 22);
+			this.txtTenPT.TabIndex = 1;
+			this.txtTenPT.TabStop = false;
+			// 
 			// panel7
 			// 
 			this.panel7.BackColor = System.Drawing.Color.White;
@@ -153,6 +184,16 @@
 			this.panel7.Size = new System.Drawing.Size(250, 40);
 			this.panel7.TabIndex = 9;
 			// 
+			// txtDGB
+			// 
+			this.txtDGB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtDGB.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.txtDGB.Location = new System.Drawing.Point(9, 8);
+			this.txtDGB.Name = "txtDGB";
+			this.txtDGB.Size = new System.Drawing.Size(230, 22);
+			this.txtDGB.TabIndex = 1;
+			this.txtDGB.TabStop = false;
+			// 
 			// panel8
 			// 
 			this.panel8.BackColor = System.Drawing.Color.White;
@@ -162,6 +203,17 @@
 			this.panel8.Name = "panel8";
 			this.panel8.Size = new System.Drawing.Size(250, 40);
 			this.panel8.TabIndex = 9;
+			// 
+			// txtDGN
+			// 
+			this.txtDGN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtDGN.Enabled = false;
+			this.txtDGN.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.txtDGN.Location = new System.Drawing.Point(9, 8);
+			this.txtDGN.Name = "txtDGN";
+			this.txtDGN.Size = new System.Drawing.Size(230, 22);
+			this.txtDGN.TabIndex = 1;
+			this.txtDGN.TabStop = false;
 			// 
 			// btnHuy
 			// 
@@ -190,57 +242,6 @@
 			this.btnCapNhat.Text = "Cập nhật";
 			this.btnCapNhat.UseVisualStyleBackColor = false;
 			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-			// 
-			// txtSoLuong
-			// 
-			this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtSoLuong.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.txtSoLuong.Location = new System.Drawing.Point(9, 8);
-			this.txtSoLuong.Name = "txtSoLuong";
-			this.txtSoLuong.Size = new System.Drawing.Size(230, 22);
-			this.txtSoLuong.TabIndex = 1;
-			this.txtSoLuong.TabStop = false;
-			// 
-			// txtDGN
-			// 
-			this.txtDGN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtDGN.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.txtDGN.Location = new System.Drawing.Point(9, 8);
-			this.txtDGN.Name = "txtDGN";
-			this.txtDGN.Size = new System.Drawing.Size(230, 22);
-			this.txtDGN.TabIndex = 1;
-			this.txtDGN.TabStop = false;
-			// 
-			// txtDGB
-			// 
-			this.txtDGB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtDGB.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.txtDGB.Location = new System.Drawing.Point(9, 8);
-			this.txtDGB.Name = "txtDGB";
-			this.txtDGB.Size = new System.Drawing.Size(230, 22);
-			this.txtDGB.TabIndex = 1;
-			this.txtDGB.TabStop = false;
-			// 
-			// txtTenPT
-			// 
-			this.txtTenPT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtTenPT.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.txtTenPT.Location = new System.Drawing.Point(12, 8);
-			this.txtTenPT.Name = "txtTenPT";
-			this.txtTenPT.Size = new System.Drawing.Size(540, 22);
-			this.txtTenPT.TabIndex = 1;
-			this.txtTenPT.TabStop = false;
-			// 
-			// txtMaPT
-			// 
-			this.txtMaPT.BackColor = System.Drawing.Color.White;
-			this.txtMaPT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtMaPT.Enabled = false;
-			this.txtMaPT.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.txtMaPT.Location = new System.Drawing.Point(9, 8);
-			this.txtMaPT.Name = "txtMaPT";
-			this.txtMaPT.Size = new System.Drawing.Size(230, 22);
-			this.txtMaPT.TabIndex = 0;
 			// 
 			// fCapNhatPhuTung
 			// 

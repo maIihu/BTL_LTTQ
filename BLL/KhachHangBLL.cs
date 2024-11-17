@@ -19,7 +19,20 @@ namespace BLL
         {
             return _khachHangDAL.AddCustomer(khachHang);
         }
-        public bool IsPhoneNumberExists(string soDienThoai, string maKhachHang)
+        public string GetCustomerNameWithId(string ma)
+		{
+            return _khachHangDAL.GetCustomerNameWithId(ma);
+        }
+
+		public string GetCustomerPhoneWithId(string ma)
+		{
+			return _khachHangDAL.GetCustomerPhoneWithId(ma);
+		}
+		public string GetCustomerAddressWithId(string ma)
+		{
+			return _khachHangDAL.GetCustomerAddressWithId(ma);
+		}
+		public bool IsPhoneNumberExists(string soDienThoai, string maKhachHang)
         {
             return _khachHangDAL.IsPhoneNumberExists(soDienThoai, maKhachHang);
         }

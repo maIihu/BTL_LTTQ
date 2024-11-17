@@ -302,6 +302,11 @@ namespace GUI
         {
             if(whatIsRunning == "PhuTung")
             {
+                if (!_isAdmin)
+                {
+                    MessageBox.Show("Chỉ quản lý mới truy cập được!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 				fCapNhatPhuTung form = new fCapNhatPhuTung(_idPhuTung);
 				form.ShowDialog();
 				HienThiDSPhuTung();
