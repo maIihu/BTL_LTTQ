@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,14 @@ namespace GUI
         string idLogin;
 
         private YeuCauBLL _yeuCauBLL;
+
         private PhuTungBLL _phuTungBLL;
         private XeMayBLL _xeMayBLL;
         private HoaDonNhapBLL _hoaDonNhapBLL;
         private HoaDonYeuCauBLL _hoaDonYeuCauBLL;
         private KhachHangBLL _khachHangBLL;
         private NhanVienBLL _nhanVienBLL;
+        private DichVuBLL _dichVuBLL;
 
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -63,6 +66,7 @@ namespace GUI
             _hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
             _khachHangBLL = new KhachHangBLL();
             _nhanVienBLL = new NhanVienBLL();
+            _dichVuBLL = new DichVuBLL();
 
             SetupAddPanel();
 
@@ -81,10 +85,14 @@ namespace GUI
         private void fYeuCau_Load(object sender, EventArgs e)
         {
             HienThiDSPhuTung();
+			List<DichVuDTO> danhSachDichVu = _dichVuBLL.DanhSachDichVu();
+
+			cbmBoxDichVu.DisplayMember = "TenDichVu"; // Tên hiển thị trong ComboBox
+			cbmBoxDichVu.ValueMember = "MaDichVu";   // Giá trị của từng mục
+			cbmBoxDichVu.DataSource = danhSachDichVu;
 
 
-
-        }
+		}
         private void SetupDataGridViewPhuTung()
         {
             dgvPhuTung.EnableHeadersVisualStyles = false;
@@ -157,6 +165,7 @@ namespace GUI
 
             foreach (var phuTung in dsPhuTung)
             {
+                
                 dgvPhuTung.Rows.Add(phuTung.MaPhuTung, phuTung.TenPhuTung, phuTung.SoLuong, phuTung.DonGiaBan);
             }
         }
@@ -181,10 +190,6 @@ namespace GUI
             panelAddNew.Controls.Add(txtNguyenNhan);
             panelAddNew.Controls.Add(txtNgaySua);
             panelAddNew.Controls.Add(btnAdd);*/
-            dtpNgaySua.ValueChanged += (s, ev) =>
-            {
-                txtNgaySua.Text = dtpNgaySua.Value.ToString("dddd, dd/MM/yyyy");
-            };
         }
 
         private void DoubleBuffering()
@@ -246,7 +251,14 @@ namespace GUI
             List<YeuCauDTO> dsYeuCau = _yeuCauBLL.GetListYeuCau();
             foreach (var yeuCau in dsYeuCau)
             {
-                dgvYeuCau.Rows.Add(yeuCau.MaSuaChua, yeuCau.TenKhachHang, yeuCau.MaXe, yeuCau.NguyenNhan, yeuCau.NgaySua, yeuCau.MaKhachHang, yeuCau.DiaChi, yeuCau.SoDienThoai);
+                if (yeuCau.NguyenNhan != "Bảo dưỡng định kỳ" &&
+                    yeuCau.NguyenNhan != "Độ xe hoặc nâng cấp" &&
+                    yeuCau.NguyenNhan != "Sửa chữa điện xe máy" &&
+                    yeuCau.NguyenNhan != "Rửa xe và chăm sóc xe" &&
+                    yeuCau.NguyenNhan != "Tư vấn và kiểm tra xe")
+                    yeuCau.NguyenNhan = "Sửa chữa xe máy";
+
+				dgvYeuCau.Rows.Add(yeuCau.MaSuaChua, yeuCau.TenKhachHang, yeuCau.MaXe, yeuCau.NguyenNhan, yeuCau.NgaySua, yeuCau.MaKhachHang, yeuCau.DiaChi, yeuCau.SoDienThoai);
             }
         }
 
@@ -353,8 +365,7 @@ namespace GUI
             btnAdd.Text = "Thêm";
             lbBienSo.Text = "Biển số";
             txtMaXe.Enabled = true;
-            dtpNgaySua.Enabled = true;
-            txtNgaySua.Enabled = true;
+            txtNguyenNhan.Enabled = true;
 
 
             if (addNewClicked)
@@ -391,8 +402,7 @@ namespace GUI
 
             lbBienSo.Text = "Mã Xe";
             txtMaXe.Enabled = false;
-            dtpNgaySua.Enabled = false;
-            txtNgaySua.Enabled = false;
+            txtNguyenNhan.Enabled = false;
 
             if (updateClicked)
             {
@@ -420,8 +430,8 @@ namespace GUI
                 txtTenKH.Text = dgvYeuCau.Rows[rowIndex].Cells["TenKH"].Value.ToString();
                 //txtSDT.Text = dgvYeuCau.Rows[rowIndex].Cells["TenKH"].Value.ToString();
                 txtMaXe.Text = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
-                txtNguyenNhan.Text = dgvYeuCau.Rows[rowIndex].Cells["NguyenNhan"].Value.ToString();
-                txtNgaySua.Text = dgvYeuCau.Rows[rowIndex].Cells["NgaySua"].Value.ToString();
+                //txtNguyenNhan.Text = dgvYeuCau.Rows[rowIndex].Cells["NguyenNhan"].Value.ToString();
+                txtNguyenNhan.Text = dgvYeuCau.Rows[rowIndex].Cells["NgaySua"].Value.ToString();
                 txtDiaChi.Text = dgvYeuCau.Rows[rowIndex].Cells["DiaChi"].Value.ToString();
                 txtSDT.Text = dgvYeuCau.Rows[rowIndex].Cells["SoDienThoai"].Value.ToString();
             }
@@ -503,8 +513,7 @@ namespace GUI
             lblMaXe.Text = maXeChon;
             XeMayDTO xemay = _xeMayBLL.LayXeTheoMa(maXeChon);
             txtTenXe.Text = xemay.TenXe;
-            txtSoKhung.Text = xemay.SoKhung;
-            txtSoMay.Text = xemay.SoMay;
+            txtNN.Text = _yeuCauBLL.LayNguyenNhanTheoMa(maSuaChuaChon);
             txtBienSo.Text = xemay.BienSo;
         }
 
@@ -582,8 +591,7 @@ namespace GUI
             txtSDT.Text = String.Empty;
             txtDiaChi.Text = String.Empty;
             txtMaXe.Text = String.Empty;
-            txtNguyenNhan.Text = "Nguyên nhân sửa chữa";
-            txtNgaySua.Text = String.Empty;
+            txtNguyenNhan.Text = String.Empty;
         }
 
 
@@ -670,10 +678,7 @@ namespace GUI
             DrawRoundedPanel(panel27, 15, BorderColor, BorderThickness, e);
         }
 
-        private void panel28_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRoundedPanel(panel28, 15, BorderColor, BorderThickness, e);
-        }
+
 
         private void panel29_Paint(object sender, PaintEventArgs e)
         {
@@ -685,21 +690,7 @@ namespace GUI
 			DrawRoundedPanel(panel17, 15, BorderColor, BorderThickness, e);
 		}*/
 
-        private void txtNguyenNhan_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtNguyenNhan.Text))
-            {
-                txtNguyenNhan.Text = "Nguyên nhân sửa chữa";
-            }
-        }
 
-        private void txtNguyenNhan_Enter(object sender, EventArgs e)
-        {
-            if (txtNguyenNhan.Text == "Nguyên nhân sửa chữa")
-            {
-                txtNguyenNhan.Text = string.Empty;
-            }
-        }
 
         private void cmsYeuCau_Opening(object sender, CancelEventArgs e)
         {
@@ -717,13 +708,44 @@ namespace GUI
 
         private void btnXuatHoaDon_Click(object sender, EventArgs e)
         {
-            panelYeuCau.Visible = false;
-            panelHoaDon.Visible = true;
-            txtNgayIn.Text = DateTime.Today.ToString();
-            txtMaSuaChua.Text = maSuaChuaChon;
-            txtTen.Text = tenKhachHangChon;
-            txtMaKH.Text = maKhachHangChon;
-            txtMaNV.Text = idLogin;
+            string nguyenNhan_tmp = _yeuCauBLL.LayNguyenNhanTheoMa(maSuaChuaChon);
+            
+			if (nguyenNhan_tmp == "Bảo dưỡng định kỳ" ||
+		        nguyenNhan_tmp == "Độ xe hoặc nâng cấp" ||
+		        nguyenNhan_tmp == "Sửa chữa điện xe máy" ||
+		        nguyenNhan_tmp == "Rửa xe và chăm sóc xe" ||
+				nguyenNhan_tmp == "Tư vấn và kiểm tra xe")
+            {
+				
+				decimal giaTien = decimal.Parse(_dichVuBLL.GiaTienDichVu(nguyenNhan_tmp));
+				DateTime ngayIn = DateTime.Today;
+				bool themHd = _hoaDonYeuCauBLL.ThemHoaDon(null, idLogin, "MPT001", maSuaChuaChon,
+	                ngayIn, nguyenNhan_tmp, 0, giaTien, maKhachHangChon);
+				string maHoaDon_Chinh = _hoaDonYeuCauBLL.GetMaHoaDon();
+				if (themHd)
+                {                
+					fBaoCaoHoaDon form = new fBaoCaoHoaDon(maHoaDon_Chinh, _khachHangBLL.GetCustomerNameWithId(maKhachHangChon),
+	                    _khachHangBLL.GetCustomerAddressWithId(maKhachHangChon), _khachHangBLL.GetCustomerPhoneWithId(maKhachHangChon),
+						nguyenNhan_tmp, nguyenNhan_tmp, _nhanVienBLL.TimTenNhanVienTheoMa(idLogin), giaTien.ToString());
+                    _hoaDonYeuCauBLL.XoaYeuCauTheoMa(maKhachHangChon, maKhachHangChon);
+					form.ShowDialog();  
+				}
+                else
+                {
+					MessageBox.Show("1");
+				}
+			}
+            else
+            {
+				panelYeuCau.Visible = false;
+				panelHoaDon.Visible = true;
+				txtNgayIn.Text = DateTime.Today.ToString();
+				txtMaSuaChua.Text = maSuaChuaChon;
+				txtTen.Text = tenKhachHangChon;
+				txtMaKH.Text = maKhachHangChon;
+				txtMaNV.Text = idLogin;
+			}
+
         }
 
         private async void btnExitPanel_Click(object sender, EventArgs e)
@@ -803,7 +825,7 @@ namespace GUI
                 
 				fBaoCaoHoaDon form = new fBaoCaoHoaDon(maHoaDon_Chinh, _khachHangBLL.GetCustomerNameWithId(txtMaKH.Text), 
                     _khachHangBLL.GetCustomerAddressWithId(txtMaKH.Text), _khachHangBLL.GetCustomerPhoneWithId(txtMaKH.Text),
-					tmp, txtGiaiPhap.Text, _nhanVienBLL.TimTenNhanVienTheoMa(idLogin));
+					tmp, txtGiaiPhap.Text, _nhanVienBLL.TimTenNhanVienTheoMa(idLogin), "0");
 
 				_hoaDonYeuCauBLL.XoaYeuCauTheoMa(txtMaKH.Text, txtMaKH.Text); 
                 MessageBox.Show("Thêm hóa đơn thành công!");
@@ -817,6 +839,32 @@ namespace GUI
             panelHoaDon.Visible = false;
             panelYeuCau.Visible = true;
         }
+
+		private void txtNgaySua_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void cbmBoxDichVu_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string maDichVu = cbmBoxDichVu.SelectedValue?.ToString();
+            if(maDichVu == "DV001")
+            {
+                txtNguyenNhan.Text = "";
+				txtNguyenNhan.Enabled = true;
+
+			}
+			else
+			{
+                txtNguyenNhan.Enabled = false;
+                txtNguyenNhan.Text = cbmBoxDichVu.Text;
+			}
+		}
+
+		private void panelThongTin_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
 
 		private void panelHoaDon_Paint(object sender, PaintEventArgs e)
         {
@@ -989,8 +1037,8 @@ namespace GUI
                     string tenKhachHang = txtTenKH.Text;
                     string maXe = txtMaXe.Text;
                     string nguyenNhan = txtNguyenNhan.Text;
-                    DateTime ngaySua = dtpNgaySua.Value;
-                    string diaChi = txtDiaChi.Text;
+                    DateTime ngaySua = DateTime.Now;
+					string diaChi = txtDiaChi.Text;
                     string soDienThoai = txtSDT.Text;
 
                     if (soDienThoai.Length != 10 || !soDienThoai.All(char.IsDigit))
@@ -1008,7 +1056,9 @@ namespace GUI
                         maxXe++;
                         dgvYeuCau.Rows.Clear();
                         ListYeuCau();
-                    }
+                        btnAddNew_Click(sender, e);
+
+					}
                     else
                     {
                         MessageBox.Show("Thêm yêu cầu thất bại. Vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1019,7 +1069,7 @@ namespace GUI
             {
                 string tenKhachHang = txtTenKH.Text;
                 string nguyenNhan = txtNguyenNhan.Text;
-                string diaChi = txtDiaChi.Text;
+				string diaChi = txtDiaChi.Text;
                 string soDienThoai = txtSDT.Text;
                 string maKhachHang = dgvYeuCau.Rows[rowIndex].Cells["MaKhachHang"].Value.ToString();
                 string maSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();

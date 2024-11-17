@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,9 @@ namespace GUI
 		private string _nguyenNhan;
 		private string _giaiPhap;
 		private string _tenNv;
-		public fBaoCaoHoaDon(string maHd, string hoTen, string diaChi, string sdt, string nguyenNhan, string giaiPhap, string tenNv)
+		private string _thanhTien;
+		public fBaoCaoHoaDon(string maHd, string hoTen, string diaChi, 
+			string sdt, string nguyenNhan, string giaiPhap, string tenNv, string thanhTien)
 		{
 			InitializeComponent();
 			this._maHd = maHd;
@@ -30,10 +33,10 @@ namespace GUI
 			this._sdt = sdt;
 			this._nguyenNhan = nguyenNhan;
 			_giaiPhap = giaiPhap;
-			_tenNv = tenNv;	
+			_tenNv = tenNv;
+			this._thanhTien = thanhTien;	
 			
 		}
-
 		private void fBaoCaoHoaDon_Load(object sender, EventArgs e)
 		{
 			reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.QuanLy.rdlc";
@@ -47,7 +50,9 @@ namespace GUI
 				new ReportParameter("sdt", this._sdt),
 				new ReportParameter("nguyenNhan", this._nguyenNhan),
 				new ReportParameter("giaiPhap", this._giaiPhap),
-				new ReportParameter("tenNhanVien", this._tenNv)
+				new ReportParameter("tenNhanVien", this._tenNv),
+				new ReportParameter("thanhTien", this._thanhTien),
+				new ReportParameter("maHd", this._maHd)
 			};
 
 			reportViewer1.LocalReport.SetParameters(reportParams);
@@ -58,42 +63,28 @@ namespace GUI
 			reportViewer1.RefreshReport();
 		}
 
-		//private void LoadReportNhanVien(string maNhanVien)
-		//	{
-		//		QLSuaXeDataSet qlSuaXe = new QLSuaXeDataSet();
-		//		NHANVIENTableAdapter nhanVien = new NHANVIENTableAdapter();
-
-		//		// Fetch all employees data from the database
-		//		nhanVien.Fill(qlSuaXe.NHANVIEN);
-
-		//		// Use LINQ to filter data based on MaNhanVien
-		//		var filteredRows = qlSuaXe.NHANVIEN.AsEnumerable()
-		//											.Where(row => row.Field<string>("MaNhanVien") == maNhanVien);
-
-		//		// If there is any result after filtering
-		//		if (filteredRows.Any())
-		//		{
-		//			DataTable filteredTable = filteredRows.CopyToDataTable();
-		//			ReportDataSource rdsNhanVien = new ReportDataSource("DataSetNhanVien", filteredTable);
-		//			reportViewer1.LocalReport.DataSources.Add(rdsNhanVien);
-		//		}
-		//		else
-		//		{
-		//			MessageBox.Show("Không tìm thấy nhân viên với mã này.");
-		//		}
-		//	}
-
 		private void LoadReportHoaDon(string maHoaDon)
 		{
-			QLSuaXeDataSet qlSuaXe = new QLSuaXeDataSet();
-			HOADONTableAdapter hoaDon = new HOADONTableAdapter();
+			if (_nguyenNhan == "Bảo dưỡng định kỳ" ||
+				_nguyenNhan == "Độ xe hoặc nâng cấp" ||
+				_nguyenNhan == "Sửa chữa điện xe máy" ||
+				_nguyenNhan == "Rửa xe và chăm sóc xe" ||
+				_nguyenNhan == "Tư vấn và kiểm tra xe")
+			{
+				DataTable emptyTable = new DataTable();
+				ReportDataSource emptyDataSource = new ReportDataSource("DataSetHoaDon", emptyTable);
+				reportViewer1.LocalReport.DataSources.Add(emptyDataSource);
+				return;
+			}
+				QLSuaXeDataSet qlSuaXe = new QLSuaXeDataSet();
+				HOADONTableAdapter hoaDon = new HOADONTableAdapter();
 
-			// Lấy tất cả các hóa đơn từ cơ sở dữ liệu
+
 			hoaDon.Fill(qlSuaXe.HOADON);
 
-			// Sử dụng LINQ để lọc dữ liệu theo mã hóa đơn
 			var filteredRows = qlSuaXe.HOADON.AsEnumerable()
-											  .Where(row => row.Field<string>("MaHoaDon") == maHoaDon);
+											  .Where(row => row.Field<string>("MaHoaDon") == maHoaDon)
+											  .Where(row => row["MaHoaDon"] != DBNull.Value); 
 
 			// Nếu có kết quả lọc
 			if (filteredRows.Any())
@@ -118,8 +109,20 @@ namespace GUI
 			}
 		}
 
+
 		private void LoadReportPhuTung(string maHoaDon)
 		{
+			if (_nguyenNhan == "Bảo dưỡng định kỳ" ||
+				_nguyenNhan == "Độ xe hoặc nâng cấp" ||
+				_nguyenNhan == "Sửa chữa điện xe máy" ||
+				_nguyenNhan == "Rửa xe và chăm sóc xe" ||
+				_nguyenNhan == "Tư vấn và kiểm tra xe")
+			{
+				DataTable emptyTable = new DataTable();
+				ReportDataSource emptyDataSource = new ReportDataSource("DataSetPhuTung", emptyTable);
+				reportViewer1.LocalReport.DataSources.Add(emptyDataSource);
+				return;
+			}
 			QLSuaXeDataSet qlSuaXe = new QLSuaXeDataSet();
 			HOADONTableAdapter hoaDon = new HOADONTableAdapter();
 			PHUTUNGTableAdapter phuTung = new PHUTUNGTableAdapter();
@@ -129,16 +132,19 @@ namespace GUI
 
 			// Lọc hóa đơn theo mã hóa đơn
 			var hoaDonRows = qlSuaXe.HOADON.AsEnumerable()
-										   .Where(row => row.Field<string>("MaHoaDon") == maHoaDon);
+										   .Where(row => row.Field<string>("MaHoaDon") == maHoaDon)
+										   .Where(row => row["MaHoaDon"] != DBNull.Value); // Kiểm tra không có giá trị null trong mã hóa đơn
 
 			if (hoaDonRows.Any())
 			{
-				// Lấy tất cả mã phụ tùng từ hóa đơn
-				var maPhuTungList = hoaDonRows.Select(row => row.Field<string>("MaPhuTung")).ToList();
+				// Lấy tất cả mã phụ tùng từ hóa đơn, chỉ lấy những giá trị hợp lệ (không phải null)
+				var maPhuTungList = hoaDonRows.Select(row => row.Field<string>("MaPhuTung"))
+											  .Where(ma => ma != null); // Lọc các mã phụ tùng không null
 
 				// Duyệt qua bảng PHUTUNG và lấy các phụ tùng có mã trong danh sách maPhuTungList
 				var filteredPhuTungRows = qlSuaXe.PHUTUNG.AsEnumerable()
-														  .Where(row => maPhuTungList.Contains(row.Field<string>("MaPhuTung")));
+														  .Where(row => maPhuTungList.Contains(row.Field<string>("MaPhuTung"))
+																	   && row["MaPhuTung"] != DBNull.Value); // Kiểm tra không có giá trị null trong mã phụ tùng
 
 				if (filteredPhuTungRows.Any())
 				{
@@ -159,8 +165,8 @@ namespace GUI
 				MessageBox.Show("Không tìm thấy hóa đơn với mã này.");
 			}
 		}
+
+
+
 	}
-
-
-
 }

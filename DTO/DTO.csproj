@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="ChiTietHDNDTO.cs" />
     <Compile Include="ChiTietNhapDTO.cs" />
+    <Compile Include="DichVuDTO.cs" />
     <Compile Include="YeuCauDTO.cs" />
     <Compile Include="GiaiPhapDTO.cs" />
     <Compile Include="HoaDonNhapDTO.cs" />

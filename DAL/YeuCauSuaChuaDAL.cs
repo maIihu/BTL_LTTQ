@@ -10,7 +10,14 @@ namespace DAL
 {
     public class YeuCauSuaChuaDAL
     {
-        public bool ThemYeuCau(YeuCauSuaChuaDTO yeucau)
+		public string NguyenNhanTheoMa(string ma)
+		{
+			string query = "SELECT NguyenNhan FROM YEUCAUSUACHUA WHERE MaSuaChua = @ma";
+			object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ma });
+
+			return result != null ? result.ToString() : null;
+		}
+		public bool ThemYeuCau(YeuCauSuaChuaDTO yeucau)
         {
             string query = "Insert into YEUCAUSUACHUA (MaSuaChua,MaXe,MaKhachHang,NgaySua,MaNguyenNhan) values( @masuachua , @maxe , @makhach , @ngaysua , @manguyennhan )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { yeucau.MaSuaChua, yeucau.MaXe, yeucau.MaKhachHang, yeucau.NgaySua, yeucau.MaNguyenNhan });

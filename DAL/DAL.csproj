@@ -72,6 +72,7 @@
     <Compile Include="ChiTietHDNDAL.cs" />
     <Compile Include="ChiTietNhapDAL.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DichVuDAL.cs" />
     <Compile Include="YeuCauDAL.cs" />
     <Compile Include="HoaDonNhapDAL.cs" />
     <Compile Include="HoaDonYeuCauDAL.cs" />

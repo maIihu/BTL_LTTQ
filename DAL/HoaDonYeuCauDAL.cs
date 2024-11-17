@@ -59,7 +59,7 @@ namespace DAL
         {
             string query = "exec addHoaDon @mahoadon , @manhanvien , @maphutung , @masuachua , @ngayin , @giaiphap , @soluong , @tongtien , @makhachhang ";
             int result = DataProvider.Instance.ExecuteNonQuery(query,new object[] { (object)MaHoaDon ?? DBNull.Value,MaNhanVien,MaPhuTung
-                ,MaSuaChua,NgayIn,GiaiPhap,SoLuong,TongTien,MaKhachHang });
+                ,MaSuaChua,NgayIn,(object)GiaiPhap ?? DBNull.Value,SoLuong,TongTien,MaKhachHang });
             return result > 0;
 
         }

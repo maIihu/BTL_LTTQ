@@ -130,6 +130,7 @@ namespace GUI
             int i = (currentPagePT - 1) * pageSize + 1;
             foreach (var phuTung in dsPhuTung)
             {
+                if (phuTung.MaPhuTung == "MPT000") continue;
                 string donGiaNhapVND = phuTung.DonGiaNhap.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
                 string donGiaBanVND = phuTung.DonGiaBan.ToString("C0", CultureInfo.GetCultureInfo("vi-VN"));
                 dgvPhuTung.Rows.Add(i++, phuTung.MaPhuTung, phuTung.TenPhuTung, 

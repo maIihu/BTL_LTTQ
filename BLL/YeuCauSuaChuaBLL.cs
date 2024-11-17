@@ -15,8 +15,12 @@ namespace BLL
         {
             yeuCauDAL = new YeuCauSuaChuaDAL();
         }
+        public string NguyenNhanTheoMa(string ma)
+        {
+            return yeuCauDAL.NguyenNhanTheoMa(ma);
+        }
 
-        public bool ThemYeuCau(YeuCauSuaChuaDTO yeuCau)
+		public bool ThemYeuCau(YeuCauSuaChuaDTO yeuCau)
         {
             if(yeuCau == null || string.IsNullOrEmpty(yeuCau.MaSuaChua) || string.IsNullOrEmpty(yeuCau.MaXe) || string.IsNullOrEmpty(yeuCau.MaKhachHang)){
                 throw new ArgumentException("Vui long nhap day du thong tin");
